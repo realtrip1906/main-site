@@ -1,0 +1,275 @@
+{
+  "packages": [
+    {
+      "name": "Darjeeling",
+      "image": "packages/darjeeling.jpg",
+      "duration": "3 Days 2 Nights",
+      "starting_price_per_head": 5500,
+      "includes": [
+        "Accommodation (Standard/Deluxe)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities",
+        "Ropeway ride",
+        "Toy Train ride"
+      ]
+    },
+    {
+      "name": "Darjeeling Offbeat",
+      "image": "packages/darjeelingoffbeat.jpg",
+      "duration": "3 Days 2 Nights",
+      "starting_price_per_head": 4500,
+      "includes": [
+        "Homestay accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities",
+        "Ropeway ride",
+        "Toy Train ride"
+      ]
+    },
+    {
+      "name": "Silk Route",
+      "image": "packages/silkroute.jpg",
+      "duration": "4 Days 3 Nights",
+      "starting_price_per_head": 5200,
+      "includes": [
+        "Homestay accommodation",
+        "Lunch, Dinner, Evening Snacks & Breakfast",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities",
+        "Ropeway ride",
+        "Toy Train ride",
+        "Cab Permit (~\u20b91000 per cab)",
+        "Nathula Pass Permit (optional)"
+      ]
+    },
+    {
+      "name": "West Sikkim",
+      "image": "packages/westsikkim.jpg",
+      "duration": "4 Days 3 Nights",
+      "starting_price_per_head": 7400,
+      "includes": [
+        "Hotel accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities",
+        "Ropeway ride",
+        "Toy Train ride",
+        "Namchi sightseeing"
+      ]
+    },
+    {
+      "name": "North Sikkim",
+      "image": "packages/northsikkim.jpg",
+      "duration": "5 Days 4 Nights",
+      "starting_price_per_head": 9400,
+      "includes": [
+        "Hotel & Homestay accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Extra food not mentioned in package",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Kala Patthar visit",
+        "Zero Point & Mt. Katao"
+      ]
+    },
+    {
+      "name": "Kalimpong Offbeat",
+      "image": "packages/kalimpongoffbeat.jpg",
+      "duration": "3 Days 2 Nights",
+      "starting_price_per_head": 4200,
+      "includes": [
+        "Homestay accommodation",
+        "Breakfast, Lunch, Evening Snacks & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities",
+        "Ropeway ride",
+        "Toy Train ride"
+      ]
+    },
+    {
+      "name": "Arunachal Pradesh (Tawang)",
+      "image": "packages/arunachalpradeshtawang.jpg",
+      "duration": "6 Days 5 Nights",
+      "starting_price_per_head": 15300,
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Snow activities",
+        "Gongker La Lake (extra day required)"
+      ]
+    },
+    {
+      "name": "Himachal Pradesh (Shimla-Manali)",
+      "image": "packages/himachalpradeshshimlamanali.jpg",
+      "duration": "5 Days 4 Nights",
+      "starting_price_per_head": 11000,
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Rohtang Pass",
+        "Snow activities",
+        "Manikaran",
+        "Activities in Kullu"
+      ]
+    },
+    {
+      "name": "Spiti Valley",
+      "image": "packages/spitivalley.jpg",
+      "duration": "9 Days 8 Nights",
+      "starting_price_per_head": 19500,
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Rohtang Pass charges",
+        "Snow activities",
+        "Rafting"
+      ]
+    },
+    {
+      "name": "Kashmir",
+      "image": "packages/kashmir.jpg",
+      "duration": "6 Days 5 Nights",
+      "starting_price_per_head": 13000,
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "1\u2011hour Shikara Ride",
+        "Transportation (pickup, drop & day trips)",
+        "Srinagar local sightseeing"
+      ],
+      "excludes": [
+        "Lunch",
+        "Mineral water",
+        "Outside food",
+        "Entry fees",
+        "BBQ charges",
+        "Personal expenses",
+        "Adventure activities",
+        "Gondola ride",
+        "ATV / pony rides",
+        "Pahalgam local taxi"
+      ]
+    },
+    {
+      "name": "Andaman & Nicobar Islands",
+      "image": "packages/andamannicobarislands.jpg",
+      "duration": "6 Days 5 Nights",
+      "starting_price_per_head": 17300,
+      "includes": [
+        "Deluxe accommodation",
+        "Daily breakfast & dinner",
+        "Personal cab / transfers",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Entry fees",
+        "Water sports activities"
+      ]
+    },
+    {
+      "name": "Dooars",
+      "image": "packages/dooars.jpg",
+      "duration": "3 Days 2 Nights",
+      "starting_price_per_head": 4600,
+      "includes": [
+        "Accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food",
+        "Mineral water",
+        "Room heater charges",
+        "BBQ charges",
+        "Parking charges",
+        "Entry fees",
+        "Adventure activities"
+      ]
+    }
+  ]
+}

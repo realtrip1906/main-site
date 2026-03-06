@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REAL TRIP | Himalayan &amp; Andaman Travel Artisans</title>
+  <meta name="description"
+    content="Real Trip – Bespoke travel experiences across the Himalayas, Andaman, Sikkim, Kashmir, and beyond. Curated packages, offbeat homestays, and expert-led journeys.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div id="custom-cursor">
+    <span class="cursor-text">DRAG</span>
+  </div>
+
+  <!-- Journey SVG Containers -->
+  <svg class="journey-path-svg" preserveAspectRatio="none">
+    <path id="path-1" d="M 100 0 Q 500 500 100 1000" />
+  </svg>
+
+  <!-- Navbar -->
+  <nav class="nav-wrapper">
+    <div class="navbar">
+      <div class="logo">
+        <a href="/">
+          <h1>REAL TRIP.</h1>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="#packages">Packages</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#homestays">Homestays</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="text-meta" style="color: white; opacity: 0.8;">Himalayan &amp; Andaman Experts</span>
+          <h1>The Art of Bespoke Travel.</h1>
+          <div class="hero-ctas">
+            <a href="#packages" class="btn btn-accent">Explore Packages</a>
+            <a href="about.html" class="btn btn-outline-white">Know More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section (replaces Fleet) -->
+    <section id="packages" class="section">
+      <div class="container">
+        <span class="text-meta">Curated Journeys</span>
+        <div class="packages-header">
+          <h2>Our Travel<br>Packages.</h2>
+          <a href="packages.html" class="btn btn-outline view-all-btn">View All Packages →</a>
+        </div>
+        <div class="packages-grid">
+
+          <!-- Darjeeling -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+            <div class="package-badge">3D 2N</div>
+            <div class="package-info">
+              <h3>Darjeeling</h3>
+              <p class="package-price">From ₹5,500 <span>/person</span></p>
+              <p class="package-includes">Accommodation · All Meals · Cab · Sightseeing</p>
+              <a href="packages.html#darjeeling" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Darjeeling Offbeat -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+            <div class="package-badge">3D 2N</div>
+            <div class="package-info">
+              <h3>Darjeeling Offbeat</h3>
+              <p class="package-price">From ₹4,500 <span>/person</span></p>
+              <p class="package-includes">Homestay · All Meals · Cab · Sightseeing</p>
+              <a href="packages.html#darjeeling-offbeat" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Silk Route -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/silkroute.jpg');"></div>
+            <div class="package-badge">4D 3N</div>
+            <div class="package-info">
+              <h3>Silk Route</h3>
+              <p class="package-price">From ₹5,200 <span>/person</span></p>
+              <p class="package-includes">Homestay · All Meals · Cab · Sightseeing</p>
+              <a href="packages.html#silk-route" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+          <!-- West Sikkim -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/westsikkim.jpg');"></div>
+            <div class="package-badge">4D 3N</div>
+            <div class="package-info">
+              <h3>West Sikkim</h3>
+              <p class="package-price">From ₹7,400 <span>/person</span></p>
+              <p class="package-includes">Hotel · All Meals · Cab · Sightseeing</p>
+              <a href="packages.html#west-sikkim" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+          <!-- North Sikkim -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/northsikkim.jpg');"></div>
+            <div class="package-badge">5D 4N</div>
+            <div class="package-info">
+              <h3>North Sikkim</h3>
+              <p class="package-price">From ₹9,400 <span>/person</span></p>
+              <p class="package-includes">Hotel &amp; Homestay · All Meals · Transport</p>
+              <a href="packages.html#north-sikkim" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Kalimpong Offbeat -->
+          <div class="package-card">
+            <div class="package-img" style="background-image: url('./images/Locations/kalimpong.jpg');"></div>
+            <div class="package-badge">3D 2N</div>
+            <div class="package-info">
+              <h3>Kalimpong Offbeat</h3>
+              <p class="package-price">From ₹4,200 <span>/person</span></p>
+              <p class="package-includes">Homestay · All Meals · Cab · Sightseeing</p>
+              <a href="packages.html#kalimpong-offbeat" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem;">View Details</a>
+            </div>
+          </div>
+
+        </div>
+        <div style="text-align:center; margin-top: 3rem;">
+          <a href="packages.html" class="btn btn-primary">See All 12 Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Experience Slider (Beyond Sightseeing) -->
+    <section id="experiences" class="section"
+      style="background: var(--clr-bg-dark); color: white; border-radius: var(--radius-lg); margin: 0 2%;">
+      <div class="container" style="margin-bottom: 4rem;">
+        <span class="text-meta" style="color: var(--clr-accent);">Curation</span>
+        <h2>Beyond<br>Sightseeing.</h2>
+      </div>
+      <div class="slider-container">
+        <div class="gsap-track" style="padding-left: 5%;">
+
+          <!-- Card 1: Darjeeling — swap: replace url with new experiences/darjeeling image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/darjeeling.jpg');">
+            <div class="exp-card-label">3D · 2N</div>
+            <h3>Darjeeling<br>Hills</h3>
+          </div>
+
+          <!-- Card 2: Silk Route — swap: replace url with new experiences/silkroute image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/silkroute.jpg');">
+            <div class="exp-card-label">4D · 3N</div>
+            <h3>Silk Route<br>Trails</h3>
+          </div>
+
+          <!-- Card 3: North Sikkim — swap: replace url with new experiences/northsikkim image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/northsikkim.jpg');">
+            <div class="exp-card-label">5D · 4N</div>
+            <h3>North Sikkim<br>Peaks</h3>
+          </div>
+
+          <!-- Card 4: West Sikkim — swap: replace url with new experiences/westsikkim image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/westsikkim.jpg');">
+            <div class="exp-card-label">4D · 3N</div>
+            <h3>West Sikkim<br>Highlands</h3>
+          </div>
+
+          <!-- Card 5: Kashmir — swap: replace url with new experiences/kashmir image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/kashmir.jpg');">
+            <div class="exp-card-label">6D · 5N</div>
+            <h3>Kashmir<br>Valley</h3>
+          </div>
+
+          <!-- Card 6: Spiti — swap: replace url with new experiences/spiti image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/spitivalley.jpg');">
+            <div class="exp-card-label">9D · 8N</div>
+            <h3>Spiti<br>Silent Sky</h3>
+          </div>
+
+          <!-- Card 7: Andaman — swap: replace url with new experiences/andaman image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/andaman.jpg');">
+            <div class="exp-card-label">6D · 5N</div>
+            <h3>Andaman<br>Deep Blue</h3>
+          </div>
+
+          <!-- Card 8: Arunachal — swap: replace url with new experiences/arunachal image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/arunachal.jpg');">
+            <div class="exp-card-label">6D · 5N</div>
+            <h3>Arunachal<br>Tawang</h3>
+          </div>
+
+          <!-- Card 9: Dooars — swap: replace url with new experiences/dooars image -->
+          <div class="experience-card" style="background-image: url('./images/Locations/dooars.jpg');">
+            <div class="exp-card-label">3D · 2N</div>
+            <h3>Dooars<br>Wilderness</h3>
+          </div>
+
+        </div>
+      </div>
+      <div class="experience-progress-container">
+        <div class="experience-progress-bar"></div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="section">
+      <div class="container">
+        <div class="anatomy-grid">
+          <div class="anatomy-header">
+            <span class="text-meta">The Process</span>
+            <h2 style="margin-bottom: 2rem;">The Anatomy of<br>Adventure.</h2>
+            <p style="color: var(--clr-text-muted); font-size: 1.1rem;">We don't just book trips; we architect
+              experiences from the ground up, ensuring every pivot point is perfected.</p>
+            <a href="about.html" class="btn btn-primary" style="margin-top: 3rem;">Know More About Us</a>
+          </div>
+          <div class="anatomy-steps">
+            <div class="step-item">
+              <span class="step-num">01</span>
+              <div class="step-content">
+                <h4>Deep Reconnaissance</h4>
+                <p>Our team identifies untouched trails and hidden stays that generic agencies never find.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-num">02</span>
+              <div class="step-content">
+                <h4>Expert Logistics</h4>
+                <p>From Inner Line Permits to satellite comms, we handle the friction so you feel the flow.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-num">03</span>
+              <div class="step-content">
+                <h4>Local Immersion</h4>
+                <p>True luxury is access. We connect you with the heartbeat of the land through local artisans and
+                  elders.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Homestays Section -->
+    <section id="homestays" class="section homestays-section">
+      <div class="container">
+        <span class="text-meta">Stay Authentic</span>
+        <div class="packages-header">
+          <h2>Our<br>Homestays.</h2>
+          <a href="homestays.html" class="btn btn-outline view-all-btn">View All Homestays →</a>
+        </div>
+        <p class="homestays-sub">Wake up to mountain views, share stories over local food, and feel at home — far from
+          home.</p>
+        <div class="homestays-grid">
+          <div class="homestay-card">
+            <div class="homestay-img placeholder-img">
+              <div class="placeholder-label">📸 Image Coming Soon</div>
+            </div>
+            <div class="homestay-info">
+              <span class="homestay-location">Darjeeling</span>
+              <h3>Himalayan Nest</h3>
+              <p>Cozy rooms with panoramic Kanchenjunga views, homemade local cuisine, and warm hospitality.</p>
+              <a href="homestays.html" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
+            </div>
+          </div>
+          <div class="homestay-card">
+            <div class="homestay-img placeholder-img">
+              <div class="placeholder-label">📸 Image Coming Soon</div>
+            </div>
+            <div class="homestay-info">
+              <span class="homestay-location">Silk Route</span>
+              <h3>Valley View Stay</h3>
+              <p>Authentic Lepcha-style homestay nestled in the misty valleys of the Silk Route.</p>
+              <a href="homestays.html" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
+            </div>
+          </div>
+          <div class="homestay-card">
+            <div class="homestay-img placeholder-img">
+              <div class="placeholder-label">📸 Image Coming Soon</div>
+            </div>
+            <div class="homestay-info">
+              <span class="homestay-location">Kalimpong</span>
+              <h3>Orchid Ridge House</h3>
+              <p>A charming hilltop retreat surrounded by orchid gardens and dense pine forests.</p>
+              <a href="homestays.html" class="btn btn-outline"
+                style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax Text -->
+    <div class="parallax-scroller">
+      <div class="flowing-text">
+        <span>HIMALAYAS • ANDAMAN • REAL TRIP • BEYOND • EXPLORE • </span>
+        <span>HIMALAYAS • ANDAMAN • REAL TRIP • BEYOND • EXPLORE • </span>
+      </div>
+    </div>
+
+    <!-- Faces of Real Trip (Rapport) -->
+    <section id="faces" class="section">
+      <div class="container">
+        <span class="text-meta">The Collective</span>
+        <h2 style="margin-bottom: 2rem;">The Faces of<br>Real Trip.</h2>
+        <p style="color: var(--clr-text-muted); max-width: 600px;">Our rapport is built on the ground, with local elders
+          and expert guides who know the secrets of the mountains and the sea.</p>
+        <div class="faces-grid">
+          <div class="face-card">
+            <div class="face-img"
+              style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80');">
+            </div>
+            <h4>Tashi Gyaltsen</h4>
+            <p>Himalayan Lead Guide</p>
+          </div>
+          <div class="face-card">
+            <div class="face-img"
+              style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80');">
+            </div>
+            <h4>Priya Sharma</h4>
+            <p>Island Curation Expert</p>
+          </div>
+          <div class="face-card">
+            <div class="face-img"
+              style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80');">
+            </div>
+            <h4>Rahul Verma</h4>
+            <p>Route Planner</p>
+          </div>
+          <div class="face-card">
+            <div class="face-img"
+              style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80');">
+            </div>
+            <h4>Anita Dorjee</h4>
+            <p>Local Impact Lead</p>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:4rem;">
+          <a href="about.html" class="btn btn-primary">Meet The Full Team</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Follow Our Journey (Centered Content, Scattered Images) -->
+    <section class="section">
+      <div class="image-scatter-v2">
+        <div class="journey-header">
+          <h2>Follow Our<br>Journey.</h2>
+          <a href="#" class="btn btn-primary">@REALTRIP.INDIA</a>
+        </div>
+        <!-- Images scattered around (handled by GSAP) -->
+        <div class="scatter-item" style="background-image: url('./images/Locations/darjeeling.jpg');">
+        </div>
+        <div class="scatter-item" style="background-image: url('./images/Locations/kashmir.jpg');">
+        </div>
+        <div class="scatter-item" style="background-image: url('./images/Locations/northsikkim.jpg');">
+        </div>
+        <div class="scatter-item" style="background-image: url('./images/Locations/andaman.jpg');">
+        </div>
+        <div class="scatter-item" style="background-image: url('./images/Locations/spitivalley.jpg');">
+        </div>
+        <div class="scatter-item" style="background-image: url('./images/Locations/arunachal.jpg');">
+        </div>
+      </div>
+    </section>
+
+    <!-- Talk to Expert CTA -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="wide-cta">
+          <div class="cta-img-bg"></div>
+          <div class="cta-content">
+            <h2>Talk to our travel artisans.</h2>
+            <p style="margin: 1.5rem 0 3rem; opacity: 0.8; font-size: 1.2rem; max-width: 500px;">Begin architecting your
+              next expedition today with experts who've walked the path.</p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <a href="contact.html" class="btn btn-accent">Request a Call</a>
+              <a href="packages.html" class="btn btn-outline-white-sm">Browse Packages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section id="journal" class="section">
+      <div class="container">
+        <div class="flex-center" style="margin-bottom: 6rem; flex-direction: column;">
+          <span class="text-meta">The Journal</span>
+          <h2 style="font-size: 3rem;">Stories of Impact.</h2>
+        </div>
+        <div class="journal-grid-v2">
+          <article class="journal-post">
+            <div class="post-img" style="background-image: url('./images/Locations/spitivalley.jpg');">
+            </div>
+            <div class="post-meta">
+              <span>Adventure</span>
+              <span>Dec 12, 2025</span>
+            </div>
+            <h3>The Silent Valley: A Spiti Chronicle</h3>
+          </article>
+          <article class="journal-post">
+            <div class="post-img" style="background-image: url('./images/Locations/andaman.jpg');">
+            </div>
+            <div class="post-meta">
+              <span>Culture</span>
+              <span>Nov 28, 2025</span>
+            </div>
+            <h3>Beneath the Blue: Andaman Unveiled</h3>
+          </article>
+          <article class="journal-post">
+            <div class="post-img" style="background-image: url('./images/Locations/northsikkim.jpg');">
+            </div>
+            <div class="post-meta">
+              <span>Conservation</span>
+              <span>Nov 05, 2025</span>
+            </div>
+            <h3>Eco-Curation: Travel with Purpose</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="newsletter-panel">
+          <div class="news-text">
+            <span class="text-meta">Stay Connected</span>
+            <h2>Dispatch from<br>the wild.</h2>
+            <p style="color: var(--clr-text-muted); margin-top: 1.5rem;">Weekly curation of expeditions, gear reviews,
+              and local maps.</p>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your nomadic email">
+            <button type="submit" class="btn btn-primary" style="padding: 1.1rem;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="logo">
+            <h1>REAL TRIP.</h1>
+          </div>
+          <p style="opacity: 0.5; font-size: 0.9rem; line-height: 1.8;">Established in the heart of the Himalayas. We
+            bridge the gap between curiosity and discovery through artisanal travel curation.</p>
+        </div>
+        <div class="footer-links">
+          <h5>Packages</h5>
+          <ul>
+            <li><a href="packages.html#darjeeling">Darjeeling</a></li>
+            <li><a href="packages.html#north-sikkim">North Sikkim</a></li>
+            <li><a href="packages.html#kashmir">Kashmir</a></li>
+            <li><a href="packages.html#andaman">Andaman</a></li>
+            <li><a href="packages.html">All Packages →</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="homestays.html">Homestays</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Newsletter</h5>
+          <p style="font-size: 0.8rem; margin-bottom: 1.5rem; opacity: 0.4;">Join our dispatch list for early access to
+            curated itineraries.</p>
+          <div class="socials" style="display: flex; gap: 1.5rem;">
+            <a href="#">IG</a>
+            <a href="#">YT</a>
+            <a href="#">FB</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"
+        style="display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.75rem; opacity: 0.3;">
+        <p>&copy; 2026 REAL TRIP. ALL RIGHTS RESERVED.</p>
+        <div class="legal" style="display: flex; gap: 2rem;">
+          <a href="#">PRIVACY</a>
+          <a href="#">TERMS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

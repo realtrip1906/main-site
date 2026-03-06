@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | REAL TRIP</title>
+    <meta name="description"
+        content="Get in touch with Real Trip – book a package, ask about itineraries, or just say hello. We'd love to help plan your next adventure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pages.css">
+</head>
+
+<body>
+    <div id="custom-cursor"><span class="cursor-text"></span></div>
+
+    <!-- Navbar -->
+    <nav class="nav-wrapper">
+        <div class="navbar">
+            <div class="logo"><a href="/">
+                    <h1>REAL TRIP.</h1>
+                </a></div>
+            <div class="nav-links">
+                <a href="/#packages">Packages</a>
+                <a href="/#experiences">Experiences</a>
+                <a href="/#homestays">Homestays</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" style="color:var(--clr-primary);opacity:1;">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <header class="page-hero" style="background-image: url('./images/Locations/meghalaya.jpg');">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content">
+            <span class="text-meta" style="color:var(--clr-accent);">Let's Talk</span>
+            <h1>Get In<br>Touch.</h1>
+            <p>Have a trip in mind? Send us a note and our travel artisans will reach back within 24 hours.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="contact-layout">
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrap">
+                        <span class="text-meta">Send Us a Message</span>
+                        <h2 style="margin-bottom:3rem;">Plan Your<br>Journey.</h2>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="package">Package of Interest</label>
+                                <select id="package" name="package">
+                                    <option value="">Select a package...</option>
+                                    <option value="darjeeling">Darjeeling (3D/2N · ₹5,500)</option>
+                                    <option value="darjeeling-offbeat">Darjeeling Offbeat (3D/2N · ₹4,500)</option>
+                                    <option value="silk-route">Silk Route (4D/3N · ₹5,200)</option>
+                                    <option value="west-sikkim">West Sikkim (4D/3N · ₹7,400)</option>
+                                    <option value="north-sikkim">North Sikkim (5D/4N · ₹9,400)</option>
+                                    <option value="kalimpong-offbeat">Kalimpong Offbeat (3D/2N · ₹4,200)</option>
+                                    <option value="arunachal">Arunachal Pradesh – Tawang (6D/5N · ₹15,300)</option>
+                                    <option value="himachal">Himachal Pradesh – Shimla Manali (5D/4N · ₹11,000)</option>
+                                    <option value="spiti">Spiti Valley (9D/8N · ₹19,500)</option>
+                                    <option value="kashmir">Kashmir (6D/5N · ₹13,000)</option>
+                                    <option value="andaman">Andaman &amp; Nicobar (6D/5N · ₹17,300)</option>
+                                    <option value="dooars">Dooars (3D/2N · ₹4,600)</option>
+                                    <option value="custom">Custom Itinerary</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="travel-date">Travel Date</label>
+                                    <input type="date" id="travel-date" name="travel-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="travelers">No. of Travellers</label>
+                                    <input type="number" id="travelers" name="travelers" min="1" placeholder="e.g. 4">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message / Special Requests</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Tell us about your dream trip..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary"
+                                style="width:100%;justify-content:center;padding:1.4rem;">Send My Enquiry</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <span class="text-meta">Reach Us Directly</span>
+                        <h2 style="margin-bottom:3rem;">We're Here<br>For You.</h2>
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <div class="info-icon">📍</div>
+                                <div>
+                                    <h4>Our Office</h4>
+                                    <p>Siliguri, West Bengal<br>India – 734001</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">📞</div>
+                                <div>
+                                    <h4>Phone / WhatsApp</h4>
+                                    <p><a href="tel:+919999999999">+91 99999 99999</a></p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">✉️</div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:hello@realtrip.in">hello@realtrip.in</a></p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🕐</div>
+                                <div>
+                                    <h4>Response Time</h4>
+                                    <p>We reply within 24 hours on all working days.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-follow">
+                            <p class="text-meta" style="margin-top:3rem;">Follow Our Journey</p>
+                            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                                <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📸
+                                    Instagram</a>
+                                <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">▶
+                                    YouTube</a>
+                                <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📘
+                                    Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <h1>REAL TRIP.</h1>
+                    </div>
+                    <p style="opacity:0.5;font-size:0.9rem;line-height:1.8;">Established in the heart of the Himalayas.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h5>Packages</h5>
+                    <ul>
+                        <li><a href="packages.html">All Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="homestays.html">Homestays</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Social</h5>
+                    <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
+                        <a href="#">IG</a><a href="#">YT</a><a href="#">FB</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;font-size:0.75rem;opacity:0.3;">
+                <p>&copy; 2026 REAL TRIP. ALL RIGHTS RESERVED.</p>
+                <div class="legal" style="display:flex;gap:2rem;"><a href="#">PRIVACY</a><a href="#">TERMS</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pre-select package from URL query
+        const params = new URLSearchParams(window.location.search);
+        const pkg = params.get('package');
+        if (pkg) {
+            const sel = document.getElementById('package');
+            if (sel) sel.value = pkg;
+        }
+    </script>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

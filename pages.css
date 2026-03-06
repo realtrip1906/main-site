@@ -1,0 +1,459 @@
+/* ======================================
+   pages.css – Shared styles for sub-pages
+   Real Trip
+   ====================================== */
+
+/* --- Page Hero --- */
+.page-hero {
+  height: 65vh;
+  min-height: 420px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 25, 47, 0.85) 0%,
+    rgba(10, 25, 47, 0.3) 60%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding-bottom: 5rem;
+}
+
+.page-hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin: 1rem 0;
+  color: white;
+}
+
+.page-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.75;
+  max-width: 550px;
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
+/* --- Package Detail Cards (packages.html) --- */
+.package-detail-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 4rem;
+  background: white;
+  transition: box-shadow 0.4s ease;
+}
+
+.package-detail-card:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+}
+
+.pkg-img {
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  transition: transform 0.6s ease;
+}
+
+.package-detail-card:hover .pkg-img {
+  transform: scale(1.04);
+}
+
+.pkg-body {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pkg-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pkg-region {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--clr-accent);
+  margin-bottom: 0.4rem;
+}
+
+.pkg-top h2 {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  margin: 0;
+}
+
+.pkg-meta-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.duration-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--clr-bg-gray);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clr-text-muted);
+}
+
+.price-tag {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-primary);
+}
+
+.price-tag small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: var(--font-body);
+  color: var(--clr-text-muted);
+  margin-left: 2px;
+}
+
+.pkg-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: var(--clr-bg-gray);
+  border-radius: var(--radius-md);
+}
+
+.pkg-col h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  color: var(--clr-text-main);
+}
+
+.pkg-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pkg-col li {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+/* --- About Page --- */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--clr-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+.about-img {
+  height: 550px;
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.value-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* --- Contact Page --- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: flex-start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 1rem 1.4rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--clr-text-main);
+  background: white;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.info-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: var(--clr-bg-gray);
+  border-radius: var(--radius-md);
+}
+
+.info-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.info-card p,
+.info-card a {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+.info-card a:hover {
+  color: var(--clr-primary);
+}
+
+/* --- Homestays Page --- */
+.homestays-page-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.homestay-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: white;
+  transition: box-shadow 0.4s ease;
+}
+
+.homestay-detail-card:nth-child(even) {
+  direction: rtl;
+}
+
+.homestay-detail-card:nth-child(even) .homestay-info {
+  direction: ltr;
+}
+
+.homestay-detail-card .homestay-img {
+  height: auto;
+  min-height: 350px;
+}
+
+.homestay-info {
+  padding: 3.5rem;
+}
+
+.homestay-info h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.homestay-info p {
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.homestay-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.homestay-features li {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .package-detail-card,
+  .homestay-detail-card {
+    grid-template-columns: 1fr;
+  }
+
+  .pkg-img,
+  .homestay-detail-card .homestay-img {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-img {
+    height: 350px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .pkg-details {
+    grid-template-columns: 1fr;
+  }
+
+  .homestay-detail-card:nth-child(even) {
+    direction: ltr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    height: 55vh;
+  }
+
+  .pkg-body {
+    padding: 2rem;
+  }
+
+  .pkg-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pkg-meta-badge {
+    align-items: flex-start;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homestay-info {
+    padding: 2rem;
+  }
+}
