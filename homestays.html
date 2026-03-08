@@ -14,6 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     <nav class="nav-wrapper">
         <div class="navbar">
             <div class="logo"><a href="/">
-                    <h1>REAL TRIP.</h1>
+                    <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
                 </a></div>
             <div class="nav-links">
                 <a href="/#packages">Packages</a>
@@ -33,11 +34,29 @@
                 <a href="contact.html">Contact</a>
             </div>
             <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
     <!-- Page Hero -->
-    <header class="page-hero" style="background-image: url('./images/Locations/silkroute.jpg');">
+    <header class="page-hero" style="background-image: url('./images/locations/silkroute/silkroute.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content">
             <span class="text-meta" style="color:var(--clr-accent);">Stay Authentic</span>
@@ -51,89 +70,149 @@
             <div class="container">
                 <p
                     style="color:var(--clr-text-muted);font-size:1.1rem;max-width:700px;margin-bottom:5rem;line-height:1.8;">
-                    We partner with carefully selected family-run homestays across the Himalayas. Each one is vetted by
-                    our team for cleanliness, warmth, and that irreplaceable local flavour. Images will be updated soon
-                    — the experiences are very real.
+                    We partner with trusted family-run stays across Darjeeling, Kalimpong, and East Sikkim. Every
+                    homestay includes local hospitality and fresh mountain meals. Pricing below is per person, per day
+                    including food and lodging.
                 </p>
 
                 <div class="homestays-page-grid">
 
-                    <div class="homestay-detail-card">
-                        <div class="homestay-img placeholder-img" style="height:320px;">
-                            <div class="placeholder-label">📸 Photos Coming Soon</div>
+                    <div class="homestay-detail-card" id="lepchajagat">
+                        <div class="homestay-img" data-folder="lepchajagat"
+                            style="height:320px;background-image:url('./images/homestays/lepchajagat/1.jpg');">
                         </div>
                         <div class="homestay-info">
                             <span class="homestay-location">Darjeeling</span>
-                            <h2>Himalayan Nest</h2>
-                            <p>Perched at 6,500 ft with sweeping views of Kanchenjunga, this cozy 6-room homestay offers
-                                homemade Nepali food, rooftop sitting areas, and guided village walks.</p>
+                            <h2>Lepchajagat Homestay</h2>
+                            <p>Lepchajagat is a peaceful offbeat hill destination near Darjeeling, surrounded by dense
+                                pine and rhododendron forests with beautiful Kanchenjunga views.</p>
                             <ul class="homestay-features">
-                                <li>🏔️ Kanchenjunga view from rooms</li>
-                                <li>🍽️ Home-cooked Nepali &amp; Tibetan meals</li>
-                                <li>🚶 Village walk &amp; tea garden tour</li>
-                                <li>📶 Basic Wi-Fi available</li>
+                                <li>Price: ₹1300 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
                             </ul>
                             <a href="contact.html?package=darjeeling-offbeat" class="btn btn-primary"
                                 style="margin-top:2rem;">Book a Stay</a>
                         </div>
                     </div>
 
-                    <div class="homestay-detail-card">
-                        <div class="homestay-img placeholder-img" style="height:320px;">
-                            <div class="placeholder-label">📸 Photos Coming Soon</div>
+                    <div class="homestay-detail-card" id="sittong">
+                        <div class="homestay-img" data-folder="sittong"
+                            style="height:320px;background-image:url('./images/homestays/sittong/1.jpg');">
                         </div>
                         <div class="homestay-info">
-                            <span class="homestay-location">Silk Route</span>
-                            <h2>Valley View Stay</h2>
-                            <p>A traditional Lepcha-style homestay nestled in the misty valleys of the Silk Route.
-                                Experience life in a mountain village untouched by mass tourism.</p>
+                            <span class="homestay-location">Darjeeling Offbeat</span>
+                            <h2>Sittong Homestay</h2>
+                            <p>Sittong, the famous Orange Village, is known for peaceful mountain life, orange orchards,
+                                and wide Himalayan views. A perfect quiet stay near Kurseong.</p>
                             <ul class="homestay-features">
-                                <li>🌿 Organic kitchen garden</li>
-                                <li>🏡 Traditional Lepcha architecture</li>
-                                <li>🌄 Sunrise over Cho La Pass view</li>
-                                <li>🔥 Bonfire evenings in season</li>
+                                <li>Price: ₹1300 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
                             </ul>
-                            <a href="contact.html?package=silk-route" class="btn btn-primary"
+                            <a href="contact.html?package=darjeeling-offbeat" class="btn btn-primary"
                                 style="margin-top:2rem;">Book a Stay</a>
                         </div>
                     </div>
 
-                    <div class="homestay-detail-card">
-                        <div class="homestay-img placeholder-img" style="height:320px;">
-                            <div class="placeholder-label">📸 Photos Coming Soon</div>
+                    <div class="homestay-detail-card" id="ramdhura">
+                        <div class="homestay-img" data-folder="ramdhura"
+                            style="height:320px;background-image:url('./images/homestays/ramdhura/1.jpg');">
                         </div>
                         <div class="homestay-info">
                             <span class="homestay-location">Kalimpong</span>
-                            <h2>Orchid Ridge House</h2>
-                            <p>A charming cottage retreat on a ridge above Kalimpong town, surrounded by orchid gardens
-                                and dense pine forests. Ideal for solo travellers and couples.</p>
+                            <h2>Ramdhura Homestay</h2>
+                            <p>Ramdhura is a peaceful offbeat village near Kalimpong with terraced farms, forest trails,
+                                and panoramic Kanchenjunga range views.</p>
                             <ul class="homestay-features">
-                                <li>🌸 Orchid garden walk</li>
-                                <li>☕ English breakfast tradition</li>
-                                <li>🐦 Birdwatching hotspot</li>
-                                <li>🎨 Art &amp; craft workshop nearby</li>
+                                <li>Price: ₹1300 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
                             </ul>
                             <a href="contact.html?package=kalimpong-offbeat" class="btn btn-primary"
                                 style="margin-top:2rem;">Book a Stay</a>
                         </div>
                     </div>
 
-                    <div class="homestay-detail-card">
-                        <div class="homestay-img placeholder-img" style="height:320px;">
-                            <div class="placeholder-label">📸 Photos Coming Soon</div>
+                    <div class="homestay-detail-card" id="sillerygaon">
+                        <div class="homestay-img" data-folder="sillerygaon"
+                            style="height:320px;background-image:url('./images/homestays/sillerygaon/1.jpg');">
                         </div>
                         <div class="homestay-info">
-                            <span class="homestay-location">North Sikkim</span>
-                            <h2>Gurudongmar Base Camp Stay</h2>
-                            <p>High-altitude homestay at 11,000 ft, used as a base for North Sikkim expeditions. Warm
-                                yak-wool blankets, hot meals, and star-gazing nights await.</p>
+                            <span class="homestay-location">Kalimpong</span>
+                            <h2>Sillery Gaon Homestay</h2>
+                            <p>Often called the New Darjeeling, Sillery Gaon offers dramatic sunrise views,
+                                pine-covered hills, and a peaceful mountain village atmosphere.</p>
                             <ul class="homestay-features">
-                                <li>⛺ High altitude (11,000 ft)</li>
-                                <li>🌌 Unmatched star-gazing</li>
-                                <li>🍲 Hot thukpa &amp; momos</li>
-                                <li>🧭 Guided trek options</li>
+                                <li>Price: ₹1100 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
                             </ul>
-                            <a href="contact.html?package=north-sikkim" class="btn btn-primary"
+                            <a href="contact.html?package=kalimpong-offbeat" class="btn btn-primary"
+                                style="margin-top:2rem;">Book a Stay</a>
+                        </div>
+                    </div>
+
+                    <div class="homestay-detail-card" id="lava">
+                        <div class="homestay-img" data-folder="lava"
+                            style="height:320px;background-image:url('./images/homestays/lava/1.jpg');">
+                        </div>
+                        <div class="homestay-info">
+                            <span class="homestay-location">Kalimpong Highlands</span>
+                            <h2>Lava Homestay</h2>
+                            <p>Lava is a beautiful high-altitude destination and gateway to Neora Valley National Park,
+                                surrounded by dense forests and cool mountain weather.</p>
+                            <ul class="homestay-features">
+                                <li>Price: ₹1100 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
+                            </ul>
+                            <a href="contact.html?package=kalimpong-offbeat" class="btn btn-primary"
+                                style="margin-top:2rem;">Book a Stay</a>
+                        </div>
+                    </div>
+
+                    <div class="homestay-detail-card" id="aritar">
+                        <div class="homestay-img" data-folder="aritar"
+                            style="height:320px;background-image:url('./images/homestays/aritar/1.jpg');">
+                        </div>
+                        <div class="homestay-info">
+                            <span class="homestay-location">East Sikkim</span>
+                            <h2>Aritar Homestay</h2>
+                            <p>Aritar is known for Lampokhari Lake and serene mountain views, making it an excellent
+                                base for Silk Route travel and peaceful nature stays.</p>
+                            <ul class="homestay-features">
+                                <li>Price: ₹1000 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
+                            </ul>
+                            <a href="contact.html?package=silk-route" class="btn btn-primary"
+                                style="margin-top:2rem;">Book a Stay</a>
+                        </div>
+                    </div>
+
+                    <div class="homestay-detail-card" id="phadamchen">
+                        <div class="homestay-img" data-folder="phadamchen"
+                            style="height:320px;background-image:url('./images/homestays/phadamchen/1.jpg');">
+                        </div>
+                        <div class="homestay-info">
+                            <span class="homestay-location">Silk Route</span>
+                            <h2>Phadamchen Homestay</h2>
+                            <p>Phadamchen is a quiet Himalayan village on the historic Silk Route, surrounded by dense
+                                forest slopes, misty valleys, and dramatic mountain roads.</p>
+                            <ul class="homestay-features">
+                                <li>Price: ₹1000 per head / per day</li>
+                                <li>Includes: Breakfast</li>
+                                <li>Includes: Lunch + Evening Snacks</li>
+                                <li>Includes: Dinner + Lodging</li>
+                            </ul>
+                            <a href="contact.html?package=silk-route" class="btn btn-primary"
                                 style="margin-top:2rem;">Book a Stay</a>
                         </div>
                     </div>
@@ -186,7 +265,10 @@
                 <div class="footer-links">
                     <h5>Social</h5>
                     <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
-                        <a href="#">IG</a><a href="#">YT</a><a href="#">FB</a>
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                            rel="noopener">IG</a><a href="#">YT</a><a
+                            href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener">FB</a>
                     </div>
                 </div>
             </div>

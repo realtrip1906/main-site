@@ -8,12 +8,35 @@
   height: 65vh;
   min-height: 420px;
   position: relative;
+  z-index: 0;
   display: flex;
   align-items: flex-end;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   padding-top: 100px;
+}
+
+/* subtle cinematic motion so inner-page hero feels like homepage */
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  animation: pageHeroDrift 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pageHeroDrift {
+  from {
+    transform: scale(1.03) translateY(0);
+  }
+  to {
+    transform: scale(1.09) translateY(-8px);
+  }
 }
 
 .page-hero-overlay {
@@ -25,12 +48,12 @@
     rgba(10, 25, 47, 0.3) 60%,
     transparent 100%
   );
-  z-index: 0;
+  z-index: 1;
 }
 
 .page-hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: white;
   padding-bottom: 5rem;
 }
@@ -69,8 +92,24 @@
 .pkg-img {
   background-size: cover;
   background-position: center;
-  min-height: 400px;
+  height: 400px;
+  align-self: start;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.6s ease;
+}
+
+.pkg-img-slideshow {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.pkg-img-slideshow.active {
+  opacity: 1;
 }
 
 .package-detail-card:hover .pkg-img {
@@ -82,6 +121,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 400px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #285a84 #e0f2fe;
+}
+
+.pkg-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.pkg-body::-webkit-scrollbar-track {
+  background: #e0f2fe;
+  border-radius: 999px;
+}
+
+.pkg-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7dd3fc, #38bdf8);
+  border-radius: 999px;
+  border: 2px solid #e0f2fe;
+}
+
+.pkg-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8, #0ea5e9);
 }
 
 .pkg-top {
@@ -173,7 +235,173 @@
   line-height: 1.5;
 }
 
+/* --- Itinerary Accordion --- */
+.itinerary-accordion {
+  margin: 2rem 0;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--clr-bg-gray);
+  border: 2px solid transparent;
+  padding: 1.2rem 1.8rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-text-main);
+  transition: all 0.3s ease;
+}
+
+.accordion-toggle:hover {
+  border-color: var(--clr-primary);
+  background: rgba(255, 107, 53, 0.05);
+}
+
+.accordion-toggle.active {
+  background: var(--clr-primary);
+  color: white;
+  border-color: var(--clr-primary);
+}
+
+.accordion-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-content.active {
+  max-height: 4000px;
+}
+
+.accordion-inner {
+  padding: 2rem;
+  background: var(--clr-bg-gray);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  margin-top: -0.5rem;
+}
+
+.day-item {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.day-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.day-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+.day-description {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.day-activities {
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+.day-activities li {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.day-activities li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--clr-primary);
+  font-weight: bold;
+}
+
+.package-overview {
+  background: var(--clr-bg-gray);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.package-overview p {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
 /* --- About Page --- */
+.about-narrative {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 980px;
+}
+
+.narrative-step {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-soft);
+  border-left: 5px solid #7dd3fc;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.narrative-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.narrative-meta {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #0ea5e9;
+  margin-bottom: 0.85rem;
+}
+
+.narrative-step h3 {
+  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+  margin-bottom: 0.8rem;
+}
+
+.narrative-step p {
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+}
+
 .about-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -193,7 +421,7 @@
   border-radius: var(--radius-lg);
   background-size: cover;
   background-position: center;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
 }
 
 .values-grid {
@@ -276,7 +504,9 @@
   color: var(--clr-text-main);
   background: white;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
@@ -359,6 +589,23 @@
 .homestay-detail-card .homestay-img {
   height: auto;
   min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.homestay-img-slideshow {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.homestay-img-slideshow.active {
+  opacity: 1;
 }
 
 .homestay-info {
@@ -420,6 +667,11 @@
 
   .pkg-details {
     grid-template-columns: 1fr;
+  }
+
+  .pkg-body {
+    max-height: none;
+    overflow: visible;
   }
 
   .homestay-detail-card:nth-child(even) {

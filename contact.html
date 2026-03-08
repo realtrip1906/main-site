@@ -14,6 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     <nav class="nav-wrapper">
         <div class="navbar">
             <div class="logo"><a href="/">
-                    <h1>REAL TRIP.</h1>
+                    <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
                 </a></div>
             <div class="nav-links">
                 <a href="/#packages">Packages</a>
@@ -33,16 +34,35 @@
                 <a href="contact.html" style="color:var(--clr-primary);opacity:1;">Contact</a>
             </div>
             <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
     <!-- Page Hero -->
-    <header class="page-hero" style="background-image: url('./images/Locations/meghalaya.jpg');">
+    <header class="page-hero" style="background-image: url('./images/locations/meghalaya/meghalaya.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content">
             <span class="text-meta" style="color:var(--clr-accent);">Let's Talk</span>
             <h1>Get In<br>Touch.</h1>
-            <p>Have a trip in mind? Send us a note and our travel artisans will reach back within 24 hours.</p>
+            <p>Have a trip in mind? Share your plan and our team will help you with routes, stays, and transparent
+                pricing.</p>
         </div>
     </header>
 
@@ -117,22 +137,44 @@
                             <div class="info-card">
                                 <div class="info-icon">📍</div>
                                 <div>
-                                    <h4>Our Office</h4>
-                                    <p>Siliguri, West Bengal<br>India – 734001</p>
+                                    <h4>Permanent Address</h4>
+                                    <p>Dakshin Saligoria, Magrahat, South 24 PGS, 743355</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🏔️</div>
+                                <div>
+                                    <h4>Darjeeling Office</h4>
+                                    <p>Lakshya Homestay, Lepchajagat, Darjeeling, 734221</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🏢</div>
+                                <div>
+                                    <h4>Kolkata Office (Salt Lake)</h4>
+                                    <p>M411, Sukantanagar, Sector 4, 700098</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🏢</div>
+                                <div>
+                                    <h4>Kolkata Office (Dumdum)</h4>
+                                    <p>1260, Devjoti Apartment, Bahiragath Colony, 700074</p>
                                 </div>
                             </div>
                             <div class="info-card">
                                 <div class="info-icon">📞</div>
                                 <div>
                                     <h4>Phone / WhatsApp</h4>
-                                    <p><a href="tel:+919999999999">+91 99999 99999</a></p>
+                                    <p><a href="tel:+918972516305">+91 89725 16305</a><br><a
+                                            href="tel:+919749308879">+91 97493 08879</a></p>
                                 </div>
                             </div>
                             <div class="info-card">
                                 <div class="info-icon">✉️</div>
                                 <div>
                                     <h4>Email</h4>
-                                    <p><a href="mailto:hello@realtrip.in">hello@realtrip.in</a></p>
+                                    <p><a href="mailto:realtrip.in@gmail.com">realtrip.in@gmail.com</a></p>
                                 </div>
                             </div>
                             <div class="info-card">
@@ -147,11 +189,13 @@
                         <div class="social-follow">
                             <p class="text-meta" style="margin-top:3rem;">Follow Our Journey</p>
                             <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                                <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📸
+                                <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                                    rel="noopener" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📸
                                     Instagram</a>
                                 <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">▶
                                     YouTube</a>
-                                <a href="#" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📘
+                                <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                                    rel="noopener" class="btn btn-outline" style="padding:0.8rem 1.5rem;font-size:0.8rem;">📘
                                     Facebook</a>
                             </div>
                         </div>
@@ -188,7 +232,10 @@
                 <div class="footer-links">
                     <h5>Social</h5>
                     <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
-                        <a href="#">IG</a><a href="#">YT</a><a href="#">FB</a>
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                            rel="noopener">IG</a><a href="#">YT</a><a
+                            href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener">FB</a>
                     </div>
                 </div>
             </div>

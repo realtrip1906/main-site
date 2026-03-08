@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>REAL TRIP | Himalayan &amp; Andaman Travel Artisans</title>
   <meta name="description"
@@ -33,19 +33,37 @@
     <div class="navbar">
       <div class="logo">
         <a href="/">
-          <h1>REAL TRIP.</h1>
+          <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
         </a>
       </div>
       <div class="nav-links">
         <a href="#packages">Packages</a>
-        <a href="#experiences">Experiences</a>
+        <a href="#experiences">Curated Expeditions</a>
         <a href="#homestays">Homestays</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact</a>
       </div>
       <a href="contact.html" class="btn btn-primary">Book Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <a href="#packages">Packages</a>
+      <a href="#experiences">Curated Expeditions</a>
+      <a href="#homestays">Homestays</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="btn btn-primary">Book Now</a>
+  </div>
 
   <main>
     <!-- Hero -->
@@ -75,7 +93,7 @@
 
           <!-- Darjeeling -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');"></div>
             <div class="package-badge">3D 2N</div>
             <div class="package-info">
               <h3>Darjeeling</h3>
@@ -88,7 +106,7 @@
 
           <!-- Darjeeling Offbeat -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg');"></div>
             <div class="package-badge">3D 2N</div>
             <div class="package-info">
               <h3>Darjeeling Offbeat</h3>
@@ -101,7 +119,7 @@
 
           <!-- Silk Route -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/silkroute.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/silkroute/silkroute.jpg');"></div>
             <div class="package-badge">4D 3N</div>
             <div class="package-info">
               <h3>Silk Route</h3>
@@ -114,7 +132,7 @@
 
           <!-- West Sikkim -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/westsikkim.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/westsikkim/westsikkim.jpg');"></div>
             <div class="package-badge">4D 3N</div>
             <div class="package-info">
               <h3>West Sikkim</h3>
@@ -127,7 +145,7 @@
 
           <!-- North Sikkim -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/northsikkim.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');"></div>
             <div class="package-badge">5D 4N</div>
             <div class="package-info">
               <h3>North Sikkim</h3>
@@ -140,7 +158,7 @@
 
           <!-- Kalimpong Offbeat -->
           <div class="package-card">
-            <div class="package-img" style="background-image: url('./images/Locations/kalimpong.jpg');"></div>
+            <div class="package-img" style="background-image: url('./images/locations/kalimpong/kalimpong.jpg');"></div>
             <div class="package-badge">3D 2N</div>
             <div class="package-info">
               <h3>Kalimpong Offbeat</h3>
@@ -169,57 +187,78 @@
         <div class="gsap-track" style="padding-left: 5%;">
 
           <!-- Card 1: Darjeeling — swap: replace url with new experiences/darjeeling image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/darjeeling.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');">
             <div class="exp-card-label">3D · 2N</div>
             <h3>Darjeeling<br>Hills</h3>
           </div>
 
           <!-- Card 2: Silk Route — swap: replace url with new experiences/silkroute image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/silkroute.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/silkroute/silkroute.jpg');">
             <div class="exp-card-label">4D · 3N</div>
             <h3>Silk Route<br>Trails</h3>
           </div>
 
+          <div class="experience-card"
+            style="background-image: url('./images/homestays/lepchajagat/1.jpg');">
+            <div class="exp-card-label">3D · 2N</div>
+            <h3>Darjeeling<br>Offbeat</h3>
+          </div>
+
           <!-- Card 3: North Sikkim — swap: replace url with new experiences/northsikkim image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/northsikkim.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');">
             <div class="exp-card-label">5D · 4N</div>
             <h3>North Sikkim<br>Peaks</h3>
           </div>
 
           <!-- Card 4: West Sikkim — swap: replace url with new experiences/westsikkim image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/westsikkim.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/westsikkim/westsikkim.jpg');">
             <div class="exp-card-label">4D · 3N</div>
             <h3>West Sikkim<br>Highlands</h3>
           </div>
 
+          <div class="experience-card" style="background-image: url('./images/homestays/sillerygaon/1.jpg');">
+            <div class="exp-card-label">3D · 2N</div>
+            <h3>Kalimpong<br>Offbeat</h3>
+          </div>
+
           <!-- Card 5: Kashmir — swap: replace url with new experiences/kashmir image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/kashmir.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/kashmir/kashmir.jpg');">
             <div class="exp-card-label">6D · 5N</div>
             <h3>Kashmir<br>Valley</h3>
           </div>
 
+          <div class="experience-card" style="background-image: url('./images/locations/himachal/himachal.jpg');">
+            <div class="exp-card-label">5D · 4N</div>
+            <h3>Himachal<br>Alpine Run</h3>
+          </div>
+
           <!-- Card 6: Spiti — swap: replace url with new experiences/spiti image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/spitivalley.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/spitivalley/spitivalley.jpg');">
             <div class="exp-card-label">9D · 8N</div>
             <h3>Spiti<br>Silent Sky</h3>
           </div>
 
           <!-- Card 7: Andaman — swap: replace url with new experiences/andaman image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/andaman.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/andaman/andaman.jpg');">
             <div class="exp-card-label">6D · 5N</div>
             <h3>Andaman<br>Deep Blue</h3>
           </div>
 
           <!-- Card 8: Arunachal — swap: replace url with new experiences/arunachal image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/arunachal.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/arunachal/arunachal.jpg');">
             <div class="exp-card-label">6D · 5N</div>
             <h3>Arunachal<br>Tawang</h3>
           </div>
 
           <!-- Card 9: Dooars — swap: replace url with new experiences/dooars image -->
-          <div class="experience-card" style="background-image: url('./images/Locations/dooars.jpg');">
+          <div class="experience-card" style="background-image: url('./images/locations/dooars/dooars.jpg');">
             <div class="exp-card-label">3D · 2N</div>
             <h3>Dooars<br>Wilderness</h3>
+          </div>
+
+          <div class="experience-card" style="background-image: url('./images/locations/meghalaya/meghalaya.jpg');">
+            <div class="exp-card-label">Custom</div>
+            <h3>Meghalaya<br>Cloud Trails</h3>
           </div>
 
         </div>
@@ -280,38 +319,38 @@
           home.</p>
         <div class="homestays-grid">
           <div class="homestay-card">
-            <div class="homestay-img placeholder-img">
-              <div class="placeholder-label">📸 Image Coming Soon</div>
-            </div>
+            <div class="homestay-img"
+              style="background-image: url('./images/homestays/lepchajagat/1.jpg');"></div>
             <div class="homestay-info">
               <span class="homestay-location">Darjeeling</span>
-              <h3>Himalayan Nest</h3>
-              <p>Cozy rooms with panoramic Kanchenjunga views, homemade local cuisine, and warm hospitality.</p>
-              <a href="homestays.html" class="btn btn-outline"
+              <h3>Lepchajagat Homestay</h3>
+              <p>Peaceful pine forest stay near Darjeeling with clear Kanchenjunga views and all meals included.
+                <strong>From ₹1300/person/day.</strong></p>
+              <a href="homestays.html#lepchajagat" class="btn btn-outline"
                 style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
             </div>
           </div>
           <div class="homestay-card">
-            <div class="homestay-img placeholder-img">
-              <div class="placeholder-label">📸 Image Coming Soon</div>
+            <div class="homestay-img" style="background-image: url('./images/homestays/aritar/1.jpg');">
             </div>
             <div class="homestay-info">
               <span class="homestay-location">Silk Route</span>
-              <h3>Valley View Stay</h3>
-              <p>Authentic Lepcha-style homestay nestled in the misty valleys of the Silk Route.</p>
-              <a href="homestays.html" class="btn btn-outline"
+              <h3>Aritar Homestay</h3>
+              <p>Scenic East Sikkim homestay near Lampokhari Lake, ideal for Silk Route journeys.
+                <strong>From ₹1000/person/day.</strong></p>
+              <a href="homestays.html#aritar" class="btn btn-outline"
                 style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
             </div>
           </div>
           <div class="homestay-card">
-            <div class="homestay-img placeholder-img">
-              <div class="placeholder-label">📸 Image Coming Soon</div>
-            </div>
+            <div class="homestay-img"
+              style="background-image: url('./images/homestays/ramdhura/1.jpg');"></div>
             <div class="homestay-info">
               <span class="homestay-location">Kalimpong</span>
-              <h3>Orchid Ridge House</h3>
-              <p>A charming hilltop retreat surrounded by orchid gardens and dense pine forests.</p>
-              <a href="homestays.html" class="btn btn-outline"
+              <h3>Ramdhura Homestay</h3>
+              <p>Offbeat Kalimpong village stay with panoramic mountain views, local cuisine, and cozy rooms.
+                <strong>From ₹1300/person/day.</strong></p>
+              <a href="homestays.html#ramdhura" class="btn btn-outline"
                 style="padding:0.7rem 1.5rem; font-size:0.8rem; margin-top:1.5rem;">Know More</a>
             </div>
           </div>
@@ -375,20 +414,21 @@
       <div class="image-scatter-v2">
         <div class="journey-header">
           <h2>Follow Our<br>Journey.</h2>
-          <a href="#" class="btn btn-primary">@REALTRIP.INDIA</a>
+          <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank" rel="noopener"
+            class="btn btn-primary">@REALTRIP.INDIA</a>
         </div>
         <!-- Images scattered around (handled by GSAP) -->
-        <div class="scatter-item" style="background-image: url('./images/Locations/darjeeling.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');">
         </div>
-        <div class="scatter-item" style="background-image: url('./images/Locations/kashmir.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/kashmir/kashmir.jpg');">
         </div>
-        <div class="scatter-item" style="background-image: url('./images/Locations/northsikkim.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');">
         </div>
-        <div class="scatter-item" style="background-image: url('./images/Locations/andaman.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/andaman/andaman.jpg');">
         </div>
-        <div class="scatter-item" style="background-image: url('./images/Locations/spitivalley.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/spitivalley/spitivalley.jpg');">
         </div>
-        <div class="scatter-item" style="background-image: url('./images/Locations/arunachal.jpg');">
+        <div class="scatter-item" style="background-image: url('./images/locations/arunachal/arunachal.jpg');">
         </div>
       </div>
     </section>
@@ -420,7 +460,7 @@
         </div>
         <div class="journal-grid-v2">
           <article class="journal-post">
-            <div class="post-img" style="background-image: url('./images/Locations/spitivalley.jpg');">
+            <div class="post-img" style="background-image: url('./images/locations/spitivalley/spitivalley.jpg');">
             </div>
             <div class="post-meta">
               <span>Adventure</span>
@@ -429,7 +469,7 @@
             <h3>The Silent Valley: A Spiti Chronicle</h3>
           </article>
           <article class="journal-post">
-            <div class="post-img" style="background-image: url('./images/Locations/andaman.jpg');">
+            <div class="post-img" style="background-image: url('./images/locations/andaman/andaman.jpg');">
             </div>
             <div class="post-meta">
               <span>Culture</span>
@@ -438,7 +478,7 @@
             <h3>Beneath the Blue: Andaman Unveiled</h3>
           </article>
           <article class="journal-post">
-            <div class="post-img" style="background-image: url('./images/Locations/northsikkim.jpg');">
+            <div class="post-img" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');">
             </div>
             <div class="post-meta">
               <span>Conservation</span>
@@ -503,9 +543,9 @@
           <p style="font-size: 0.8rem; margin-bottom: 1.5rem; opacity: 0.4;">Join our dispatch list for early access to
             curated itineraries.</p>
           <div class="socials" style="display: flex; gap: 1.5rem;">
-            <a href="#">IG</a>
+            <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank" rel="noopener">IG</a>
             <a href="#">YT</a>
-            <a href="#">FB</a>
+            <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank" rel="noopener">FB</a>
           </div>
         </div>
       </div>

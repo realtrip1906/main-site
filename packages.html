@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" href="./pages.css">
 </head>
 
@@ -23,7 +24,7 @@
     <nav class="nav-wrapper">
         <div class="navbar">
             <div class="logo"><a href="/">
-                    <h1>REAL TRIP.</h1>
+                    <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
                 </a></div>
             <div class="nav-links">
                 <a href="/#packages">Packages</a>
@@ -33,11 +34,29 @@
                 <a href="contact.html">Contact</a>
             </div>
             <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
     <!-- Page Hero -->
-    <header class="page-hero" style="background-image: url('./images/Locations/darjeeling.jpg');">
+    <header class="page-hero" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content">
             <span class="text-meta" style="color:var(--clr-accent);">Curated Journeys</span>
@@ -52,7 +71,7 @@
 
                 <!-- Darjeeling -->
                 <div class="package-detail-card" id="darjeeling">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -64,6 +83,62 @@
                                 <span class="price-tag">₹5,500<small>/person</small></span>
                             </div>
                         </div>
+
+                        <div class="package-overview">
+                            <p>Nestled in the foothills of the Eastern Himalayas, Darjeeling is one of India's most loved hill stations. Known as the Queen of Hills, it offers breathtaking views of Mt. Kanchenjunga, rolling tea gardens, colonial charm, and the spectacular sunrise from Tiger Hill. Perfect for family vacations, honeymoon trips, and relaxing hill getaways.</p>
+                        </div>
+
+                        <!-- Itinerary Accordion -->
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="darjeeling-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="darjeeling-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP/Siliguri to Darjeeling</h3>
+                                        <p class="day-description">Pickup from NJP Railway Station / Siliguri and drive to Darjeeling via Kurseong Road.</p>
+                                        <ul class="day-activities">
+                                            <li>Rohini View Point</li>
+                                            <li>Dow Hill (Kurseong)</li>
+                                            <li>Check-in at hotel in Darjeeling</li>
+                                            <li>Lunch & Dinner at hotel</li>
+                                            <li>Overnight stay at Darjeeling</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Darjeeling Local Sightseeing</h3>
+                                        <p class="day-description">Early morning sunrise at Tiger Hill followed by full day local sightseeing.</p>
+                                        <ul class="day-activities">
+                                            <li>Tiger Hill Sunrise</li>
+                                            <li>Batasia Loop</li>
+                                            <li>Japanese Temple & Peace Pagoda</li>
+                                            <li>Ghum Monastery</li>
+                                            <li>Padmaja Naidu Himalayan Zoological Park</li>
+                                            <li>Himalayan Mountaineering Institute (HMI)</li>
+                                            <li>Tenzing Rock</li>
+                                            <li>Ropeway</li>
+                                            <li>Tea Garden</li>
+                                            <li>Overnight stay at Darjeeling</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Darjeeling to NJP via Mirik</h3>
+                                        <p class="day-description">After breakfast, check-out and proceed towards NJP/Siliguri with en-route Mirik sightseeing.</p>
+                                        <ul class="day-activities">
+                                            <li>Mirik Lake</li>
+                                            <li>Gopaldhara Tea Estate</li>
+                                            <li>Simana View Point (Indo-Nepal Border)</li>
+                                            <li>Nepal Border</li>
+                                            <li>Lepchajagat</li>
+                                            <li>Drop at NJP Railway Station / Siliguri</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="pkg-details">
                             <div class="pkg-col">
                                 <h4>✅ Includes</h4>
@@ -91,7 +166,7 @@
 
                 <!-- Darjeeling Offbeat -->
                 <div class="package-detail-card" id="darjeeling-offbeat">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/darjeeling.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -103,6 +178,59 @@
                                 <span class="price-tag">₹4,500<small>/person</small></span>
                             </div>
                         </div>
+
+                        <div class="package-overview">
+                            <p>Darjeeling Offbeat destinations like Sittong and Lepchajagat offer a peaceful escape away from crowded tourist spots. Surrounded by pine forests, orange orchards, tea gardens, and panoramic Himalayan views, these hidden gems are perfect for travelers seeking silence, nature, and authentic village experiences.</p>
+                        </div>
+
+                        <!-- Itinerary Accordion -->
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="darjeeling-offbeat-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="darjeeling-offbeat-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP / Siliguri to Sittong</h3>
+                                        <p class="day-description">Pickup from NJP Railway Station / Siliguri and drive towards Sittong (The Orange Village).</p>
+                                        <ul class="day-activities">
+                                            <li>Monastery visit</li>
+                                            <li>Ahaldara View Point</li>
+                                            <li>Namthing Pokhri</li>
+                                            <li>Check-in at Sittong Homestay</li>
+                                            <li>Dinner & Overnight stay at Sittong</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Sittong to Lepchajagat</h3>
+                                        <p class="day-description">After breakfast, proceed towards Lepchajagat with scenic en-route stops.</p>
+                                        <ul class="day-activities">
+                                            <li>Lovers Meet View Point</li>
+                                            <li>Gumbadara View Point</li>
+                                            <li>Peshok Tea Garden</li>
+                                            <li>Lamahatta Eco Park</li>
+                                            <li>Check-in at Lepchajagat Homestay</li>
+                                            <li>Dinner & Overnight stay at Lepchajagat</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Lepchajagat to Siliguri</h3>
+                                        <p class="day-description">After breakfast, proceed towards NJP / Siliguri with beautiful sightseeing stops.</p>
+                                        <ul class="day-activities">
+                                            <li>Lepchajagat Pine Forest</li>
+                                            <li>Simana View Point (Indo-Nepal Border)</li>
+                                            <li>Pasupati Market</li>
+                                            <li>Nepal Border</li>
+                                            <li>Gopaldhara Tea Garden</li>
+                                            <li>Mirik Lake</li>
+                                            <li>Drop at NJP / Siliguri</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="pkg-details">
                             <div class="pkg-col">
                                 <h4>✅ Includes</h4>
@@ -130,7 +258,7 @@
 
                 <!-- Silk Route -->
                 <div class="package-detail-card" id="silk-route">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/silkroute.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/silkroute/silkroute.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -140,6 +268,47 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">4 Days · 3 Nights</span>
                                 <span class="price-tag">₹5,200<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="silk-route-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="silk-route-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP / Siliguri to Aritar</h3>
+                                        <ul class="day-activities">
+                                            <li>Pickup from NJP / Siliguri</li>
+                                            <li>Drive to Aritar and check-in at homestay</li>
+                                            <li>Lunch and Dinner</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Aritar to Phadamchen / Zuluk</h3>
+                                        <ul class="day-activities">
+                                            <li>Aritar Lake, Mankhim View Point, Riddhi Vinayak Temple</li>
+                                            <li>Transfer to Phadamchen / Zuluk</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Zuluk High Altitude Circuit</h3>
+                                        <ul class="day-activities">
+                                            <li>Zuluk Zigzag Road and Thambi View Point</li>
+                                            <li>Lungthu, Old Baba Mandir, Gnathang Valley</li>
+                                            <li>Kupup Lake (Nathula optional)</li>
+                                            <li>Night stay at Agamlok / Lingtam / Rishikhola</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 4: Return to NJP / Siliguri</h3>
+                                        <ul class="day-activities">
+                                            <li>Breakfast and check-out</li>
+                                            <li>Drop at NJP / Siliguri</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -169,7 +338,7 @@
 
                 <!-- West Sikkim -->
                 <div class="package-detail-card" id="west-sikkim">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/westsikkim.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/westsikkim/westsikkim.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -179,6 +348,44 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">4 Days · 3 Nights</span>
                                 <span class="price-tag">₹7,400<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="west-sikkim-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="west-sikkim-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP to Pelling</h3>
+                                        <ul class="day-activities">
+                                            <li>Pickup and transfer to Pelling hotel</li>
+                                            <li>Lunch and Dinner</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Pelling Sightseeing</h3>
+                                        <ul class="day-activities">
+                                            <li>Kanchenjunga and Rimbi Waterfalls</li>
+                                            <li>Khecheopalri Lake, Orange Garden</li>
+                                            <li>Skywalk, Rabdentse Ruins, Pemayangtse, Bird Park</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Pelling to Ravangla</h3>
+                                        <ul class="day-activities">
+                                            <li>Transfer to Ravangla</li>
+                                            <li>Visit Buddha Park</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 4: Ravangla to NJP</h3>
+                                        <ul class="day-activities">
+                                            <li>Breakfast and return transfer to NJP</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -208,7 +415,7 @@
 
                 <!-- North Sikkim -->
                 <div class="package-detail-card" id="north-sikkim">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/northsikkim.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -218,6 +425,49 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">5 Days · 4 Nights</span>
                                 <span class="price-tag">₹9,400<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="north-sikkim-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="north-sikkim-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP to Gangtok</h3>
+                                        <ul class="day-activities">
+                                            <li>Transfer to Gangtok and evening at MG Marg</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Gangtok to Lachen</h3>
+                                        <ul class="day-activities">
+                                            <li>Drive via waterfalls and mountain routes</li>
+                                            <li>Check-in at Lachen homestay</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Gurudongmar and Lachung</h3>
+                                        <ul class="day-activities">
+                                            <li>Early Gurudongmar Lake excursion</li>
+                                            <li>Transfer to Lachung after lunch</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 4: Yumthang and Gangtok Return</h3>
+                                        <ul class="day-activities">
+                                            <li>Visit Yumthang Valley (Zero Point optional)</li>
+                                            <li>Drive back to Gangtok</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 5: Gangtok to NJP</h3>
+                                        <ul class="day-activities">
+                                            <li>Check-out and drop at NJP</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -247,7 +497,7 @@
 
                 <!-- Kalimpong Offbeat -->
                 <div class="package-detail-card" id="kalimpong-offbeat">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/kalimpong.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/kalimpong/kalimpong.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -257,6 +507,38 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">3 Days · 2 Nights</span>
                                 <span class="price-tag">₹4,200<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="kalimpong-offbeat-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="kalimpong-offbeat-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP to Sillery Gaon</h3>
+                                        <ul class="day-activities">
+                                            <li>Kalimpong local points en route</li>
+                                            <li>Hanuman Tok, Delo Park, Science City Museum</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Lava, Rishop, Ramdhura</h3>
+                                        <ul class="day-activities">
+                                            <li>Lava Pine Forest and Monastery</li>
+                                            <li>Rishop sightseeing</li>
+                                            <li>Transfer and stay at Ramdhura</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Ramdhura to NJP</h3>
+                                        <ul class="day-activities">
+                                            <li>Panbu Dara, Lolegaon Buddha Park, Eco Park</li>
+                                            <li>Drop at NJP</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -286,7 +568,7 @@
 
                 <!-- Arunachal Pradesh -->
                 <div class="package-detail-card" id="arunachal">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/arunachal.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/arunachal/arunachal.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -296,6 +578,54 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">6 Days · 5 Nights</span>
                                 <span class="price-tag">₹15,300<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="arunachal-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="arunachal-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: Guwahati to Bhalukpong</h3>
+                                        <ul class="day-activities">
+                                            <li>Airport/Rail pickup and transfer</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Bhalukpong to Tawang</h3>
+                                        <ul class="day-activities">
+                                            <li>Sela Tunnel, Jaswant Singh Memorial</li>
+                                            <li>Jung Waterfalls</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Tawang Local</h3>
+                                        <ul class="day-activities">
+                                            <li>Tawang Monastery, War Memorial, Giant Buddha</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 4: Bumla Pass Excursion</h3>
+                                        <ul class="day-activities">
+                                            <li>Bumla Pass, PT Tso, Sungester Lake</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 5: Tawang to Dirang</h3>
+                                        <ul class="day-activities">
+                                            <li>Sela Lake, Sela Pass, Mandala Top</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 6: Dirang to Guwahati</h3>
+                                        <ul class="day-activities">
+                                            <li>Dirang Monastery and Sangti Valley</li>
+                                            <li>Transfer to Guwahati</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -325,7 +655,7 @@
 
                 <!-- Himachal Pradesh -->
                 <div class="package-detail-card" id="himachal">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/himachal.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/himachal/himachal.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -335,6 +665,48 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">5 Days · 4 Nights</span>
                                 <span class="price-tag">₹11,000<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="himachal-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="himachal-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: Kalka to Shimla</h3>
+                                        <ul class="day-activities">
+                                            <li>Check-in and evening: Kali Bari, Mall Road, Christ Church</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Shimla Local</h3>
+                                        <ul class="day-activities">
+                                            <li>Kufri, Zoo, Nature Park, Green Valley, Jakhu Temple</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Shimla to Manali</h3>
+                                        <ul class="day-activities">
+                                            <li>Via Kullu and Manikaran</li>
+                                            <li>Manali Mall Road in evening</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 4: Manali Sightseeing</h3>
+                                        <ul class="day-activities">
+                                            <li>Solang Valley and Atal Tunnel</li>
+                                            <li>Rohtang (excluded)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 5: Manali to Chandigarh</h3>
+                                        <ul class="day-activities">
+                                            <li>Transfer to Chandigarh (drop)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -363,7 +735,7 @@
 
                 <!-- Spiti Valley -->
                 <div class="package-detail-card" id="spiti">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/spitivalley.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/spitivalley/spitivalley.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -373,6 +745,25 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">9 Days · 8 Nights</span>
                                 <span class="price-tag">₹19,500<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="spiti-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="spiti-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item"><h3 class="day-title">Day 1: Kalka to Shimla</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 2: Shimla to Chitkul</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 3: Chitkul to Kalpa</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 4: Kalpa to Tabo</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 5: Tabo to Kaza</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 6: Kaza Local (Key, Hikkim, Komic, Langza)</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 7: Kaza to Chandratal</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 8: Chandratal to Manali</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 9: Manali to Chandigarh</h3></div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -401,7 +792,7 @@
 
                 <!-- Kashmir -->
                 <div class="package-detail-card" id="kashmir">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/kashmir.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/kashmir/kashmir.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -411,6 +802,22 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">6 Days · 5 Nights</span>
                                 <span class="price-tag">₹13,000<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="kashmir-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="kashmir-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item"><h3 class="day-title">Day 1: Arrival Srinagar + Shikara Ride</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 2: Srinagar to Pahalgam</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 3: Pahalgam to Srinagar + Local Sightseeing</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 4: Sonmarg Day Trip</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 5: Gulmarg Day Trip</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 6: Departure from Srinagar</h3></div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -441,7 +848,7 @@
 
                 <!-- Andaman -->
                 <div class="package-detail-card" id="andaman">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/andaman.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/andaman/andaman.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -451,6 +858,22 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">6 Days · 5 Nights</span>
                                 <span class="price-tag">₹17,300<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="andaman-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="andaman-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item"><h3 class="day-title">Day 1: Port Blair Arrival + Cellular Jail</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 2: Port Blair to Havelock + Radhanagar Beach</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 3: Havelock to Neil Island</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 4: Neil Island to Port Blair</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 5: Ross and North Bay Excursion</h3></div>
+                                    <div class="day-item"><h3 class="day-title">Day 6: Departure</h3></div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">
@@ -479,7 +902,7 @@
 
                 <!-- Dooars -->
                 <div class="package-detail-card" id="dooars">
-                    <div class="pkg-img" style="background-image: url('./images/Locations/dooars.jpg');"></div>
+                    <div class="pkg-img" style="background-image: url('./images/locations/dooars/dooars.jpg');"></div>
                     <div class="pkg-body">
                         <div class="pkg-top">
                             <div>
@@ -489,6 +912,36 @@
                             <div class="pkg-meta-badge">
                                 <span class="duration-tag">3 Days · 2 Nights</span>
                                 <span class="price-tag">₹4,600<small>/person</small></span>
+                            </div>
+                        </div>
+                        <div class="itinerary-accordion">
+                            <button class="accordion-toggle" data-accordion="dooars-itinerary">
+                                <span>📅 View Detailed Itinerary</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content" id="dooars-itinerary">
+                                <div class="accordion-inner">
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 1: NJP to Lataguri / Murti</h3>
+                                        <ul class="day-activities">
+                                            <li>Pickup and transfer to hotel/resort</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 2: Gorumara Safari + Local Sightseeing</h3>
+                                        <ul class="day-activities">
+                                            <li>Early morning jungle safari</li>
+                                            <li>7-point Dooars sightseeing</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-item">
+                                        <h3 class="day-title">Day 3: Return to NJP</h3>
+                                        <ul class="day-activities">
+                                            <li>Breakfast and check-out</li>
+                                            <li>Drop at NJP</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="pkg-details">

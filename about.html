@@ -14,6 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     <nav class="nav-wrapper">
         <div class="navbar">
             <div class="logo"><a href="/">
-                    <h1>REAL TRIP.</h1>
+                    <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
                 </a></div>
             <div class="nav-links">
                 <a href="/#packages">Packages</a>
@@ -33,37 +34,122 @@
                 <a href="contact.html">Contact</a>
             </div>
             <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
     <!-- Page Hero -->
-    <header class="page-hero" style="background-image: url('./images/Locations/sikkim.jpg');">
+    <header class="page-hero" style="background-image: url('./images/locations/sikkim/sikkim.jpg');">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content">
             <span class="text-meta" style="color:var(--clr-accent);">Our Story</span>
             <h1>About<br>Real Trip.</h1>
-            <p>Born in the foothills of the Himalayas. Built on trust, authenticity, and a deep reverence for the land.
-            </p>
+            <p>Born from a love for the mountains and built to make travel easy, honest, and unforgettable.</p>
         </div>
     </header>
 
     <main>
+        <!-- Scroll Narrative -->
+        <section class="section" style="padding-bottom:2rem;">
+            <div class="container">
+                <span class="text-meta">Scroll Story</span>
+                <h2 style="margin-bottom:2rem;">How Real Trip<br>Became Real.</h2>
+                <div class="about-narrative">
+                    <article class="narrative-step">
+                        <div class="narrative-meta">Chapter 01 · The Beginning</div>
+                        <h3>Started With Weekend Mountain Runs</h3>
+                        <p>What began as personal route experiments around Darjeeling and Sikkim became a repeat
+                            request from friends and families: "Can you plan ours too?" That demand shaped the first
+                            version of Real Trip.</p>
+                    </article>
+                    <article class="narrative-step">
+                        <div class="narrative-meta">Chapter 02 · The Ground Team</div>
+                        <h3>Built On Local Trust, Not Aggregators</h3>
+                        <p>Instead of generic vendor lists, we built direct relationships with drivers, homestays, and
+                            local operators. This gave us better reliability during weather changes and permit-heavy
+                            mountain routes.</p>
+                    </article>
+                    <article class="narrative-step">
+                        <div class="narrative-meta">Chapter 03 · The Travel Philosophy</div>
+                        <h3>Comfort + Authenticity In The Same Trip</h3>
+                        <p>We design itineraries that feel smooth for families yet meaningful for explorers. That means
+                            practical logistics, honest costing, and experiences that still feel local and personal.</p>
+                    </article>
+                    <article class="narrative-step">
+                        <div class="narrative-meta">Chapter 04 · Today</div>
+                        <h3>From Darjeeling Roots To Pan-India Circuits</h3>
+                        <p>Now we curate journeys across Sikkim, Northeast India, Himachal, Kashmir, and Andaman with
+                            one goal: make every guest feel guided, safe, and deeply connected to the destination.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Mission -->
         <section class="section">
             <div class="container">
                 <div class="about-split">
                     <div class="about-text">
                         <span class="text-meta">Who We Are</span>
-                        <h2>We Are Travel<br>Artisans.</h2>
-                        <p>Real Trip was founded by a group of passionate travellers and local experts who believed that
-                            travel should be more than just ticking off destinations. Every journey we craft is deeply
-                            personal, deeply local, and deeply responsible.</p>
-                        <p>We operate across the Himalayan belt — Darjeeling, Sikkim, Kalimpong, North Bengal, the Silk
-                            Route, Arunachal Pradesh, Himachal Pradesh, Kashmir, Spiti — and the tropical paradise of
-                            the Andaman &amp; Nicobar Islands.</p>
+                        <h2>We Are Memory<br>Creators.</h2>
+                        <p>Real Trip is a dedicated travel company committed to delivering memorable and hassle-free
+                            travel experiences across India's most breathtaking destinations. We specialize in curated
+                            tours for Darjeeling, Sikkim (North, East, West &amp; Silk Route), Kalimpong, Dooars,
+                            Arunachal Pradesh, Meghalaya, Himachal Pradesh, Kashmir, and Andaman.</p>
+                        <p>With strong local networks and ground-level expertise, we ensure smooth travel arrangements
+                            with comfortable stays, reliable transportation, and guided sightseeing. Every itinerary is
+                            designed to balance comfort, exploration, and unforgettable moments.</p>
+                        <p>What started as a passion for exploring hidden corners of Darjeeling and Sikkim grew into a
+                            mission: to help travelers experience mountains with trust, transparency, and complete
+                            support from pickup to drop.</p>
                         <a href="contact.html" class="btn btn-primary" style="margin-top:2.5rem;">Get In Touch</a>
                     </div>
-                    <div class="about-img" style="background-image: url('./images/Locations/northsikkim.jpg');"></div>
+                    <div class="about-img" style="background-image: url('./images/locations/northsikkim/northsikkim.jpg');"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:0;">
+            <div class="container">
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-icon">1000+</span>
+                        <h3>Trips Completed</h3>
+                        <p>Successful journeys delivered across the Himalayas, North East India, and island circuits.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">7000+</span>
+                        <h3>Happy Guests</h3>
+                        <p>Families, honeymoon couples, and adventure groups who traveled with us and came back smiling.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">13+</span>
+                        <h3>Destination Circuits</h3>
+                        <p>From Darjeeling and Sikkim to Kashmir, Spiti, Andaman, Arunachal, Meghalaya, and Dooars.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">24x7</span>
+                        <h3>Ground Support</h3>
+                        <p>On-trip support from local teams who understand mountain routes, weather, and permits.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -77,26 +163,26 @@
                     <div class="value-card">
                         <span class="value-icon">🏔️</span>
                         <h3>Local First</h3>
-                        <p>We hire local guides, stay at local homestays, and support local economies. Every rupee you
-                            spend travels through the community.</p>
+                        <p>We work with trusted local partners, guides, and homestay hosts so every trip supports local
+                            livelihoods.</p>
                     </div>
                     <div class="value-card">
                         <span class="value-icon">🌿</span>
                         <h3>Responsible Travel</h3>
-                        <p>Leave no trace. We follow strict eco-guidelines and educate our travellers to preserve these
-                            pristine landscapes for generations.</p>
+                        <p>We encourage mindful travel in ecologically sensitive routes and help guests follow mountain
+                            safety and waste-responsible practices.</p>
                     </div>
                     <div class="value-card">
                         <span class="value-icon">🗺️</span>
-                        <h3>Offbeat Curation</h3>
-                        <p>We go where generic tours don't. Our packages are crafted after months of on-ground
-                            reconnaissance by our team.</p>
+                        <h3>Personalized Planning</h3>
+                        <p>Some travelers seek adventure, some seek peace, and some seek honeymoon moments. We build
+                            plans around each travel style.</p>
                     </div>
                     <div class="value-card">
                         <span class="value-icon">🤝</span>
                         <h3>Transparent Pricing</h3>
-                        <p>No hidden costs, no bait-and-switch. What you see is what you pay — and what you get is more
-                            than you expected.</p>
+                        <p>Clear package inclusions, exclusions, and permit details are shared upfront. No hidden
+                            surprise costs.</p>
                     </div>
                 </div>
             </div>
@@ -186,7 +272,10 @@
                 <div class="footer-links">
                     <h5>Social</h5>
                     <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
-                        <a href="#">IG</a><a href="#">YT</a><a href="#">FB</a>
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                            rel="noopener">IG</a><a href="#">YT</a><a
+                            href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener">FB</a>
                     </div>
                 </div>
             </div>
