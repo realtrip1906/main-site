@@ -204,6 +204,21 @@ h4 {
   letter-spacing: -0.05em;
 }
 
+.navbar .logo a {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar .logo a:hover {
+  color: var(--clr-accent);
+}
+
 /* Site logo sizing (navbar) */
 .site-logo {
   width: 60px;
@@ -236,23 +251,33 @@ h4 {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: none;
+  background: var(--clr-primary);
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
   z-index: 3000;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: var(--clr-accent);
 }
 
 .hamburger span {
-  width: 25px;
-  height: 3px;
-  background: var(--clr-primary);
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
+.hamburger.active {
+  background: var(--clr-accent);
+}
+
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  transform: rotate(45deg) translate(7px, 7px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -265,65 +290,132 @@ h4 {
 
 /* Mobile Navigation */
 .mobile-nav {
-  display: none;
   position: fixed;
   top: 0;
   right: -100%;
-  width: clamp(250px, 80vw, 350px);
+  width: clamp(280px, 85vw, 380px);
   max-width: calc(100vw - 16px);
   height: 100vh;
-  background: var(--clr-white);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-  z-index: 2000;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  z-index: 2500;
   transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  padding: 6rem 2rem 2rem;
+  padding: 2rem;
   overflow-y: auto;
+  display: none;
 }
 
 .mobile-nav.active {
   right: 0;
 }
 
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--clr-bg-gray);
+}
+
+.mobile-nav-header .logo a {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.mobile-close {
+  background: var(--clr-primary);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.mobile-close:hover {
+  background: var(--clr-accent);
+  transform: rotate(90deg);
+}
+
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
+  margin-bottom: 2rem;
 }
 
 .mobile-nav-links a {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--clr-text-main);
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--clr-bg-gray);
-  transition: color 0.3s ease;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--clr-primary);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .mobile-nav-links a:hover {
+  background: rgba(15, 76, 117, 0.05);
   color: var(--clr-primary);
+  padding-left: 1.8rem;
+}
+
+.mobile-nav-links a:hover::before {
+  transform: translateX(0);
 }
 
 .mobile-nav .btn {
-  margin-top: 2rem;
   width: 100%;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .mobile-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1500;
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  display: none;
 }
 
 .mobile-overlay.active {
   opacity: 1;
+  visibility: visible;
 }
 
 /* --- Floating Actions (WhatsApp + Scroll Top) --- */
@@ -346,13 +438,19 @@ h4 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #fff;
   box-shadow: 0 12px 28px rgba(15, 76, 117, 0.25);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
     opacity 0.25s ease;
+  overflow: visible;
+}
+
+.floating-btn i {
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .floating-btn:hover {
@@ -785,6 +883,7 @@ h4 {
 
 .face-card {
   text-align: center;
+  position: relative;
 }
 
 .face-img {
@@ -795,11 +894,18 @@ h4 {
   background-position: center;
   margin-bottom: 1.5rem;
   filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .face-card:hover .face-img {
   filter: grayscale(0%);
+  transform: scale(1.08);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+  border-color: var(--clr-accent);
+  z-index: 10;
 }
 
 .face-card h4 {
@@ -807,11 +913,34 @@ h4 {
   margin-bottom: 0.3rem;
 }
 
-.face-card p {
+.face-card .face-role {
   font-size: 0.8rem;
   color: var(--clr-text-muted);
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.face-card .face-bio {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.face-card .face-social {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--clr-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.face-card .face-social:hover {
+  color: var(--clr-accent);
 }
 
 /* --- Homestays Section --- */
@@ -1011,6 +1140,39 @@ h4 {
   color: var(--clr-accent);
 }
 
+/* Social Icons */
+.socials a {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials a:hover {
+  color: var(--clr-accent);
+  transform: scale(1.2);
+}
+
+.socials i {
+  line-height: 1;
+}
+
+/* Team Social Links */
+.face-social {
+  gap: 0.4rem;
+}
+
+.face-social i {
+  font-size: 0.9rem;
+}
+
+/* Contact Social Buttons */
+.btn i {
+  margin-right: 0.5rem;
+}
+
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   .navbar {
@@ -1031,13 +1193,32 @@ h4 {
   .homestays-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .faces-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.8rem 1.5rem;
-    gap: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1.2rem;
+    gap: 0.8rem;
+    max-width: 95vw;
   }
+
+  .nav-wrapper {
+    top: 1rem;
+    padding: 0 2.5%;
+  }
+
+  .navbar .logo {
+    flex: 1;
+  }
+
+  .site-logo {
+    width: 50px;
+    height: 40px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1046,6 +1227,7 @@ h4 {
   }
   .hamburger {
     display: flex;
+    margin-left: auto;
   }
   .mobile-nav,
   .mobile-overlay {
@@ -1059,6 +1241,10 @@ h4 {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+  .faces-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
   .journal-grid-v2 {
     grid-template-columns: 1fr;

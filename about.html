@@ -12,6 +12,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./pages.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -23,9 +27,7 @@
     <!-- Navbar -->
     <nav class="nav-wrapper">
         <div class="navbar">
-            <div class="logo"><a href="/">
-                    <img src="./images/logo.jpg" alt="REAL TRIP" class="site-logo" />
-                </a></div>
+            <div class="logo"><a href="/" aria-label="Realtrip Home">Realtrip</a></div>
             <div class="nav-links">
                 <a href="/#packages">Packages</a>
                 <a href="/#experiences">Experiences</a>
@@ -45,6 +47,12 @@
     <!-- Mobile Navigation -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
     <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <a href="/" aria-label="Realtrip Home">Realtrip</a>
+            </div>
+            <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+        </div>
         <div class="mobile-nav-links">
             <a href="/#packages">Packages</a>
             <a href="/#experiences">Experiences</a>
@@ -196,31 +204,39 @@
                 <div class="faces-grid">
                     <div class="face-card">
                         <div class="face-img"
-                            style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80');">
+                            style="background-image: url('./images/team/pritam.jpg');">
                         </div>
-                        <h4>Tashi Gyaltsen</h4>
-                        <p>Himalayan Lead Guide</p>
+                        <h4>Pritam Mondal</h4>
+                        <p class="face-role">Founder</p>
+                        <p class="face-bio">Visionary behind Real Trip, Pritam brings years of mountain expertise and a passion for creating authentic travel experiences across India's most stunning landscapes.</p>
+                        <a href="https://www.instagram.com/mr.pritaaaam/" target="_blank" rel="noopener" class="face-social" aria-label="Pritam's Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     </div>
                     <div class="face-card">
                         <div class="face-img"
-                            style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80');">
+                            style="background-image: url('./images/team/subhajit.jpg');">
                         </div>
-                        <h4>Priya Sharma</h4>
-                        <p>Island Curation Expert</p>
+                        <h4>Subhajit Ghosh</h4>
+                        <p class="face-role">Travel Consultant</p>
+                        <p class="face-bio">Expert in crafting personalized itineraries, Subhajit ensures every journey is perfectly tailored to create unforgettable memories for our guests.</p>
+                        <a href="https://www.instagram.com/subhojitghosh371/" target="_blank" rel="noopener" class="face-social" aria-label="Subhajit's Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     </div>
                     <div class="face-card">
                         <div class="face-img"
-                            style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80');">
+                            style="background-image: url('./images/team/atanu.jpg');">
                         </div>
-                        <h4>Rahul Verma</h4>
-                        <p>Route Planner</p>
+                        <h4>Atanu Manna</h4>
+                        <p class="face-role">Travel Consultant</p>
+                        <p class="face-bio">With deep local knowledge and strong ground connections, Atanu specializes in smooth logistics and authentic cultural experiences across Northeast destinations.</p>
+                        <a href="https://www.instagram.com/ayoung_dumb007" target="_blank" rel="noopener" class="face-social" aria-label="Atanu's Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     </div>
                     <div class="face-card">
                         <div class="face-img"
-                            style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80');">
+                            style="background-image: url('./images/team/debayan.jpg');">
                         </div>
-                        <h4>Anita Dorjee</h4>
-                        <p>Local Impact Lead</p>
+                        <h4>Debayan Mukherjee</h4>
+                        <p class="face-role">Technical Development</p>
+                        <p class="face-bio">The tech brain behind Real Trip's digital presence, Debayan builds seamless booking experiences and ensures our platform stays user-friendly for travelers.</p>
+                        <a href="https://www.instagram.com/x_rakhal/" target="_blank" rel="noopener" class="face-social" aria-label="Debayan's Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     </div>
                 </div>
             </div>
@@ -273,9 +289,10 @@
                     <h5>Social</h5>
                     <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
                         <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
-                            rel="noopener">IG</a><a href="#">YT</a><a
-                            href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
-                            rel="noopener">FB</a>
+                            rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
             </div>

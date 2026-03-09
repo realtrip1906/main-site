@@ -247,24 +247,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
   const mobileOverlay = document.getElementById("mobileOverlay");
+  const mobileClose = document.getElementById("mobileClose");
 
   if (hamburger && mobileNav && mobileOverlay) {
-    const toggleMenu = () => {
-      hamburger.classList.toggle("active");
-      mobileNav.classList.toggle("active");
-      mobileOverlay.classList.toggle("active");
-      document.body.style.overflow = hamburger.classList.contains("active")
-        ? "hidden"
-        : "";
+    const toggleMenu = (forceClose = false) => {
+      if (forceClose) {
+        hamburger.classList.remove("active");
+        mobileNav.classList.remove("active");
+        mobileOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      } else {
+        hamburger.classList.toggle("active");
+        mobileNav.classList.toggle("active");
+        mobileOverlay.classList.toggle("active");
+        document.body.style.overflow = hamburger.classList.contains("active")
+          ? "hidden"
+          : "";
+      }
     };
 
-    hamburger.addEventListener("click", toggleMenu);
-    mobileOverlay.addEventListener("click", toggleMenu);
+    // Open/close with hamburger
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close with overlay click
+    mobileOverlay.addEventListener("click", () => {
+      toggleMenu(true);
+    });
+
+    // Close with close button
+    if (mobileClose) {
+      mobileClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(true);
+      });
+    }
 
     // Close menu when clicking a link
     const mobileLinks = mobileNav.querySelectorAll("a");
     mobileLinks.forEach((link) => {
-      link.addEventListener("click", toggleMenu);
+      link.addEventListener("click", () => {
+        toggleMenu(true);
+      });
+    });
+
+    // Prevent clicks inside mobile nav from closing it
+    mobileNav.addEventListener("click", (e) => {
+      e.stopPropagation();
     });
   }
 
@@ -430,11 +461,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!interval) return;
       clearInterval(interval);
       interval = null;
+      // Reset to first slide when hover ends
+      slides.forEach((s) => s.classList.remove("active"));
+      currentIndex = 0;
     };
 
-    play();
-    card.addEventListener("mouseenter", pause);
-    card.addEventListener("mouseleave", play);
+    // Only play on hover
+    card.addEventListener("mouseenter", play);
+    card.addEventListener("mouseleave", pause);
   });
 
   // --- Homestay Image Slideshow on Hover (dynamic numbered images) ---
@@ -522,7 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
       aria-label="Chat on WhatsApp"
       title="Chat on WhatsApp"
     >
-      W
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
     <button
       type="button"
@@ -531,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
       aria-label="Scroll to top"
       title="Back to top"
     >
-      ↑
+      <i class="fa-solid fa-arrow-up"></i>
     </button>
   `;
   document.body.appendChild(floatingActions);
@@ -568,5 +602,61 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     narrativeSteps.forEach((step) => observer.observe(step));
+  }
+
+  // --- Smooth Anchor Scrolling ---
+  const scrollToSection = (targetId, behavior = "smooth") => {
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    // Get navbar height for offset
+    const navbar = document.querySelector(".navbar");
+    const navbarHeight = navbar ? navbar.offsetHeight + 20 : 80;
+
+    const targetPosition =
+      target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: behavior,
+    });
+  };
+
+  // Handle anchor link clicks
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href === "#" || href === "#!") return;
+
+      const targetId = href;
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        e.preventDefault();
+
+        // Close mobile menu first if open
+        if (mobileNav && mobileNav.classList.contains("active")) {
+          hamburger.classList.remove("active");
+          mobileNav.classList.remove("active");
+          mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+
+          // Wait for menu to close, then scroll
+          setTimeout(() => {
+            scrollToSection(targetId);
+          }, 300);
+        } else {
+          scrollToSection(targetId);
+        }
+      }
+    });
+  });
+
+  // Handle hash on page load (e.g., coming from another page)
+  if (window.location.hash) {
+    // Wait for page to fully load and animations to settle
+    setTimeout(() => {
+      scrollToSection(window.location.hash, "auto");
+    }, 100);
   }
 });
