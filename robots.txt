@@ -1,0 +1,9 @@
+# robots.txt for Real Trip Website
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://realtrip.in/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

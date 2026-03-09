@@ -1198,6 +1198,22 @@ h4 {
   }
 }
 
+/* --- Footer: legal links --- */
+.site-footer .footer-bottom .legal a {
+  color: var(--clr-text-muted);
+  text-decoration: none;
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease;
+  font-weight: 700;
+}
+
+.site-footer .footer-bottom .legal a:hover,
+.site-footer .footer-bottom .legal a:focus {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0.5rem 1rem 0.5rem 1.2rem;
