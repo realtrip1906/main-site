@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Blog | Real Trip Stories & Tips</title>
+    <meta name="description"
+        content="Read inspiring travel stories, destination guides, and insider tips from Real Trip. Discover the beauty of Himalayas, Sikkim, Kashmir, Andaman and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .blog-card {
+            background: var(--clr-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--clr-text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--clr-text-dark);
+        }
+
+        .blog-excerpt {
+            color: var(--clr-text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .blog-read-more {
+            background: none;
+            border: none;
+            color: var(--clr-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            color: var(--clr-accent);
+            gap: 0.8rem;
+        }
+
+        .blog-read-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-read-more.active i {
+            transform: rotate(180deg);
+        }
+
+        .blog-full-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--clr-text-muted);
+            line-height: 1.8;
+        }
+
+        .blog-full-content.active {
+            max-height: 1000px;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--clr-bg-gray);
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .blog-tag {
+            background: var(--clr-bg-gray);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            color: var(--clr-text-muted);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .blog-img {
+                height: 200px;
+            }
+
+            .blog-content {
+                padding: 1.5rem;
+            }
+
+            .blog-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="custom-cursor"><span class="cursor-text"></span></div>
+
+    <!-- Navbar -->
+    <nav class="nav-wrapper">
+        <div class="navbar">
+            <div class="logo"><a href="/" aria-label="Realtrip Home">Realtrip</a></div>
+            <div class="nav-links">
+                <a href="/#packages">Packages</a>
+                <a href="/#experiences">Experiences</a>
+                <a href="/#homestays">Homestays</a>
+                <a href="about.html">About Us</a>
+                <a href="/#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <a href="/" aria-label="Realtrip Home">Realtrip</a>
+            </div>
+            <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="/#testimonials">Testimonials</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
+    <!-- Page Hero -->
+    <header class="page-hero" style="background-image: url('https://loremflickr.com/1600/900/travel,journey');">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content">
+            <span class="text-meta" style="color:var(--clr-accent);">Stories & Insights</span>
+            <h1>Travel<br>Blog.</h1>
+            <p>Discover inspiring stories, destination guides, and travel tips from the mountains to the sea.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="blog-grid">
+
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card" data-blog="1">
+                        <div class="blog-img" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Mar 2, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3>The Hidden Trails of Darjeeling: Beyond the Tea Gardens</h3>
+                            <p class="blog-excerpt">Discover the secret paths and offbeat villages around Darjeeling that
+                                most tourists never see. From misty morning walks to authentic local experiences...</p>
+                            <button class="blog-read-more" data-target="blog-content-1">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-1">
+                                <p>While Darjeeling's famous tea estates draw millions of visitors each year, the real magic
+                                    lies in the lesser-known trails that wind through pine forests and traditional villages.
+                                    During our recent expedition, we discovered Lepchajagat—a pristine hamlet where morning
+                                    mist dances through rhododendron groves and the Kanchenjunga range emerges like a
+                                    revelation at sunrise.</p>
+                                <p>The local Lepcha community welcomed us with butter tea and stories passed down through
+                                    generations. We walked ancient forest trails that Buddhist monks once used, stopping at
+                                    hidden monasteries where prayer flags flutter in mountain winds. These experiences remind
+                                    us why slow travel matters—it's not about ticking boxes but about forming genuine
+                                    connections with places and people.</p>
+                                <p>Our recommendation: Skip the crowded Mall Road for a day and hire a local guide to show
+                                    you Sittong's orange orchards or Tinchuley's sustainable farming cooperatives. These are
+                                    the real Darjeeling stories waiting to be discovered.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Darjeeling</span>
+                                    <span class="blog-tag">Offbeat</span>
+                                    <span class="blog-tag">Mountain Trails</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card" data-blog="2">
+                        <div class="blog-img" style="background-image: url('./images/locations/silkroute/silkroute.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Feb 28, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                            </div>
+                            <h3>Silk Route Secrets: A Journey Through Time and Mountains</h3>
+                            <p class="blog-excerpt">Follow the ancient trading route through East Sikkim, where prayer
+                                flags mark the way and every turn reveals a new vista of Himalayan majesty...</p>
+                            <button class="blog-read-more" data-target="blog-content-2">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-2">
+                                <p>The Silk Route isn't just a destination—it's a journey through layers of history, culture,
+                                    and breathtaking landscapes. Starting from Zuluk's zigzag roads (with 32 hairpin bends!),
+                                    we traced the path ancient traders once followed, carrying silk and spices between India
+                                    and Tibet.</p>
+                                <p>At Nathang Valley, we experienced what locals call "the end of habitable world"—a vast
+                                    plateau at 13,500 feet where yaks outnumber people and winter snow blankets everything for
+                                    months. Thambi View Point at dawn revealed the entire Eastern Himalayan range, including
+                                    Mount Kanchenjunga bathed in golden alpenglow.</p>
+                                <p>What struck us most was the resilience of mountain communities. In Aritar, homestay hosts
+                                    shared stories of how their families adapted when the trade route faded, now welcoming
+                                    travelers like us to keep their heritage alive. The Silk Route teaches patience—roads may
+                                    be rough, connectivity sparse, but the rewards are profound.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Silk Route</span>
+                                    <span class="blog-tag">East Sikkim</span>
+                                    <span class="blog-tag">Heritage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card" data-blog="3">
+                        <div class="blog-img" style="background-image: url('./images/locations/kashmir/kashmir.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Feb 24, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3>Kashmir in Winter: When Paradise Wears White</h3>
+                            <p class="blog-excerpt">Experience the ethereal beauty of snow-covered Kashmir, from frozen Dal
+                                Lake to the pristine slopes of Gulmarg, where winter transforms the valley into magic...</p>
+                            <button class="blog-read-more" data-target="blog-content-3">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-3">
+                                <p>They call Kashmir "Paradise on Earth," but winter adds a layer of enchantment that summer
+                                    visitors rarely witness. Our February expedition revealed a valley transformed—Dal Lake's
+                                    houseboats frozen in time, literal chinars draped in snow like lace, and ski slopes at
+                                    Gulmarg offering powder that rivals European resorts.</p>
+                                <p>We stayed in a traditional Kashmiri home where our host family served noon chai and wazwan
+                                    beside a kangri (traditional fire pot). Evening conversations about Kashmir's artisan
+                                    heritage—pashmina weaving, papier-mâché crafts, saffron cultivation—revealed the depth of
+                                    culture beneath the scenic beauty.</p>
+                                <p>Winter travel here requires preparation: layers, permits for certain areas, and patience
+                                    with weather delays. But the reward is authenticity. You're not just another tourist;
+                                    you're a winter pilgrim witnessing Kashmir in its most serene, contemplative form. The
+                                    snow muffles sounds, simplifies landscapes, and somehow amplifies beauty.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Kashmir</span>
+                                    <span class="blog-tag">Winter Travel</span>
+                                    <span class="blog-tag">Snow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="blog-card" data-blog="4">
+                        <div class="blog-img" style="background-image: url('./images/locations/andaman/andaman.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Feb 19, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3>Andaman's Hidden Islands: Beyond Havelock and Neil</h3>
+                            <p class="blog-excerpt">Venture beyond the popular beaches to discover pristine islands where
+                                turquoise waters meet untouched coral reefs and local tribes preserve ancient ways...</p>
+                            <button class="blog-read-more" data-target="blog-content-4">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-4">
+                                <p>Most Andaman visitors stick to Havelock's Radhanagar Beach and Neil Island's natural
+                                    bridge. But venture further, and the archipelago reveals secrets—Baratang's limestone
+                                    caves accessed through tribal reserves, Long Island's pristine beaches where you might be
+                                    the only footprints in the sand, and Little Andaman's waterfalls cascading into jungle.</p>
+                                <p>Our most memorable moment? Snorkeling at Red Skin Island, a tiny speck of land surrounded
+                                    by crystal-clear water and vibrant coral. With no facilities and limited daily visitors,
+                                    it felt like discovering paradise before the world found out. The marine life—parrotfish,
+                                    sea turtles, rays gliding beneath our fins—reminded us why conservation matters.</p>
+                                <p>A word of wisdom: The Andamans run on island time. Ferries may delay, weather can shift
+                                    plans, and some islands require special permits. Embrace the pace, respect local tribal
+                                    lands, and you'll experience India's most surreal coastal beauty—where the Bay of Bengal
+                                    meets the Andaman Sea in shades of blue you didn't know existed.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Andaman</span>
+                                    <span class="blog-tag">Island Hopping</span>
+                                    <span class="blog-tag">Beaches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article class="blog-card" data-blog="5">
+                        <div class="blog-img" style="background-image: url('./images/locations/spitivalley/spitivalley.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Feb 14, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+                            </div>
+                            <h3>Spiti Valley: Where Earth Meets Sky in Silence</h3>
+                            <p class="blog-excerpt">Journey to India's cold desert, where ancient monasteries cling to
+                                cliffsides, and night skies reveal constellations lost to city lights...</p>
+                            <button class="blog-read-more" data-target="blog-content-5">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-5">
+                                <p>Spiti Valley isn't for everyone. At altitudes exceeding 12,000 feet, oxygen is sparse, roads
+                                    are treacherous, and modern comforts fade into memory. But for those willing to embrace
+                                    discomfort, Spiti offers something increasingly rare: genuine remoteness and spiritual
+                                    quiet.</p>
+                                <p>We spent nine days traversing this high-altitude desert, from Kaza's wind-swept
+                                    headquarters to Hikkim's world's highest post office (yes, we mailed postcards from
+                                    15,000+ feet!). At Key Monastery, 1,000-year-old murals whisper stories of Buddhism's
+                                    journey across Himalayan passes. In Langza, we photographed the giant Buddha statue
+                                    overlooking a valley where fossils from ancient seas lie embedded in rocks—reminders that
+                                    these mountains were once ocean floor.</p>
+                                <p>The highlight? Camping at Chandratal Lake under a star-filled sky so brilliant that the
+                                    Milky Way cast shadows. No phone signal, no electricity, just the universe in full
+                                    display. Spiti strips away the unnecessary, leaving only essentials: breath, warmth,
+                                    wonder. It's not an easy journey, but it's transformative.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Spiti Valley</span>
+                                    <span class="blog-tag">High Altitude</span>
+                                    <span class="blog-tag">Monasteries</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 6 -->
+                    <article class="blog-card" data-blog="6">
+                        <div class="blog-img" style="background-image: url('./images/locations/meghalaya/meghalaya.jpg');">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Feb 9, 2026</span>
+                                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3>Meghalaya's Living Root Bridges: Nature's Architecture</h3>
+                            <p class="blog-excerpt">Trek through cloud forests to witness bioengineering marvels—bridges
+                                grown from living tree roots over centuries by the Khasi tribe...</p>
+                            <button class="blog-read-more" data-target="blog-content-6">
+                                Read More <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="blog-full-content" id="blog-content-6">
+                                <p>Meghalaya means "abode of clouds," and after trekking to Nongriat's double-decker living
+                                    root bridge, we understood why. The descent requires navigating 3,500 stone steps through
+                                    dense jungle where rain is more common than sunshine (Cherrapunji receives some of
+                                    Earth's highest rainfall).</p>
+                                <p>But the destination justifies every slippery step. The bridges—grown over 500+ years by
+                                    training rubber tree roots across rivers—represent bioengineering that predates modern
+                                    architecture. Khasi elders explained how their ancestors anticipated the future,
+                                    planting bridges their great-great-grandchildren would strengthen. Unlike steel or wood,
+                                    these bridges grow stronger with time, able to support 50+ people simultaneously.</p>
+                                <p>Beyond the bridges, Meghalaya astounded us with crystal-clear pools perfect for swimming,
+                                    mist-shrouded valleys that appear and disappear throughout the day, and local homestays
+                                    where hosts serve jadoh (red rice) and teach phrases in Khasi dialect. This is India's
+                                    greenest state, where nature and culture intertwine so seamlessly you can't separate
+                                    them—and shouldn't try.</p>
+                                <div class="blog-tags">
+                                    <span class="blog-tag">Meghalaya</span>
+                                    <span class="blog-tag">Trekking</span>
+                                    <span class="blog-tag">Living Bridges</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section" style="padding-bottom:6rem;">
+            <div class="container">
+                <div class="wide-cta">
+                    <div class="cta-img-bg" style="background-image: url('https://loremflickr.com/1600/900/mountain,adventure');"></div>
+                    <div class="cta-content">
+                        <h2>Ready to write your own story?</h2>
+                        <p style="margin:1.5rem 0 3rem;opacity:0.8;font-size:1.2rem;max-width:500px;">Let us craft an
+                            unforgettable journey tailored to your travel dreams.</p>
+                        <a href="contact.html" class="btn btn-accent">Plan Your Trip</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <h1>REAL TRIP.</h1>
+                    </div>
+                    <p style="opacity:0.5;font-size:0.9rem;line-height:1.8;">Established in the heart of the Himalayas.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h5>Packages</h5>
+                    <ul>
+                        <li><a href="packages.html">All Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="homestays.html">Homestays</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Social</h5>
+                    <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                            rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;font-size:0.75rem;opacity:0.3;">
+                <p>&copy; 2026 REAL TRIP. ALL RIGHTS RESERVED.</p>
+                <div class="legal" style="display:flex;gap:2rem;"><a href="#">PRIVACY</a><a href="#">TERMS</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+        // Blog Read More Toggle
+        document.querySelectorAll('.blog-read-more').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const targetId = e.currentTarget.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const isActive = content.classList.contains('active');
+
+                // Toggle button and content
+                e.currentTarget.classList.toggle('active');
+                content.classList.toggle('active');
+
+                // Change button text
+                e.currentTarget.innerHTML = isActive
+                    ? 'Read More <i class="fa-solid fa-chevron-down"></i>'
+                    : 'Read Less <i class="fa-solid fa-chevron-up"></i>';
+            });
+        });
+    </script>
+</body>
+
+</html>

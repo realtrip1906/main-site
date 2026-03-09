@@ -16,6 +16,7 @@ Real Trip is a boutique travel company dedicated to creating unforgettable, auth
 ## Destinations
 
 ### Himalayan Regions
+
 - **Darjeeling & Offbeat**: Tea gardens, misty mountains, offbeat villages
 - **Silk Route Sikkim**: Historic trading routes, monasteries, mountain passes
 - **North Sikkim**: Alpine landscapes, pristine peaks, sacred sites
@@ -25,10 +26,12 @@ Real Trip is a boutique travel company dedicated to creating unforgettable, auth
 - **Spiti Valley**: Desert mountains, ancient monasteries, silent skies
 
 ### Coastal & Island Destinations
+
 - **Andaman & Nicobar Islands**: Pristine beaches, water activities, island culture
 - **Meghalaya**: Living root bridges, waterfalls, the wettest place on Earth
 
 ### Other Regions
+
 - **Kashmir Valley**: Alpine meadows, houseboats, mountain majesty
 - **Arunachal Pradesh**: Northeast adventures, tribal culture, pristine nature
 - **Dooars**: Tea plantations, wildlife, river valleys
@@ -48,7 +51,7 @@ Real Trip is a boutique travel company dedicated to creating unforgettable, auth
 🎯 **Smooth Navigation** – Anchor links with smart scrolling across sections  
 📱 **Mobile Optimized** – Fully responsive design for all devices  
 🎨 **Modern Design** – Clean aesthetics with smooth animations  
-♿ **Accessible** – WCAG compliant with proper ARIA labels  
+♿ **Accessible** – WCAG compliant with proper ARIA labels
 
 ## Booking Process
 
@@ -62,7 +65,7 @@ Real Trip is a boutique travel company dedicated to creating unforgettable, auth
 📧 **Email**: info@realtrip.in  
 📱 **WhatsApp**: +91-89725-16305  
 🌐 **Website**: [realtrip.in](https://realtrip.in)  
-📍 **Location**: Darjeeling, India  
+📍 **Location**: Darjeeling, India
 
 ## Connect With Us
 
@@ -74,7 +77,7 @@ Real Trip is a boutique travel company dedicated to creating unforgettable, auth
 🏔️ **Local First** – We partner with trusted local guides and homestay hosts  
 🌿 **Responsible Travel** – Mindful journeys that respect the environment  
 🗺️ **Personalized Planning** – Experiences built around your travel style  
-🤝 **Transparent Pricing** – No hidden costs, clear details upfront  
+🤝 **Transparent Pricing** – No hidden costs, clear details upfront
 
 ## Team
 
@@ -88,6 +91,7 @@ Our experienced team consists of mountain experts, travel consultants, and local
 ## Technology
 
 Built with modern web technologies for fast, reliable performance:
+
 - Vite for optimized builds
 - GSAP for smooth animations
 - Font Awesome for icons

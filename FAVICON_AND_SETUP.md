@@ -22,11 +22,12 @@ You have `favicon.ico` in your `/public` folder, which is correctly referenced i
 
 3. **Multiple Favicon Sizes** – Modern browsers use different sizes
    - **Solution**: Add multiple favicon formats to `<head>`:
+
    ```html
-   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
    ```
 
 4. **Favicon Path Issues on Vercel**
@@ -39,7 +40,7 @@ You have `favicon.ico` in your `/public` folder, which is correctly referenced i
 
 Generate a proper favicon set:
 
-1. **Use Online Tool**: 
+1. **Use Online Tool**:
    - Go to https://realfavicongenerator.net/
    - Upload your logo/design
    - Download the package (includes all formats)
@@ -78,6 +79,7 @@ Your current `favicon.ico` will work, but to ensure it displays on all browsers 
 ## Vercel Routing Fix
 
 Your `vercel.json` now includes rewrites for:
+
 - `/packages` → `packages.html`
 - `/homestays` → `homestays.html`
 - `/about` → `about.html`

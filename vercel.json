@@ -23,6 +23,10 @@
       "destination": "/our_gallery.html"
     },
     {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
       "source": "/:path*/",
       "destination": "/:path*/index.html"
     }
