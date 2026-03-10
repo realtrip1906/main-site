@@ -1,7 +1,10 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
     {
       "source": "/packages",
       "destination": "/packages.html"
@@ -25,13 +28,6 @@
     {
       "source": "/blog",
       "destination": "/blog.html"
-    },
-    {
-      "source": "/:path*/",
-      "destination": "/:path*/index.html"
     }
-  ],
-  "env": {
-    "VITE_APP_TITLE": "Real Trip - Curated Travel Experiences"
-  }
+  ]
 }
