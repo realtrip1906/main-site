@@ -29,5 +29,14 @@
       "source": "/blog",
       "destination": "/blog.html"
     }
-  ]
+      ,
+      {
+        "source": "/:path/",
+        "destination": "/:path.html"
+      },
+      {
+        "source": "/:path",
+        "destination": "/:path.html"
+      }
+    ]
 }
