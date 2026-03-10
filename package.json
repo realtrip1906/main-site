@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -R *.html dist/ && cp -R images dist/ && cp -R public dist/ && cp style.css pages.css main.js favicon.ico robots.txt dist/ || true",
+    "build": "vite build && cp -R *.html dist/ && cp -R images dist/ && cp -R public dist/ && cp style.css pages.css main.js favicon.ico robots.txt song.mp3 dist/ || true",
     "preview": "vite preview"
   },
   "devDependencies": {

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Our Curated Expeditions | REAL TRIP</title>
+    <meta name="description"
+        content="View galleries of curated journeys across Darjeeling, Sikkim, Kashmir, Andaman, and more. Explore stunning photography from our expeditions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            border-bottom: 2px solid var(--clr-bg-gray);
+            padding-bottom: 2rem;
+        }
+
+        .gallery-tab {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--clr-text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 3px solid transparent;
+        }
+
+        .gallery-tab:hover {
+            color: var(--clr-primary);
+        }
+
+        .gallery-tab.active {
+            color: var(--clr-primary);
+            border-bottom-color: var(--clr-primary);
+        }
+
+        .gallery-content {
+            display: none;
+        }
+
+        .gallery-content.active {
+            display: block;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            aspect-ratio: 1;
+            background: var(--clr-bg-gray);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .gallery-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .gallery-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="custom-cursor"><span class="cursor-text"></span></div>
+
+    <!-- Navbar -->
+    <nav class="nav-wrapper">
+        <div class="navbar">
+            <div class="logo"><a href="/" aria-label="Realtrip Home">Realtrip</a></div>
+            <div class="nav-links">
+                <a href="/#packages">Packages</a>
+                <a href="/#experiences">Experiences</a>
+                <a href="/#homestays">Homestays</a>
+                <a href="about.html">About Us</a>
+                <a href="blog.html">Blog</a>
+                <a href="/#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <a href="/" aria-label="Realtrip Home">Realtrip</a>
+            </div>
+            <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="/#testimonials">Testimonials</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+
+    <!-- Page Hero -->
+    <header class="page-hero" style="background-image: url('./images/locations/himachal/himachal.jpg');">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content">
+            <span class="text-meta" style="color:var(--clr-accent);">Visual Stories</span>
+            <h1>Our<br>Expeditions.</h1>
+            <p>Explore stunning moments captured from our curated journeys across India's most beautiful destinations.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container gallery-container">
+                <!-- Gallery Tabs -->
+                <div class="gallery-tabs">
+                    <button class="gallery-tab active" data-tab="darjeeling">Darjeeling</button>
+                    <button class="gallery-tab" data-tab="silkroute">Silk Route</button>
+                    <button class="gallery-tab" data-tab="northsikkim">North Sikkim</button>
+                    <button class="gallery-tab" data-tab="westsikkim">West Sikkim</button>
+                    <button class="gallery-tab" data-tab="kashmir">Kashmir</button>
+                    <button class="gallery-tab" data-tab="spiti">Spiti Valley</button>
+                    <button class="gallery-tab" data-tab="himachal">Himachal</button>
+                    <button class="gallery-tab" data-tab="arunachal">Arunachal</button>
+                    <button class="gallery-tab" data-tab="andaman">Andaman</button>
+                    <button class="gallery-tab" data-tab="meghalaya">Meghalaya</button>
+                    <button class="gallery-tab" data-tab="sandakphu">Sandakphu</button>
+                    <button class="gallery-tab" data-tab="dooars">Dooars</button>
+                </div>
+
+                <!-- Gallery Content -->
+                <div id="darjeeling" class="gallery-content active">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/darjeeling/darjeeling.jpg" alt="Darjeeling">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/darjeeling/batasialoop.jpg" alt="Darjeeling">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/darjeeling/ghoommonastry.jpg" alt="Darjeeling">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/darjeeling/miriklake.jpg" alt="Darjeeling">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/darjeeling/tenzingrock.jpg" alt="Darjeeling">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="silkroute" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/silkroute/silkroute.jpg" alt="Silk Route">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/silkroute/abhijit-bala-tLC3b81wF14-unsplash.jpg" alt="Silk Route">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/silkroute/dhruvin-pandya-2CtylGpCLNQ-unsplash.jpg" alt="Silk Route">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/silkroute/dhruvin-pandya-E6b0IJ-mETE-unsplash.jpg" alt="Silk Route">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/silkroute/dhruvin-pandya-Mrp0rnWgFI0-unsplash.jpg" alt="Silk Route">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="northsikkim" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/northsikkim/northsikkim.jpg" alt="North Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/northsikkim/aakanksha-A0vabw8DVx0-unsplash.jpg" alt="North Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/northsikkim/abhishek-singh-xJDJ4PxkHvU-unsplash.jpg" alt="North Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/northsikkim/anshika-7vHDicrPYOI-unsplash.jpg" alt="North Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/northsikkim/bhaskar-agarwal-2LxJQfP40-o-unsplash.jpg" alt="North Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="westsikkim" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/westsikkim/westsikkim.jpg" alt="West Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/westsikkim/pemayangtse-monastery-featured.jpg" alt="West Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/westsikkim/pratap-chhetri-aiWjc9WoWeA-unsplash.jpg" alt="West Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/westsikkim/prodeepta-bera-OyaRMukq4gI-unsplash.jpg" alt="West Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/westsikkim/z-pelling-khecheolpalri.jpg" alt="West Sikkim">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kashmir" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/kashmir/kashmir.jpg" alt="Kashmir">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/kashmir/arif-khan-4hr8MStXT7s-unsplash.jpg" alt="Kashmir">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/kashmir/divya-agrawal-qa8VhqvJGIo-unsplash.jpg" alt="Kashmir">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/kashmir/isa-72GwiojCwoI-unsplash.jpg" alt="Kashmir">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/kashmir/praneet-kumar-H8dcf-v98mA-unsplash.jpg" alt="Kashmir">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="spiti" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/spitivalley/spitivalley.jpg" alt="Spiti Valley">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/spitivalley/bisakha-datta-gdOwnNFZh4k-unsplash.jpg" alt="Spiti Valley">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/spitivalley/parth-viradiya-t-xBaR5iQO8-unsplash.jpg" alt="Spiti Valley">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/spitivalley/rohit-dey-keQTJcO-tvA-unsplash.jpg" alt="Spiti Valley">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/spitivalley/spitivalley.jpg" alt="Spiti Valley">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="himachal" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/himachal/himachal.jpg" alt="Himachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/himachal/mohit-khatri-YdROcw9okMw-unsplash.jpg" alt="Himachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/himachal/rishabh-pandoh-m1PFxGQ-5x0-unsplash.jpg" alt="Himachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/himachal/sajal-das-rc5eyrn5lBU-unsplash.jpg" alt="Himachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/himachal/himachal.jpg" alt="Himachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="arunachal" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/arunachal/arunachal.jpg" alt="Arunachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/arunachal/nagarjun-parthasarathy-Vm4FK5GGo9Q-unsplash.jpg" alt="Arunachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/arunachal/sohan-rayguru-8pg0LoPoGEo-unsplash.jpg" alt="Arunachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/arunachal/unexplored-northeast-gAMDoqWIifs-unsplash.jpg" alt="Arunachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/arunachal/arunachal.jpg" alt="Arunachal">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="andaman" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/andaman/andaman.jpg" alt="Andaman">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/andaman/dileesh-kumar-KbirwZJIq7g-unsplash.jpg" alt="Andaman">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/andaman/smit-shah-8WvGIQmRGLM-unsplash.jpg" alt="Andaman">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/andaman/tatonomusic-1X3YSIuqYeM-unsplash.jpg" alt="Andaman">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/andaman/andaman.jpg" alt="Andaman">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="meghalaya" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/meghalaya/meghalaya.jpg" alt="Meghalaya">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/meghalaya/chirayu-sharma-vwVdJfJelho-unsplash.jpg" alt="Meghalaya">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/meghalaya/nvr-endng-anupam-EUwzrxkJAAY-unsplash.jpg" alt="Meghalaya">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/meghalaya/rasheda-akter-H1j7GqWsfpI-unsplash.jpg" alt="Meghalaya">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/meghalaya/meghalaya.jpg" alt="Meghalaya">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sandakphu" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dooars" class="gallery-content">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="./images/locations/dooars/dooars.jpg" alt="Dooars">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/dooars/boudhayan-bardhan-3pqTIQ1IDP4-unsplash.jpg" alt="Dooars">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/dooars/boudhayan-bardhan-4CIdV3mSGBg-unsplash.jpg" alt="Dooars">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/dooars/boudhayan-bardhan-mtM_wMeNYUA-unsplash.jpg" alt="Dooars">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./images/locations/dooars/boudhayan-bardhan-wulpLo7McHU-unsplash.jpg" alt="Dooars">
+                            <div class="gallery-overlay">
+                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Back -->
+        <section class="section" style="text-align: center;">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Ready to experience these destinations?</h2>
+                <a href="packages.html" class="btn btn-primary">View Our Packages</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <h1>REAL TRIP.</h1>
+                    </div>
+                    <p style="opacity:0.5;font-size:0.9rem;line-height:1.8;">Established in the heart of the Himalayas.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h5>Packages</h5>
+                    <ul>
+                        <li><a href="packages.html">All Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="homestays.html">Homestays</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Social</h5>
+                    <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank"
+                            rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;font-size:0.75rem;opacity:0.3;">
+                <p>&copy; 2026 REAL TRIP. ALL RIGHTS RESERVED.</p>
+                <div class="legal" style="display:flex;gap:2rem;"><a href="#">PRIVACY</a><a href="#">TERMS</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+        // Gallery Tab Switching
+        document.querySelectorAll('.gallery-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const targetTab = e.target.getAttribute('data-tab');
+
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.gallery-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding content
+                e.target.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

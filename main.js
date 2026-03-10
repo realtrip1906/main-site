@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.getElementById("custom-cursor");
   const cursorText = cursor.querySelector(".cursor-text");
 
+  // enable custom cursor only when JS is running and cursor exists
+  if (cursor) {
+    document.body.classList.add("custom-cursor-enabled");
+  }
+
   window.addEventListener("mousemove", (e) => {
     gsap.to(cursor, {
       x: e.clientX,
@@ -658,5 +663,45 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       scrollToSection(window.location.hash, "auto");
     }, 100);
+  }
+
+  // --- Background music (index only) ---
+  const musicToggle = document.getElementById("musicToggle");
+  const bgAudio = document.getElementById("bg-audio");
+  if (musicToggle && bgAudio) {
+    bgAudio.volume = 0.18;
+    let isPlaying = false;
+
+    const setIcon = () => {
+      musicToggle.innerHTML = isPlaying
+        ? '<i class="fa-solid fa-volume-high"></i>'
+        : '<i class="fa-solid fa-music"></i>';
+      musicToggle.classList.toggle("playing", isPlaying);
+    };
+
+    // Attempt autoplay; browsers may block this without user interaction
+    bgAudio.play()
+      .then(() => {
+        isPlaying = true;
+        setIcon();
+      })
+      .catch(() => {
+        isPlaying = false;
+        setIcon();
+      });
+
+    musicToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (isPlaying) {
+        bgAudio.pause();
+        isPlaying = false;
+      } else {
+        bgAudio.play().catch(() => {
+          /* ignore */
+        });
+        isPlaying = true;
+      }
+      setIcon();
+    });
   }
 });
