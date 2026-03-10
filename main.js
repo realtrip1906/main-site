@@ -680,7 +680,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Attempt autoplay; browsers may block this without user interaction
-    bgAudio.play()
+    bgAudio
+      .play()
       .then(() => {
         isPlaying = true;
         setIcon();
