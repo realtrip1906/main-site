@@ -665,10 +665,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
 
-  // --- Background music (index only) ---
+  // --- Background music (global: persists across pages via localStorage) ---
   const musicToggle = document.getElementById("musicToggle");
   const bgAudio = document.getElementById("bg-audio");
   if (musicToggle && bgAudio) {
+    const LS_TIME = "bgAudioTime";
+    const LS_PLAYING = "bgAudioPlaying";
+
     bgAudio.volume = 0.18;
     let isPlaying = false;
 
@@ -679,17 +682,65 @@ document.addEventListener("DOMContentLoaded", () => {
       musicToggle.classList.toggle("playing", isPlaying);
     };
 
-    // Attempt autoplay; browsers may block this without user interaction
-    bgAudio
-      .play()
-      .then(() => {
-        isPlaying = true;
-        setIcon();
-      })
-      .catch(() => {
-        isPlaying = false;
-        setIcon();
-      });
+    // Restore saved playhead position
+    const restoreTime = () => {
+      const saved = parseFloat(localStorage.getItem(LS_TIME) || "0");
+      if (!Number.isNaN(saved) && saved > 0) {
+        bgAudio.currentTime = saved;
+      }
+    };
+
+    const wasPlaying = localStorage.getItem(LS_PLAYING) === "true";
+
+    // Once enough data is available, set time and attempt resume
+    bgAudio.addEventListener(
+      "canplay",
+      () => {
+        restoreTime();
+        if (wasPlaying) {
+          bgAudio
+            .play()
+            .then(() => {
+              isPlaying = true;
+              setIcon();
+            })
+            .catch(() => {
+              isPlaying = false;
+              setIcon();
+            });
+        } else {
+          setIcon();
+        }
+      },
+      { once: true },
+    );
+
+    // If canplay already fired (cached), restore immediately
+    if (bgAudio.readyState >= 3) {
+      restoreTime();
+    }
+
+    // Save time to localStorage every second (throttled)
+    let saveTimer = null;
+    bgAudio.addEventListener("timeupdate", () => {
+      if (saveTimer) return;
+      saveTimer = setTimeout(() => {
+        localStorage.setItem(LS_TIME, String(bgAudio.currentTime || 0));
+        localStorage.setItem(LS_PLAYING, (!bgAudio.paused).toString());
+        saveTimer = null;
+      }, 1000);
+    });
+
+    // Save immediately on page navigation / tab hide
+    const saveNow = () => {
+      localStorage.setItem(LS_TIME, String(bgAudio.currentTime || 0));
+      localStorage.setItem(LS_PLAYING, (!bgAudio.paused).toString());
+    };
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) saveNow();
+    });
+    window.addEventListener("pagehide", saveNow);
+    window.addEventListener("beforeunload", saveNow);
 
     musicToggle.addEventListener("click", (e) => {
       e.preventDefault();
@@ -697,12 +748,11 @@ document.addEventListener("DOMContentLoaded", () => {
         bgAudio.pause();
         isPlaying = false;
       } else {
-        bgAudio.play().catch(() => {
-          /* ignore */
-        });
+        bgAudio.play().catch(() => {});
         isPlaying = true;
       }
       setIcon();
+      saveNow();
     });
   }
 });

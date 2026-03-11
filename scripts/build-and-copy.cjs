@@ -38,7 +38,8 @@ try {
 
   // Copy images and public folders
   copyDir(path.join(root, "images"), path.join(dist, "images"));
-  copyDir(path.join(root, "public"), path.join(dist, "public"));
+  // Copy public/ contents to dist root (so sitemap.xml, etc. are at dist/sitemap.xml)
+  copyDir(path.join(root, "public"), dist);
 
   // Copy key static files
   ["style.css", "pages.css", "favicon.ico", "robots.txt", "song.mp3"].forEach(

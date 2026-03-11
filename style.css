@@ -1465,9 +1465,18 @@ h4 {
     height: auto;
     padding: 2rem;
   }
-  .packages-grid,
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
   .homestays-grid {
     grid-template-columns: 1fr;
+  }
+  .package-img {
+    height: 180px;
+  }
+  .package-info {
+    padding: 1.2rem;
   }
   .packages-header {
     flex-direction: column;

@@ -19,115 +19,122 @@
     <link rel="stylesheet" href="./pages.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <style>
-        .gallery-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .gallery-container { max-width: 1200px; margin: 0 auto; }
 
-        .gallery-tabs {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-            border-bottom: 2px solid var(--clr-bg-gray);
-            padding-bottom: 2rem;
-        }
-
-        .gallery-tab {
-            padding: 0.8rem 1.5rem;
-            background: none;
-            border: none;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--clr-text-muted);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 3px solid transparent;
-        }
-
-        .gallery-tab:hover {
-            color: var(--clr-primary);
-        }
-
-        .gallery-tab.active {
-            color: var(--clr-primary);
-            border-bottom-color: var(--clr-primary);
-        }
-
-        .gallery-content {
-            display: none;
-        }
-
-        .gallery-content.active {
-            display: block;
-        }
-
-        .gallery-grid {
+        /* ── Location Picker (2 col × 6 row) ── */
+        .gallery-loc-section { margin-bottom: 3.5rem; }
+        .gallery-loc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.1rem;
+        }
+        .gallery-loc-btn {
+            position: relative; aspect-ratio: 16 / 7;
+            overflow: hidden; border-radius: 12px;
+            cursor: pointer; border: 3px solid transparent;
+            transition: border-color 0.25s, transform 0.2s;
+            background: var(--clr-bg-gray); padding: 0;
+        }
+        .gallery-loc-btn:hover { transform: scale(1.02); }
+        .gallery-loc-btn.active {
+            border-color: var(--clr-primary);
+            box-shadow: 0 0 0 2px var(--clr-primary);
+        }
+        .gallery-loc-btn img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease; display: block;
+        }
+        .gallery-loc-btn:hover img { transform: scale(1.06); }
+        .gallery-loc-label {
+            position: absolute; inset: 0;
+            display: flex; align-items: flex-end;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(transparent 30%, rgba(0,0,0,0.65));
+            color: #fff; font-weight: 700; font-size: 0.88rem;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            pointer-events: none;
         }
 
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            aspect-ratio: 1;
-            background: var(--clr-bg-gray);
+        /* ── Slider ── */
+        .gallery-slider-header {
+            display: flex; align-items: baseline;
+            justify-content: space-between; margin-bottom: 1.4rem;
+        }
+        .gallery-slider-title {
+            font-size: 1.6rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.04em; margin: 0;
+        }
+        .gallery-slider-counter {
+            font-size: 0.875rem; font-weight: 600;
+            color: var(--clr-text-muted); letter-spacing: 0.05em;
+        }
+        .gallery-slider-wrap { position: relative; user-select: none; }
+        .gallery-slider-viewport {
+            overflow: hidden; border-radius: 16px;
+            aspect-ratio: 4 / 3; background: #111; cursor: zoom-in;
+        }
+        .gallery-slider-track {
+            display: flex; height: 100%;
+            transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+            will-change: transform;
+        }
+        .gallery-slide {
+            flex: 0 0 100%; height: 100%;
+            object-fit: cover; pointer-events: none; -webkit-user-drag: none;
+        }
+        .gallery-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            z-index: 10; width: 48px; height: 48px; border-radius: 50%;
+            border: none; background: rgba(255,255,255,0.92);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            font-size: 1.8rem; line-height: 1; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s, transform 0.2s; color: #111;
+        }
+        .gallery-nav:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
+        .gallery-nav.gallery-prev { left: -22px; }
+        .gallery-nav.gallery-next { right: -22px; }
+        .gallery-progress-bar {
+            height: 3px; background: var(--clr-bg-gray);
+            border-radius: 2px; margin-top: 1.2rem; overflow: hidden;
+        }
+        .gallery-progress-fill {
+            height: 100%; background: var(--clr-primary);
+            border-radius: 2px; transition: width 0.35s ease;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
+        /* ── Lightbox ── */
+        .gallery-lightbox {
+            position: fixed; inset: 0; z-index: 9999;
+            background: rgba(0,0,0,0.95);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
         }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
+        .gallery-lightbox.active { opacity: 1; pointer-events: all; }
+        .gallery-lightbox img {
+            max-width: 92vw; max-height: 90vh;
+            object-fit: contain; border-radius: 4px;
         }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .gallery-lightbox-close {
+            position: absolute; top: 1.2rem; right: 1.2rem;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff; font-size: 1.2rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
         }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay-icon {
-            font-size: 2rem;
-            color: white;
-        }
+        .gallery-lightbox-close:hover { background: rgba(255,255,255,0.2); }
 
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .gallery-tabs {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .gallery-tab {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
+            .gallery-loc-grid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+            .gallery-loc-btn { aspect-ratio: 4 / 3; }
+            .gallery-loc-label { font-size: 0.7rem; padding: 0.4rem 0.6rem; }
+            .gallery-nav { width: 36px; height: 36px; font-size: 1.3rem; }
+            .gallery-nav.gallery-prev { left: 6px; background: rgba(255,255,255,0.75); }
+            .gallery-nav.gallery-next { right: 6px; background: rgba(255,255,255,0.75); }
+            .gallery-slider-title { font-size: 1.2rem; }
+            .gallery-slider-viewport { aspect-ratio: 1 / 1; }
         }
     </style>
 </head>
@@ -188,504 +195,100 @@
         </div>
     </header>
 
-    <main>
-        <section class="section">
-            <div class="container gallery-container">
-                <!-- Gallery Tabs -->
-                <div class="gallery-tabs">
-                    <button class="gallery-tab active" data-tab="darjeeling">Darjeeling</button>
-                    <button class="gallery-tab" data-tab="silkroute">Silk Route</button>
-                    <button class="gallery-tab" data-tab="northsikkim">North Sikkim</button>
-                    <button class="gallery-tab" data-tab="westsikkim">West Sikkim</button>
-                    <button class="gallery-tab" data-tab="kashmir">Kashmir</button>
-                    <button class="gallery-tab" data-tab="spiti">Spiti Valley</button>
-                    <button class="gallery-tab" data-tab="himachal">Himachal</button>
-                    <button class="gallery-tab" data-tab="arunachal">Arunachal</button>
-                    <button class="gallery-tab" data-tab="andaman">Andaman</button>
-                    <button class="gallery-tab" data-tab="meghalaya">Meghalaya</button>
-                    <button class="gallery-tab" data-tab="sandakphu">Sandakphu</button>
-                    <button class="gallery-tab" data-tab="dooars">Dooars</button>
-                </div>
+        <main>
+            <section class="section">
+                <div class="container gallery-container">
 
-                <!-- Gallery Content -->
-                <div id="darjeeling" class="gallery-content active">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/darjeeling.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/batasialoop.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/ghoommonastry.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/miriklake.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/tenzingrock.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/darjeelingzoo.webp" alt="Darjeeling Zoo">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/dji_mimo_20240702_133512_93_1719983460358_photo.jpg" alt="Darjeeling Drone">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/IMG_20240702_121720534_HDR.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/IMG_20250727_123900474.jpg" alt="Darjeeling">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/darjeeling/Rainbow Waterfalls.jpg" alt="Rainbow Waterfalls">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
+                    <!-- Location Picker: 2 col × 6 row -->
+                    <div class="gallery-loc-section">
+                        <p class="text-meta" style="margin-bottom:1.4rem;">Choose a destination</p>
+                        <div class="gallery-loc-grid">
+                            <button class="gallery-loc-btn active" data-loc="darjeeling">
+                                <img src="./images/locations/darjeeling/darjeeling.jpg" alt="Darjeeling" loading="lazy">
+                                <span class="gallery-loc-label">Darjeeling</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="silkroute">
+                                <img src="./images/locations/silkroute/silkroute.jpg" alt="Silk Route" loading="lazy">
+                                <span class="gallery-loc-label">Silk Route</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="northsikkim">
+                                <img src="./images/locations/northsikkim/northsikkim.jpg" alt="North Sikkim" loading="lazy">
+                                <span class="gallery-loc-label">North Sikkim</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="westsikkim">
+                                <img src="./images/locations/westsikkim/westsikkim.jpg" alt="West Sikkim" loading="lazy">
+                                <span class="gallery-loc-label">West Sikkim</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="kashmir">
+                                <img src="./images/locations/kashmir/kashmir.jpg" alt="Kashmir" loading="lazy">
+                                <span class="gallery-loc-label">Kashmir</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="spiti">
+                                <img src="./images/locations/spitivalley/spitivalley.jpg" alt="Spiti Valley" loading="lazy">
+                                <span class="gallery-loc-label">Spiti Valley</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="himachal">
+                                <img src="./images/locations/himachal/himachal.jpg" alt="Himachal" loading="lazy">
+                                <span class="gallery-loc-label">Himachal</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="arunachal">
+                                <img src="./images/locations/arunachal/arunachal.jpg" alt="Arunachal Pradesh" loading="lazy">
+                                <span class="gallery-loc-label">Arunachal Pradesh</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="andaman">
+                                <img src="./images/locations/andaman/andaman.jpg" alt="Andaman" loading="lazy">
+                                <span class="gallery-loc-label">Andaman</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="meghalaya">
+                                <img src="./images/locations/meghalaya/meghalaya.jpg" alt="Meghalaya" loading="lazy">
+                                <span class="gallery-loc-label">Meghalaya</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="sandakphu">
+                                <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu Trek" loading="lazy">
+                                <span class="gallery-loc-label">Sandakphu</span>
+                            </button>
+                            <button class="gallery-loc-btn" data-loc="dooars">
+                                <img src="./images/locations/dooars/dooars.jpg" alt="Dooars" loading="lazy">
+                                <span class="gallery-loc-label">Dooars</span>
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <div id="silkroute" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/silkroute/silkroute.jpg" alt="Silk Route">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
+                    <!-- Slider -->
+                    <div class="gallery-slider-section">
+                        <div class="gallery-slider-header">
+                            <h3 class="gallery-slider-title" id="galleryTitle">Darjeeling</h3>
+                            <span class="gallery-slider-counter" id="galleryCounter">1 / 21</span>
                         </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/silkroute/abhijit-bala-tLC3b81wF14-unsplash.jpg" alt="Silk Route">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                        <div class="gallery-slider-wrap">
+                            <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous photo">&#8249;</button>
+                            <div class="gallery-slider-viewport" id="galleryViewport">
+                                <div class="gallery-slider-track" id="galleryTrack"></div>
                             </div>
+                            <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next photo">&#8250;</button>
                         </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/silkroute/dhruvin-pandya-2CtylGpCLNQ-unsplash.jpg" alt="Silk Route">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/silkroute/dhruvin-pandya-E6b0IJ-mETE-unsplash.jpg" alt="Silk Route">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/silkroute/dhruvin-pandya-Mrp0rnWgFI0-unsplash.jpg" alt="Silk Route">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
+                        <div class="gallery-progress-bar">
+                            <div class="gallery-progress-fill" id="galleryProgress"></div>
                         </div>
                     </div>
-                </div>
 
-                <div id="northsikkim" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/northsikkim/northsikkim.jpg" alt="North Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/northsikkim/aakanksha-A0vabw8DVx0-unsplash.jpg" alt="North Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/northsikkim/abhishek-singh-xJDJ4PxkHvU-unsplash.jpg" alt="North Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/northsikkim/anshika-7vHDicrPYOI-unsplash.jpg" alt="North Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/northsikkim/bhaskar-agarwal-2LxJQfP40-o-unsplash.jpg" alt="North Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </section>
 
-                <div id="westsikkim" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/westsikkim/westsikkim.jpg" alt="West Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/westsikkim/pemayangtse-monastery-featured.jpg" alt="West Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/westsikkim/pratap-chhetri-aiWjc9WoWeA-unsplash.jpg" alt="West Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/westsikkim/prodeepta-bera-OyaRMukq4gI-unsplash.jpg" alt="West Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/westsikkim/z-pelling-khecheolpalri.jpg" alt="West Sikkim">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="kashmir" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/kashmir.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/arif-khan-4hr8MStXT7s-unsplash.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/divya-agrawal-qa8VhqvJGIo-unsplash.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/isa-72GwiojCwoI-unsplash.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/praneet-kumar-H8dcf-v98mA-unsplash.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/IMG_20240909_075623962_AE.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/IMG_20240910_111054219.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/kashmir/IMG_20240911_133913541_AE.jpg" alt="Kashmir">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="spiti" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/spitivalley/spitivalley.jpg" alt="Spiti Valley">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/spitivalley/bisakha-datta-gdOwnNFZh4k-unsplash.jpg" alt="Spiti Valley">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/spitivalley/parth-viradiya-t-xBaR5iQO8-unsplash.jpg" alt="Spiti Valley">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/spitivalley/rohit-dey-keQTJcO-tvA-unsplash.jpg" alt="Spiti Valley">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/spitivalley/spitivalley.jpg" alt="Spiti Valley">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="himachal" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/himachal/himachal.jpg" alt="Himachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/himachal/mohit-khatri-YdROcw9okMw-unsplash.jpg" alt="Himachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/himachal/rishabh-pandoh-m1PFxGQ-5x0-unsplash.jpg" alt="Himachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/himachal/sajal-das-rc5eyrn5lBU-unsplash.jpg" alt="Himachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/himachal/himachal.jpg" alt="Himachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="arunachal" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/arunachal/arunachal.jpg" alt="Arunachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/arunachal/nagarjun-parthasarathy-Vm4FK5GGo9Q-unsplash.jpg" alt="Arunachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/arunachal/sohan-rayguru-8pg0LoPoGEo-unsplash.jpg" alt="Arunachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/arunachal/unexplored-northeast-gAMDoqWIifs-unsplash.jpg" alt="Arunachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/arunachal/arunachal.jpg" alt="Arunachal">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="andaman" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/andaman/andaman.jpg" alt="Andaman">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/andaman/dileesh-kumar-KbirwZJIq7g-unsplash.jpg" alt="Andaman">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/andaman/smit-shah-8WvGIQmRGLM-unsplash.jpg" alt="Andaman">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/andaman/tatonomusic-1X3YSIuqYeM-unsplash.jpg" alt="Andaman">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/andaman/andaman.jpg" alt="Andaman">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="meghalaya" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/meghalaya/meghalaya.jpg" alt="Meghalaya">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/meghalaya/chirayu-sharma-vwVdJfJelho-unsplash.jpg" alt="Meghalaya">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/meghalaya/nvr-endng-anupam-EUwzrxkJAAY-unsplash.jpg" alt="Meghalaya">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/meghalaya/rasheda-akter-H1j7GqWsfpI-unsplash.jpg" alt="Meghalaya">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/meghalaya/meghalaya.jpg" alt="Meghalaya">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="sandakphu" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/sandakfu/sandakfu.jpg" alt="Sandakphu">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="dooars" class="gallery-content">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="./images/locations/dooars/dooars.jpg" alt="Dooars">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/dooars/boudhayan-bardhan-3pqTIQ1IDP4-unsplash.jpg" alt="Dooars">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/dooars/boudhayan-bardhan-4CIdV3mSGBg-unsplash.jpg" alt="Dooars">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/dooars/boudhayan-bardhan-mtM_wMeNYUA-unsplash.jpg" alt="Dooars">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="./images/locations/dooars/boudhayan-bardhan-wulpLo7McHU-unsplash.jpg" alt="Dooars">
-                            <div class="gallery-overlay">
-                                <i class="fa-solid fa-expand gallery-overlay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Lightbox -->
+            <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+                <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Close lightbox">&#10005;</button>
+                <img src="" alt="" id="galleryLightboxImg">
             </div>
-        </section>
 
-        <!-- CTA Back -->
-        <section class="section" style="text-align: center;">
-            <div class="container">
-                <h2 style="margin-bottom: 2rem;">Ready to experience these destinations?</h2>
-                <a href="packages.html" class="btn btn-primary">View Our Packages</a>
-            </div>
-        </section>
-    </main>
+            <!-- CTA -->
+            <section class="section" style="text-align:center;">
+                <div class="container">
+                    <h2 style="margin-bottom:2rem;">Ready to experience these destinations?</h2>
+                    <a href="packages.html" class="btn btn-primary">View Our Packages</a>
+                </div>
+            </section>
+        </main>
 
     <footer class="site-footer">
         <div class="container">
@@ -731,21 +334,137 @@
     </footer>
 
     <script type="module" src="/main.js"></script>
+    <!-- Background Music (global) -->
+    <audio id="bg-audio" src="/song.mp3" loop preload="auto" playsinline></audio>
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
+        <i class="fa-solid fa-music"></i>
+    </button>
     <script>
-        // Gallery Tab Switching
-        document.querySelectorAll('.gallery-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                const targetTab = e.target.getAttribute('data-tab');
+    (function () {
+        var BASE = "./images/locations";
+        var galleryData = {
+            darjeeling: { label: "Darjeeling", folder: "darjeeling",
+                images: ["darjeeling.jpg","image (1).jpg","image (1).webp","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg","image (10).jpg","image (11).jpg","image (12).jpg","image (13).jpg","image (14).jpg","image (15).jpg","image (16).jpg","image (17).jpg","image (18).jpg","image (19).jpg"] },
+            silkroute: { label: "Silk Route", folder: "silkroute",
+                images: ["silkroute.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg","image (10).jpg","image (11).jpg"] },
+            northsikkim: { label: "North Sikkim", folder: "northsikkim",
+                images: ["northsikkim.jpg","image (1).jpg","image (3).jpg","image (4).jpg","image (6).jpg","image (7).jpg","image (8).jpg"] },
+            westsikkim: { label: "West Sikkim", folder: "westsikkim",
+                images: ["westsikkim.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg"] },
+            kashmir: { label: "Kashmir", folder: "kashmir",
+                images: ["kashmir.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg"] },
+            spiti: { label: "Spiti Valley", folder: "spitivalley",
+                images: ["spitivalley.jpg","image (1).jpg","image (2).jpg","image (3).jpg"] },
+            himachal: { label: "Himachal", folder: "himachal",
+                images: ["himachal.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg","image (10).jpg","image (11).jpg","image (12).jpg","image (13).jpg","image (14).jpg","image (15).jpg","image (16).jpg","image (17).jpg","image (18).jpg","image (19).jpg","image (20).jpg","image (21).jpg","image (22).jpg","image (23).jpg"] },
+            arunachal: { label: "Arunachal Pradesh", folder: "arunachal",
+                images: ["arunachal.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg"] },
+            andaman: { label: "Andaman", folder: "andaman",
+                images: ["andaman.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg","image (10).jpg"] },
+            meghalaya: { label: "Meghalaya", folder: "meghalaya",
+                images: ["meghalaya.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg","image (6).jpg","image (7).jpg","image (8).jpg","image (9).jpg","image (10).jpg"] },
+            sandakphu: { label: "Sandakphu", folder: "sandakfu",
+                images: ["sandakfu.jpg","image (1).jpg","image (2).jpg","image (3).jpg"] },
+            dooars: { label: "Dooars", folder: "dooars",
+                images: ["dooars.jpg","image (1).jpg","image (2).jpg","image (3).jpg","image (4).jpg","image (5).jpg"] }
+        };
 
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.gallery-content').forEach(c => c.classList.remove('active'));
+        var track       = document.getElementById("galleryTrack");
+        var titleEl     = document.getElementById("galleryTitle");
+        var counterEl   = document.getElementById("galleryCounter");
+        var progressFill = document.getElementById("galleryProgress");
+        var prevBtn     = document.getElementById("galleryPrev");
+        var nextBtn     = document.getElementById("galleryNext");
+        var viewport    = document.getElementById("galleryViewport");
+        var lightbox    = document.getElementById("galleryLightbox");
+        var lightboxImg = document.getElementById("galleryLightboxImg");
+        var lightboxClose = document.getElementById("galleryLightboxClose");
+        var currentIndex = 0;
+        var images = [];
 
-                // Add active class to clicked tab and corresponding content
-                e.target.classList.add('active');
-                document.getElementById(targetTab).classList.add('active');
+        function imgSrc(folder, filename) {
+            return BASE + "/" + folder + "/" + encodeURIComponent(filename);
+        }
+
+        function loadLocation(loc) {
+            var data = galleryData[loc];
+            if (!data) return;
+            currentIndex = 0;
+            images = data.images.map(function(f) { return imgSrc(data.folder, f); });
+            track.innerHTML = "";
+            track.style.transition = "none";
+            track.style.transform = "translateX(0)";
+            images.forEach(function(src, i) {
+                var img = document.createElement("img");
+                img.className = "gallery-slide";
+                img.src = src;
+                img.alt = data.label + " \u2013 photo " + (i + 1);
+                img.loading = i < 3 ? "eager" : "lazy";
+                img.addEventListener("click", function() { openLightbox(i); });
+                track.appendChild(img);
+            });
+            titleEl.textContent = data.label;
+            requestAnimationFrame(function() {
+                track.style.transition = "";
+                updateUI();
+            });
+        }
+
+        function goTo(idx) {
+            var total = images.length;
+            currentIndex = ((idx % total) + total) % total;
+            updateUI();
+        }
+
+        function updateUI() {
+            var total = images.length;
+            track.style.transform = "translateX(-" + (currentIndex * 100) + "%)";
+            counterEl.textContent = (currentIndex + 1) + " / " + total;
+            progressFill.style.width = ((currentIndex + 1) / total * 100) + "%";
+        }
+
+        function openLightbox(idx) {
+            lightboxImg.src = images[idx];
+            lightboxImg.alt = titleEl.textContent + " \u2013 photo " + (idx + 1);
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".gallery-loc-btn").forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                document.querySelectorAll(".gallery-loc-btn").forEach(function(b) { b.classList.remove("active"); });
+                btn.classList.add("active");
+                loadLocation(btn.dataset.loc);
+                document.querySelector(".gallery-slider-section").scrollIntoView({ behavior: "smooth", block: "nearest" });
             });
         });
+
+        prevBtn.addEventListener("click", function() { goTo(currentIndex - 1); });
+        nextBtn.addEventListener("click", function() { goTo(currentIndex + 1); });
+
+        document.addEventListener("keydown", function(e) {
+            if (lightbox.classList.contains("active")) { if (e.key === "Escape") closeLightbox(); return; }
+            if (e.key === "ArrowLeft")  goTo(currentIndex - 1);
+            if (e.key === "ArrowRight") goTo(currentIndex + 1);
+        });
+
+        var touchStartX = 0;
+        viewport.addEventListener("touchstart", function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+        viewport.addEventListener("touchend", function(e) {
+            var diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) goTo(currentIndex + (diff > 0 ? 1 : -1));
+        }, { passive: true });
+
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", function(e) { if (e.target === lightbox) closeLightbox(); });
+
+        loadLocation("darjeeling");
+    })();
     </script>
 </body>
 

@@ -269,7 +269,12 @@
             if (sel) sel.value = pkg;
         }
     </script>
-    <script type="module" src="/main.js"></script>
+        <!-- Background Music (global) -->
+        <audio id="bg-audio" src="/song.mp3" loop preload="auto" playsinline></audio>
+        <button id="musicToggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
+            <i class="fa-solid fa-music"></i>
+        </button>
+        <script type="module" src="/main.js"></script>
 </body>
 
 </html>
