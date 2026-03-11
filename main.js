@@ -554,6 +554,16 @@ document.addEventListener("DOMContentLoaded", () => {
   floatingActions.className = "floating-actions";
   floatingActions.innerHTML = `
     <a
+      href="https://www.instagram.com/realtrip.in"
+      class="floating-btn instagram"
+      target="_blank"
+      rel="noopener"
+      aria-label="Visit our Instagram"
+      title="Instagram"
+    >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a
       href="https://wa.me/918972516305?text=Hi%20Real%20Trip%2C%20I%20want%20to%20plan%20a%20trip."
       class="floating-btn whatsapp"
       target="_blank"
