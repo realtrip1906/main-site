@@ -755,4 +755,51 @@ document.addEventListener("DOMContentLoaded", () => {
       saveNow();
     });
   }
+
+  // --- 10. Prevent image download and dragging (practical deterrent) ---
+  (function () {
+    // disable right-click on images
+    document.addEventListener(
+      "contextmenu",
+      function (e) {
+        if (e.target && e.target.tagName === "IMG") e.preventDefault();
+      },
+      false,
+    );
+
+    // prevent dragstart on existing images
+    document.querySelectorAll("img").forEach((img) => {
+      img.setAttribute("draggable", "false");
+      img.addEventListener("dragstart", (ev) => ev.preventDefault());
+      img.addEventListener("contextmenu", (ev) => ev.preventDefault());
+    });
+
+    // observe DOM for newly added images (e.g., lazy loaders)
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => {
+        m.addedNodes.forEach((node) => {
+          try {
+            if (!node) return;
+            if (node.tagName === "IMG") {
+              node.setAttribute("draggable", "false");
+              node.addEventListener("dragstart", (ev) => ev.preventDefault());
+              node.addEventListener("contextmenu", (ev) => ev.preventDefault());
+            } else if (node.querySelectorAll) {
+              node.querySelectorAll("img").forEach((img) => {
+                img.setAttribute("draggable", "false");
+                img.addEventListener("dragstart", (ev) => ev.preventDefault());
+                img.addEventListener("contextmenu", (ev) =>
+                  ev.preventDefault(),
+                );
+              });
+            }
+          } catch (err) {
+            // ignore
+          }
+        });
+      });
+    });
+
+    mo.observe(document.body, { childList: true, subtree: true });
+  })();
 });
