@@ -26,9 +26,10 @@
 
     /* Wide CTA: video fills the entire block as background; content sits above */
     .wide-cta { position: relative; overflow: hidden; }
-    .wide-cta .cta-img-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; }
-    .wide-cta .cta-img-bg .media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .wide-cta .cta-content { position: relative; z-index: 1; padding: 2rem; background: transparent; }
+    .wide-cta .cta-img-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; overflow: hidden; border-radius: inherit; }
+    .wide-cta .cta-img-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.52); z-index: 1; }
+    .wide-cta .cta-img-bg .media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .wide-cta .cta-content { position: relative; z-index: 2; padding: 2rem; background: transparent; }
 
     /* Ensure a sensible height on small screens */
     .wide-cta { min-height: 260px; }
@@ -58,7 +59,7 @@
   <nav class="nav-wrapper">
     <div class="navbar">
       <div class="logo">
-        <a href="/" aria-label="Realtrip Home">Realtrip</a>
+        <a href="/" aria-label="Realtrip Home">Realtrip.</a>
       </div>
       <div class="nav-links">
         <a href="#packages">Packages</a>

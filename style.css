@@ -680,6 +680,13 @@ h4 {
   width: 100%;
   overflow: hidden;
   position: relative;
+  cursor: grab; /* Drag affordance for native horizontal slider */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.slider-container::-webkit-scrollbar {
+  display: none; /* Chromium */
 }
 
 .gsap-track {
@@ -765,6 +772,10 @@ h4 {
   z-index: 2;
 }
 
+.slider-container.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
 /* --- Follow Our Journey Redesign --- */
 .journey-header {
   text-align: center;
@@ -839,7 +850,6 @@ h4 {
 
 /* --- Talk to Expert / Newsletter --- */
 .wide-cta {
-  background: linear-gradient(45deg, var(--clr-primary), #0a192f);
   border-radius: var(--radius-lg);
   padding: 5rem;
   display: flex;
@@ -848,18 +858,42 @@ h4 {
   color: var(--clr-white);
   overflow: hidden;
   position: relative;
+  background: var(--clr-primary); /* fallback when video hasn't loaded */
 }
 
 .cta-img-bg {
   position: absolute;
-  right: -100px;
-  top: -100px;
-  width: 600px;
-  height: 600px;
-  background: url("https://images.unsplash.com/photo-1544634076-a1ea280385bf?auto=format&fit=crop&q=80")
-    center/cover;
-  opacity: 0.1;
-  border-radius: 50%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Dark scrim so text stays legible over the video */
+.cta-img-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  z-index: 1;
+}
+
+.cta-img-bg video,
+.cta-img-bg .media-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Ensure content sits above the video and scrim across all pages */
+.wide-cta .cta-content {
+  position: relative;
+  z-index: 2;
 }
 
 .newsletter-panel {
@@ -894,6 +928,12 @@ h4 {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 4rem;
+}
+
+/* Drivers grid — 4 cols, wraps naturally for 7 cards */
+.drivers-grid {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 0;
 }
 
 .face-card {

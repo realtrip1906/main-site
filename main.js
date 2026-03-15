@@ -82,42 +82,201 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.querySelector(".experience-progress-bar");
 
   if (experiencesTrack) {
-    const cards = gsap.utils.toArray(".experience-card");
+    // Use native horizontal scrolling inside the track's container.
+    // When the user scrolls (wheel/trackpad) while the pointer is over the section,
+    // convert vertical wheel delta to horizontal scroll so the section scrolls horizontally
+    // but otherwise the page scroll behaves normally.
+    const slider = experiencesTrack;
+    const sliderContainer =
+      slider.closest(".slider-container") || slider.parentElement;
 
-    gsap.to(cards, {
-      x: () => -(experiencesTrack.scrollWidth - window.innerWidth),
-      ease: "none",
-      scrollTrigger: {
-        id: "experiences",
-        trigger: "#experiences",
-        pin: true,
-        scrub: 1,
-        start: "top top",
-        end: () => "+=" + experiencesTrack.scrollWidth,
-        onUpdate: (self) => {
-          if (progressBar) {
-            gsap.set(progressBar, { width: self.progress * 100 + "%" });
+    // Ensure the container allows horizontal overflow
+    if (sliderContainer) {
+      sliderContainer.style.overflowX = "auto";
+      sliderContainer.style.overflowY = "hidden";
+      sliderContainer.style.webkitOverflowScrolling = "touch";
+
+      // Shared eased scroll target (wheel + keyboard share this value)
+      let _targetScrollLeft = 0;
+      const _sliderMaxScroll = () =>
+        Math.max(0, sliderContainer.scrollWidth - sliderContainer.clientWidth);
+
+      // Wheel -> horizontal GSAP-eased scroll while pointer is inside the container
+      sliderContainer.addEventListener(
+        "wheel",
+        (e) => {
+          // Only convert when there's a vertical delta
+          if (Math.abs(e.deltaY) > 0) {
+            e.preventDefault();
+            _targetScrollLeft = Math.max(
+              0,
+              Math.min(_sliderMaxScroll(), _targetScrollLeft + e.deltaY),
+            );
+            gsap.to(sliderContainer, {
+              scrollLeft: _targetScrollLeft,
+              duration: 0.5,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
           }
         },
-      },
-    });
+        { passive: false },
+      );
 
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 768px)", () => {
-      cards.forEach((card) => {
-        gsap.to(card, {
-          backgroundPosition: "70% 50%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: "left right",
-            end: "right left",
-            scrub: true,
-            containerAnimation: gsap.getById("experiences"),
-          },
-        });
+      // Update progress bar based on horizontal scroll
+      const updateProgress = () => {
+        if (!progressBar) return;
+        const max = Math.max(
+          0,
+          slider.scrollWidth - sliderContainer.clientWidth,
+        );
+        const pct = max === 0 ? 0 : sliderContainer.scrollLeft / max;
+        progressBar.style.width = Math.min(100, Math.max(0, pct * 100)) + "%";
+      };
+
+      sliderContainer.addEventListener("scroll", updateProgress, {
+        passive: true,
       });
-    });
+      // initial update
+      setTimeout(updateProgress, 100);
+
+      // make slider focusable for keyboard navigation
+      try {
+        sliderContainer.setAttribute("tabindex", "0");
+      } catch (err) {}
+
+      // --- Drag-to-scroll (pointer) ---
+      let isDown = false;
+      let startX = 0;
+      let scrollLeftStart = 0;
+      let activePointerId = null;
+
+      sliderContainer.addEventListener("pointerdown", (e) => {
+        isDown = true;
+        activePointerId = e.pointerId;
+        try {
+          sliderContainer.setPointerCapture(activePointerId);
+        } catch (err) {}
+        sliderContainer.classList.add("dragging");
+        startX = e.clientX;
+        scrollLeftStart = sliderContainer.scrollLeft;
+      });
+
+      sliderContainer.addEventListener("pointermove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.clientX;
+        const walk = startX - x;
+        sliderContainer.scrollLeft = scrollLeftStart + walk;
+      });
+
+      const endDrag = (e) => {
+        if (!isDown) return;
+        isDown = false;
+        try {
+          sliderContainer.releasePointerCapture(activePointerId);
+        } catch (err) {}
+        _targetScrollLeft = sliderContainer.scrollLeft; // sync eased target with dragged position
+        sliderContainer.classList.remove("dragging");
+      };
+
+      sliderContainer.addEventListener("pointerup", endDrag);
+      sliderContainer.addEventListener("pointercancel", endDrag);
+      sliderContainer.addEventListener("mouseleave", endDrag);
+
+      // --- Keyboard navigation (when focused or hovered) ---
+      let isPointerOver = false;
+      sliderContainer.addEventListener(
+        "mouseenter",
+        () => (isPointerOver = true),
+      );
+      sliderContainer.addEventListener(
+        "mouseleave",
+        () => (isPointerOver = false),
+      );
+
+      document.addEventListener("keydown", (e) => {
+        const active =
+          document.activeElement === sliderContainer || isPointerOver;
+        if (!active) return;
+        const step = Math.round(sliderContainer.clientWidth * 0.5);
+        if (e.key === "ArrowRight" || e.key === "Right") {
+          e.preventDefault();
+          _targetScrollLeft = Math.min(
+            _sliderMaxScroll(),
+            _targetScrollLeft + step,
+          );
+          gsap.to(sliderContainer, {
+            scrollLeft: _targetScrollLeft,
+            duration: 0.65,
+            ease: "power2.inOut",
+            overwrite: "auto",
+          });
+        } else if (e.key === "ArrowLeft" || e.key === "Left") {
+          e.preventDefault();
+          _targetScrollLeft = Math.max(0, _targetScrollLeft - step);
+          gsap.to(sliderContainer, {
+            scrollLeft: _targetScrollLeft,
+            duration: 0.65,
+            ease: "power2.inOut",
+            overwrite: "auto",
+          });
+        }
+      });
+
+      // --- GSAP per-card parallax using container as scroller ---
+      try {
+        const cards = gsap.utils.toArray(".experience-card");
+        const mmParallax = gsap.matchMedia();
+        mmParallax.add("(min-width: 768px)", () => {
+          cards.forEach((card) => {
+            gsap.to(card, {
+              backgroundPosition: "70% 50%",
+              ease: "none",
+              scrollTrigger: {
+                scroller: sliderContainer,
+                trigger: card,
+                start: "left center",
+                end: "right center",
+                scrub: true,
+              },
+            });
+          });
+        });
+      } catch (err) {
+        // ignore if ScrollTrigger setup fails
+      }
+
+      // --- Card h3 text fade-reveal horizontally (slides in from right on enter) ---
+      try {
+        const expCards = gsap.utils.toArray(".experience-card");
+        expCards.forEach((card) => {
+          const h3 = card.querySelector("h3");
+          if (h3) gsap.set(h3, { opacity: 0, x: 50 });
+        });
+        const textRevealObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const h3 = entry.target.querySelector("h3");
+              if (!h3) return;
+              if (entry.isIntersecting) {
+                gsap.to(h3, {
+                  opacity: 1,
+                  x: 0,
+                  duration: 0.55,
+                  ease: "power2.out",
+                  clearProps: "transform",
+                });
+              } else {
+                gsap.set(h3, { opacity: 0, x: 50 });
+              }
+            });
+          },
+          { root: sliderContainer, threshold: 0.35 },
+        );
+        expCards.forEach((card) => textRevealObs.observe(card));
+      } catch (err) {}
+    }
   }
 
   // --- 5. Journey Path Drawing ---
