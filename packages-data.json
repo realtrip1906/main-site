@@ -1,0 +1,263 @@
+{
+  "packages": [
+    {
+      "id": "darjeeling",
+      "title": "Darjeeling",
+      "region": "West Bengal",
+      "price": "5,500",
+      "duration": "3D/2N",
+      "image": "./images/locations/darjeeling/darjeeling.jpg",
+      "description": "Nestled in the foothills of the Eastern Himalayas, Darjeeling is one of India's most loved hill stations. Known as the Queen of Hills, it offers breathtaking views of Mt. Kanchenjunga, rolling tea gardens, colonial charm, and the spectacular sunrise from Tiger Hill. Perfect for family vacations, honeymoon trips, and relaxing hill getaways.",
+      "includes": [
+        "Accommodation (Standard/Deluxe)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride"
+      ]
+    },
+    {
+      "id": "darjeeling-offbeat",
+      "title": "Darjeeling Offbeat",
+      "region": "West Bengal",
+      "price": "4,500",
+      "duration": "3D/2N",
+      "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
+      "description": "Darjeeling Offbeat destinations like Sittong and Lepchajagat offer a peaceful escape away from crowded tourist spots. Surrounded by pine forests, orange orchards, tea gardens, and panoramic Himalayan views, these hidden gems are perfect for travelers seeking silence, nature, and authentic village experiences.",
+      "includes": [
+        "Homestay accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride"
+      ]
+    },
+    {
+      "id": "silk-route",
+      "title": "Silk Route",
+      "region": "Sikkim",
+      "price": "5,200",
+      "duration": "4D/3N",
+      "image": "./images/locations/silkroute/silkroute.jpg",
+      "description": "Experience the legendary Silk Route through Sikkim's high-altitude passes, picturesque villages, and ancient monasteries. A true adventure for trekkers and culture enthusiasts.",
+      "includes": [
+        "Homestay accommodation",
+        "Lunch, Dinner, Snacks & Breakfast",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry fees & Parking",
+        "Cab Permit (~₹1000/cab)",
+        "Nathula Pass Permit (optional)"
+      ]
+    },
+    {
+      "id": "west-sikkim",
+      "title": "West Sikkim",
+      "region": "Sikkim",
+      "price": "7,400",
+      "duration": "4D/3N",
+      "image": "./images/locations/westsikkim/westsikkim.jpg",
+      "description": "Explore the stunning western regions of Sikkim with emerald lakes, sacred monasteries, and panoramic mountain vistas.",
+      "includes": [
+        "Hotel accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Adventure activities",
+        "Namchi sightseeing"
+      ]
+    },
+    {
+      "id": "north-sikkim",
+      "title": "North Sikkim",
+      "region": "Sikkim",
+      "price": "9,400",
+      "duration": "5D/4N",
+      "image": "./images/locations/northsikkim/northsikkim.jpg",
+      "description": "Journey to the roof of North Sikkim, visiting sacred lakes like Gurudongmar and Yumthang Valley surrounded by pristine alpine meadows.",
+      "includes": [
+        "Hotel & Homestay accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Extra food not in package",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Kala Patthar visit",
+        "Zero Point & Mt. Katao"
+      ]
+    },
+    {
+      "id": "kalimpong-offbeat",
+      "title": "Kalimpong Offbeat",
+      "region": "West Bengal",
+      "price": "4,200",
+      "duration": "3D/2N",
+      "image": "./images/locations/kalimpong/kalimpong.jpg",
+      "description": "Discover the lesser-known villages of Kalimpong region with tea gardens, pine forests, and breathtaking mountain views.",
+      "includes": [
+        "Homestay accommodation",
+        "Breakfast, Lunch, Snacks & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride"
+      ]
+    },
+    {
+      "id": "arunachal",
+      "title": "Arunachal Pradesh – Tawang",
+      "region": "Arunachal Pradesh",
+      "price": "15,300",
+      "duration": "6D/5N",
+      "image": "./images/locations/arunachal/arunachal.jpg",
+      "description": "Trek to the mystical Tawang monastery and experience the last frontier's untouched beauty, pristine lakes, and warm hospitality.",
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Snow activities",
+        "Gongker La Lake (extra day)"
+      ]
+    },
+    {
+      "id": "himachal",
+      "title": "Himachal Pradesh – Shimla Manali",
+      "region": "Himachal Pradesh",
+      "price": "11,000",
+      "duration": "5D/4N",
+      "image": "./images/locations/himachal/himachal.jpg",
+      "description": "Experience the colonial charm of Shimla and the adventure capital of Manali with scenic mountain passes and alpine beauty.",
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater, BBQ, Parking charges",
+        "Rohtang Pass & snow activities",
+        "Manikaran & Kullu activities"
+      ]
+    },
+    {
+      "id": "spiti",
+      "title": "Spiti Valley",
+      "region": "Himachal Pradesh",
+      "price": "19,500",
+      "duration": "9D/8N",
+      "image": "./images/locations/spitivalley/spitivalley.jpg",
+      "description": "Explore the world's highest desert with ancient monasteries, pristine lakes, and villages untouched by time in the magical Spiti Valley.",
+      "includes": [
+        "Accommodation",
+        "Breakfast & Dinner",
+        "Transportation",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Lunch",
+        "Room heater, BBQ, Parking charges",
+        "Rohtang Pass charges",
+        "Snow activities & Rafting"
+      ]
+    },
+    {
+      "id": "kashmir",
+      "title": "Kashmir",
+      "region": "Jammu & Kashmir",
+      "price": "13,000",
+      "duration": "6D/5N",
+      "image": "./images/locations/kashmir/kashmir.jpg",
+      "description": "Discover the valley of paradise with stunning lakes, snow-capped peaks, and the legendary Himalayan hospitality of Kashmir.",
+      "includes": [
+        "Accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Adventure activities"
+      ]
+    },
+    {
+      "id": "andaman",
+      "title": "Andaman & Nicobar",
+      "region": "Andaman & Nicobar",
+      "price": "17,300",
+      "duration": "6D/5N",
+      "image": "./images/locations/andaman/andaman.jpg",
+      "description": "Experience tropical paradise with pristine beaches, crystal-clear waters, and water sports in the enchanting Andaman Islands.",
+      "includes": [
+        "Accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Adventure activities"
+      ]
+    },
+    {
+      "id": "dooars",
+      "title": "Dooars",
+      "region": "West Bengal",
+      "price": "4,600",
+      "duration": "3D/2N",
+      "image": "./images/locations/dooars/dooars.jpg",
+      "description": "Explore the wilderness of Dooars with lush forests, tea gardens, and unique wildlife in this offbeat destination.",
+      "includes": [
+        "Accommodation",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab",
+        "All sightseeing as per itinerary"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry & Parking fees",
+        "Adventure activities"
+      ]
+    }
+  ]
+}

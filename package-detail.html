@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Package Details | REAL TRIP</title>
+    <meta id="page-description" name="description"
+        content="Browse Real Trip travel packages with detailed itineraries and pricing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pages.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body>
+    <div id="custom-cursor"><span class="cursor-text">DRAG</span></div>
+
+    <!-- Navbar -->
+    <nav class="nav-wrapper">
+        <div class="navbar">
+            <div class="logo"><a href="/" aria-label="Realtrip Home">Realtrip</a></div>
+            <div class="nav-links">
+                <a href="/#packages">Packages</a>
+                <a href="/#experiences">Experiences</a>
+                <a href="/#homestays">Homestays</a>
+                <a href="about.html">About Us</a>
+                <a href="blog.html">Blog</a>
+                <a href="/#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="packages.html" class="btn btn-primary">View All</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <a href="/" aria-label="Realtrip Home">Realtrip</a>
+            </div>
+            <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="/#packages">Packages</a>
+            <a href="/#experiences">Experiences</a>
+            <a href="/#homestays">Homestays</a>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="/#testimonials">Testimonials</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="packages.html" class="btn btn-primary">View All</a>
+    </div>
+
+    <!-- Page Hero -->
+    <header id="pkg-hero" class="page-hero" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content">
+            <span class="text-meta" style="color:var(--clr-accent);">Curated Journey</span>
+            <h1 id="pkg-hero-title">Package Details</h1>
+            <p id="pkg-hero-desc">Discover your perfect adventure.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Package Details Section -->
+        <section class="section">
+            <div class="container">
+                <div class="package-detail-card">
+                    <div id="pkg-image" class="pkg-img"
+                        style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');"></div>
+                    <div class="pkg-body">
+                        <div class="pkg-top">
+                            <div>
+                                <span id="pkg-region-label" class="pkg-region">West Bengal</span>
+                                <h2 id="pkg-title-main">Package Title</h2>
+                            </div>
+                            <div class="pkg-meta-badge">
+                                <div id="pkg-pricing" class="price-tag">
+                                    <div style="font-size: 0.85rem; opacity: 0.55; text-decoration: line-through;">₹<span id="pkg-original-price">6,200</span></div>
+                                    <div style="font-weight: 700; font-size: 1.2rem; color: var(--clr-accent);">₹<span id="pkg-price">5,500</span><small>/person</small></div>
+                                    <div id="pkg-discount" style="font-size: 0.8rem; color: #1f7a1f; font-weight: 600;">10% OFF</div>
+                                </div>
+                                <span style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+                                    <strong id="pkg-duration">3D/2N</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="package-overview">
+                            <p id="pkg-description">Loading package description...</p>
+                        </div>
+
+                        <!-- Expanded Package Snapshot -->
+                        <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(102, 126, 234, 0.1); border-radius: var(--radius-md);">
+                            <h4 style="margin-bottom: 1rem;">Full Package Snapshot</h4>
+                            <ul id="pkg-highlights" style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;"></ul>
+                        </div>
+
+                        <!-- Inclusions & Exclusions -->
+                        <h4 style="margin-bottom: 1rem;">Complete Package Details</h4>
+                        <div class="pkg-details">
+                            <div class="pkg-col">
+                                <h4>✅ Includes</h4>
+                                <ul id="pkg-includes"></ul>
+                            </div>
+                            <div class="pkg-col">
+                                <h4>❌ Excludes</h4>
+                                <ul id="pkg-excludes"></ul>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                            <a id="book-btn" href="#" class="btn btn-accent" style="flex: 1; min-width: 150px; text-align: center; padding: 1rem 2rem; font-weight: 600;">Book This Package</a>
+                            <a href="packages.html" class="btn btn-outline-primary" style="flex: 1; min-width: 150px; text-align: center; padding: 1rem 2rem; font-weight: 600;">Back to All Packages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Packages Section -->
+        <section class="section" style="background: rgba(102, 126, 234, 0.05); border-radius: var(--radius-lg); margin: 4rem 0;">
+            <div class="container">
+                <h2 style="margin-bottom: 3rem; text-align: center;">Explore More<br>Packages</h2>
+                <div id="related-packages" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                    <!-- Related packages will be populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <h1>REAL TRIP.</h1>
+                    </div>
+                    <p style="opacity:0.5;font-size:0.9rem;line-height:1.8;">Established in the heart of the Himalayas.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Packages</h5>
+                    <ul>
+                        <li><a href="packages.html">All Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Social</h5>
+                    <div class="socials" style="display:flex;gap:1.5rem;margin-top:1rem;">
+                        <a href="https://www.instagram.com/realtrip.in?igsh=bzVsN3B3eGNxcWlp" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1By9Z88wsp/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;font-size:0.75rem;opacity:0.3;">
+                <p>&copy; 2026 REAL TRIP. ALL RIGHTS RESERVED.</p>
+                <div class="legal" style="display:flex;gap:2rem;"><a href="#">PRIVACY</a><a href="#">TERMS</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Background Music (global) -->
+    <audio id="bg-audio" src="/song.mp3" loop preload="auto" playsinline></audio>
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <script>
+        // Fetch package data and render dynamically
+        async function loadPackageDetail() {
+            try {
+                // Get package ID from URL query params
+                const params = new URLSearchParams(window.location.search);
+                const packageId = params.get('id');
+
+                if (!packageId) {
+                    document.body.innerHTML = '<div style="padding: 4rem; text-align: center;"><h1>Package not found</h1><p><a href="packages.html">Back to packages</a></p></div>';
+                    return;
+                }
+
+                // Fetch packages data
+                const response = await fetch('./packages-data.json');
+                const data = await response.json();
+                const pkg = data.packages.find(p => p.id === packageId);
+                const toNumberPrice = (value) => {
+                    const cleaned = String(value ?? '').replace(/[^\d.]/g, '');
+                    const parsed = Number(cleaned);
+                    return Number.isFinite(parsed) ? parsed : 0;
+                };
+                const formatPrice = (value) => toNumberPrice(value).toLocaleString('en-IN');
+                const getDiscountPercent = (id) => 8 + (id.length % 5); // 8% to 12% visual offer band
+
+                if (!pkg) {
+                    document.body.innerHTML = '<div style="padding: 4rem; text-align: center;"><h1>Package not found</h1><p><a href="packages.html">Back to packages</a></p></div>';
+                    return;
+                }
+
+                // Update page title and meta
+                document.title = `${pkg.title} | REAL TRIP`;
+                document.getElementById('page-description').setAttribute('content', `${pkg.title} package - ${pkg.duration} at ₹${pkg.price}/person. ${pkg.description}`);
+
+                // Update hero header
+                document.getElementById('pkg-hero').style.backgroundImage = `url('${pkg.image}')`;
+                document.getElementById('pkg-hero-title').textContent = pkg.title;
+                document.getElementById('pkg-hero-desc').textContent = `${pkg.region} · ${pkg.duration}`;
+
+                // Update main content
+                document.getElementById('pkg-image').style.backgroundImage = `url('${pkg.image}')`;
+                document.getElementById('pkg-region-label').textContent = pkg.region;
+                document.getElementById('pkg-title-main').textContent = pkg.title;
+                const discountedPrice = toNumberPrice(pkg.price);
+                const discountPercent = getDiscountPercent(pkg.id);
+                const originalPrice = Math.ceil((discountedPrice / (1 - discountPercent / 100)) / 100) * 100;
+                document.getElementById('pkg-price').textContent = formatPrice(discountedPrice);
+                document.getElementById('pkg-original-price').textContent = formatPrice(originalPrice);
+                document.getElementById('pkg-discount').textContent = `${discountPercent}% OFF`;
+                document.getElementById('pkg-duration').textContent = pkg.duration;
+                document.getElementById('pkg-description').textContent = pkg.description;
+
+                // Populate full snapshot (expanded, not truncated)
+                const highlightsList = document.getElementById('pkg-highlights');
+                highlightsList.innerHTML = '';
+                pkg.includes.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span style="margin-right: 0.5rem; color: var(--clr-accent);">✓</span>${item}`;
+                    li.style.background = 'rgba(255,255,255,0.75)';
+                    li.style.padding = '0.55rem 0.75rem';
+                    li.style.borderRadius = '10px';
+                    highlightsList.appendChild(li);
+                });
+
+                // Populate includes/excludes
+                document.getElementById('pkg-includes').innerHTML = pkg.includes.map(item => `<li>• ${item}</li>`).join('');
+                document.getElementById('pkg-excludes').innerHTML = pkg.excludes.map(item => `<li>• ${item}</li>`).join('');
+
+                // Update book button
+                document.getElementById('book-btn').href = `contact.html?package=${packageId}`;
+
+                // Populate related packages (show 3 random packages, excluding current)
+                const relatedPkgs = data.packages.filter(p => p.id !== packageId).sort(() => Math.random() - 0.5).slice(0, 3);
+                const relatedContainer = document.getElementById('related-packages');
+                relatedPkgs.forEach(relPkg => {
+                    const relatedDiscountedPrice = toNumberPrice(relPkg.price);
+                    const relatedDiscountPercent = getDiscountPercent(relPkg.id);
+                    const relatedOriginalPrice = Math.ceil((relatedDiscountedPrice / (1 - relatedDiscountPercent / 100)) / 100) * 100;
+
+                    const card = document.createElement('div');
+                    card.style.cssText = 'background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s ease;';
+                    card.innerHTML = `
+                        <div style="background-image: url('${relPkg.image}'); background-size: cover; background-position: center; height: 160px;"></div>
+                        <div style="padding: 1.5rem;">
+                            <h4 style="margin: 0.5rem 0; font-size: 1rem;">${relPkg.title}</h4>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0;">${relPkg.region} · ${relPkg.duration}</p>
+                            <p style="font-size: 0.78rem; opacity: 0.5; text-decoration: line-through; margin: 0.1rem 0;">₹${formatPrice(relatedOriginalPrice)}</p>
+                            <p style="font-weight: 600; color: var(--clr-accent); margin: 0.2rem 0;">₹${formatPrice(relatedDiscountedPrice)}/person</p>
+                            <p style="font-size: 0.75rem; color: #1f7a1f; font-weight: 600; margin: 0.1rem 0 0.4rem;">${relatedDiscountPercent}% OFF</p>
+                            <a href="package-detail.html?id=${relPkg.id}" style="display: inline-block; margin-top: 0.5rem; color: var(--clr-primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">View Details →</a>
+                        </div>
+                    `;
+                    card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-4px)');
+                    card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
+                    relatedContainer.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading package:', error);
+                document.body.innerHTML = '<div style="padding: 4rem; text-align: center;"><h1>Error loading package</h1><p><a href="packages.html">Back to packages</a></p></div>';
+            }
+        }
+
+        // Load on page ready
+        document.addEventListener('DOMContentLoaded', loadPackageDetail);
+    </script>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -135,8 +135,12 @@
                                 <textarea id="message" name="message" rows="5"
                                     placeholder="Tell us about your dream trip..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary"
-                                style="width:100%;justify-content:center;padding:1.4rem;">Send My Enquiry</button>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="flex: 1; justify-content: center; padding: 1.4rem; min-width: 150px;">Send via Email</button>
+                                <button type="button" id="whatsapp-send" class="btn btn-outline-primary"
+                                    style="flex: 1; justify-content: center; padding: 1.4rem; min-width: 150px; background: #25D366; color: white; border: none;">Send via WhatsApp</button>
+                            </div>
                         </form>
                     </div>
 
@@ -268,6 +272,72 @@
             const sel = document.getElementById('package');
             if (sel) sel.value = pkg;
         }
+    </script>
+    
+    <script>
+        // WhatsApp integration for contact form
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappBtn = document.getElementById('whatsapp-send');
+            const enquiryForm = document.querySelector('form');
+            
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const packageSelect = document.getElementById('package').value;
+                    const travelDate = document.getElementById('travel-date').value;
+                    const travelers = document.getElementById('travelers').value;
+                    const message = document.getElementById('message').value.trim();
+                    
+                    // Validate required fields
+                    if (!name || !phone) {
+                        alert('Please fill in Name and Phone number');
+                        return;
+                    }
+                    
+                    // Build package name
+                    let packageName = 'Custom Itinerary';
+                    if (packageSelect) {
+                        const packageOptions = {
+                            'darjeeling': 'Darjeeling (₹5,500)',
+                            'darjeeling-offbeat': 'Darjeeling Offbeat (₹4,500)',
+                            'silk-route': 'Silk Route (₹5,200)',
+                            'west-sikkim': 'West Sikkim (₹7,400)',
+                            'north-sikkim': 'North Sikkim (₹9,400)',
+                            'kalimpong-offbeat': 'Kalimpong Offbeat (₹4,200)',
+                            'arunachal': 'Arunachal Pradesh – Tawang (₹15,300)',
+                            'himachal': 'Himachal Pradesh – Shimla Manali (₹11,000)',
+                            'spiti': 'Spiti Valley (₹19,500)',
+                            'kashmir': 'Kashmir (₹13,000)',
+                            'andaman': 'Andaman & Nicobar (₹17,300)',
+                            'dooars': 'Dooars (₹4,600)'
+                        };
+                        packageName = packageOptions[packageSelect] || packageSelect;
+                    }
+                    
+                    // Format WhatsApp message
+                    let whatsappMessage = `Hi Real Trip!%0A%0A`;
+                    whatsappMessage += `I'm interested in booking: ${packageName}%0A`;
+                    whatsappMessage += `Name: ${encodeURIComponent(name)}%0A`;
+                    whatsappMessage += `Email: ${encodeURIComponent(email)}%0A`;
+                    whatsappMessage += `Phone: ${phone}%0A`;
+                    if (travelers) whatsappMessage += `Travelers: ${travelers}%0A`;
+                    if (travelDate) whatsappMessage += `Travel Date: ${travelDate}%0A`;
+                    if (message) whatsappMessage += `Special Requests: ${encodeURIComponent(message)}%0A`;
+                    
+                    // WhatsApp API link (using first number)
+                    const phoneNumber = '918972516305'; // +91 89725 16305 (formatted for WhatsApp)
+                    const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+                    
+                    // Open WhatsApp
+                    window.open(whatsappLink, '_blank');
+                });
+            }
+        });
     </script>
         <!-- Background Music (global) -->
         <audio id="bg-audio" src="/song.mp3" loop preload="auto" playsinline></audio>
