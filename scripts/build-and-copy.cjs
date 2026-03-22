@@ -49,6 +49,16 @@ try {
     },
   );
 
+  // Copy root JSON data files (e.g., packages-data.json) so built HTML can fetch them
+  for (const f of fs.readdirSync(root)) {
+    if (
+      f.endsWith(".json") &&
+      !["package.json", "package-lock.json"].includes(f)
+    ) {
+      copyFile(path.join(root, f), path.join(dist, f));
+    }
+  }
+
   // Copy built main JS and CSS to stable filenames so old HTML pages can reference them
   if (fs.existsSync(assets)) {
     const assetFiles = fs.readdirSync(assets);
