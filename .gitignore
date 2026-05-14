@@ -25,3 +25,4 @@ dist-ssr
 .hintrc
 .website_content_schema.txt
 .real_trip_website_schema.json
+website_content_schema.json
