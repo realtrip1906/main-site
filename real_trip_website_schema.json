@@ -9,7 +9,8 @@
         "Accommodation (Standard/Deluxe)",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -21,7 +22,8 @@
         "Adventure activities",
         "Ropeway ride",
         "Toy Train ride"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Darjeeling Offbeat",
@@ -32,7 +34,8 @@
         "Homestay accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -44,7 +47,8 @@
         "Adventure activities",
         "Ropeway ride",
         "Toy Train ride"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Silk Route",
@@ -55,7 +59,8 @@
         "Homestay accommodation",
         "Lunch, Dinner, Evening Snacks & Breakfast",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -67,9 +72,10 @@
         "Adventure activities",
         "Ropeway ride",
         "Toy Train ride",
-        "Cab Permit (~\u20b91000 per cab)",
+        "Cab Permit (~₹1000 per cab)",
         "Nathula Pass Permit (optional)"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "West Sikkim",
@@ -80,7 +86,8 @@
         "Hotel accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -93,7 +100,8 @@
         "Ropeway ride",
         "Toy Train ride",
         "Namchi sightseeing"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "North Sikkim",
@@ -104,7 +112,8 @@
         "Hotel & Homestay accommodation",
         "Breakfast, Lunch & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Extra food not mentioned in package",
@@ -114,7 +123,8 @@
         "Entry fees",
         "Kala Patthar visit",
         "Zero Point & Mt. Katao"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Kalimpong Offbeat",
@@ -125,7 +135,8 @@
         "Homestay accommodation",
         "Breakfast, Lunch, Evening Snacks & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -137,7 +148,8 @@
         "Adventure activities",
         "Ropeway ride",
         "Toy Train ride"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Arunachal Pradesh (Tawang)",
@@ -148,7 +160,8 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
@@ -158,7 +171,8 @@
         "Entry fees",
         "Snow activities",
         "Gongker La Lake (extra day required)"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Himachal Pradesh (Shimla-Manali)",
@@ -169,7 +183,8 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
@@ -181,7 +196,8 @@
         "Snow activities",
         "Manikaran",
         "Activities in Kullu"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Spiti Valley",
@@ -192,7 +208,8 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
@@ -203,7 +220,8 @@
         "Rohtang Pass charges",
         "Snow activities",
         "Rafting"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Kashmir",
@@ -213,9 +231,10 @@
       "includes": [
         "Accommodation",
         "Breakfast & Dinner",
-        "1\u2011hour Shikara Ride",
+        "1‑hour Shikara Ride",
         "Transportation (pickup, drop & day trips)",
-        "Srinagar local sightseeing"
+        "Srinagar local sightseeing",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
@@ -228,7 +247,8 @@
         "Gondola ride",
         "ATV / pony rides",
         "Pahalgam local taxi"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Andaman & Nicobar Islands",
@@ -239,7 +259,8 @@
         "Deluxe accommodation",
         "Daily breakfast & dinner",
         "Personal cab / transfers",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -248,7 +269,8 @@
         "BBQ charges",
         "Entry fees",
         "Water sports activities"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     },
     {
       "name": "Dooars",
@@ -259,7 +281,8 @@
         "Accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food",
@@ -269,7 +292,8 @@
         "Parking charges",
         "Entry fees",
         "Adventure activities"
-      ]
+      ],
+      "min_persons": "Minimum 6 persons"
     }
   ]
 }

@@ -175,7 +175,11 @@
                     const briefDesc = pkg.description.split('.')[0].substring(0, 100) + (pkg.description.split('.')[0].length > 100 ? '...' : '.');
                     
                     card.innerHTML = `
-                        <div style="background-image: url('${pkg.image}'); background-size: cover; background-position: center; height: 200px;"></div>
+                        <div style="background-image: url('${pkg.image}'); background-size: cover; background-position: center; height: 200px; position: relative;">
+                            <span style="position: absolute; top: 12px; left: 12px; background: rgba(10,25,47,0.78); backdrop-filter: blur(4px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.65rem; border-radius: 6px; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 5px;">
+                                <i class="fa-solid fa-users" style="color: var(--clr-accent);"></i>Min. 6 Persons
+                            </span>
+                        </div>
                         <div style="padding: 1.5rem;">
                             <span style="font-size: 0.8rem; color: var(--clr-accent); font-weight: 600; text-transform: uppercase;">${pkg.region}</span>
                             <h3 style="margin: 0.5rem 0 1rem; font-size: 1.2rem; font-family: var(--font-display);">${pkg.title}</h3>
@@ -186,7 +190,7 @@
                                     <p style="margin: 0; font-weight: 600; color: var(--clr-text);">${pkg.duration}</p>
                                 </div>
                                 <div style="text-align: right;">
-                                    <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">/person</p>
+                                    <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">/person <span style="font-size: 0.72rem; color: var(--clr-primary); font-weight: 600;">(Min. 6)</span></p>
                                     <p style="margin: 0; font-size: 0.8rem; opacity: 0.5; text-decoration: line-through;">₹${formatPrice(originalPrice)}</p>
                                     <p style="margin: 0; font-weight: 700; font-size: 1.3rem; color: var(--clr-accent);">₹${formatPrice(discountedPrice)}</p>
                                     <p style="margin: 0.2rem 0 0; font-size: 0.75rem; color: #1f7a1f; font-weight: 600;">${discountPercent}% OFF</p>

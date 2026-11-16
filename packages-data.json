@@ -12,7 +12,8 @@
         "Accommodation (Standard/Deluxe)",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
@@ -20,7 +21,8 @@
         "Parking & Entry fees",
         "Adventure activities",
         "Ropeway & Toy Train ride"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "darjeeling-offbeat",
@@ -34,7 +36,8 @@
         "Homestay accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
@@ -42,7 +45,220 @@
         "Parking & Entry fees",
         "Adventure activities",
         "Ropeway & Toy Train ride"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
+    },
+    {
+      "id": "darjeeling-2n3d",
+      "title": "Darjeeling 2N3D Tour",
+      "region": "West Bengal",
+      "price": "5,500",
+      "duration": "3D/2N",
+      "image": "./images/locations/darjeeling/darjeeling.jpg",
+      "description": "Classic Darjeeling experience: pickup from NJP/Siliguri, scenic drive via Kurseong Road, Rohini View Point and Dowhill. Day 2 optional Tiger Hill sunrise, Batasia Loop, Japanese Temple, Peace Pagoda, and Darjeeling mix point sightseeing. Day 3 return via Mirik — Mirik Lake, Gopaldhara Tea Garden, Simana View Point.",
+      "itinerary": [
+        "Day 1: NJP/Siliguri pickup → Kurseong Road → Rohini View Point → Dowhill → Darjeeling (Lunch & Dinner)",
+        "Day 2: Optional Tiger Hill Sunrise (extra cost) → Batasia Loop → Japanese Temple → Peace Pagoda → Darjeeling Mix Point Sightseeing (Zoo, HMI, Tenzing Rock, Ropeway, Tea Garden, Ghum Monastery). Night stay Darjeeling.",
+        "Day 3: Breakfast → Mirik Sightseeing (Mirik Lake, Gopaldhara Tea Garden, Simana View Point, Nepal Border, Lepchajagat) → NJP/Siliguri drop."
+      ],
+      "highlights": [
+        "Darjeeling Mix Point: Batasia Loop, Ghum Monastery, Peace Pagoda, Japanese Temple, Zoo, HMI, Tenzing Rock, Ropeway, Tea Garden",
+        "Mirik: Mirik Lake, Gopaldhara Tea Estate, Nepal Border, Simana View Point, Lepchajagat",
+        "Rock Garden & Ganga Maiya Park not included"
+      ],
+      "includes": [
+        "Accommodation (Standard/Deluxe)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride",
+        "Tiger Hill (extra cost)"
+      ],
+      "childPolicy": [
+        "Below 5 years – No charge",
+        "5–8 years – Chargeable with special discount (except main city stays)",
+        "Above 8 years – Fully chargeable"
+      ],
+      "minPersons": "Min. 6 Persons"
+    },
+    {
+      "id": "darjeeling-offbeat-sittong",
+      "title": "Offbeat Darjeeling – Sittong",
+      "region": "West Bengal",
+      "price": "4,500",
+      "duration": "3D/2N",
+      "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
+      "description": "Escape to Sittong, the famous Orange Village — a peaceful offbeat destination near Darjeeling. Surrounded by orange orchards, tea gardens, and wide Himalayan views. Perfect for those seeking silence, nature, and authentic village experiences.",
+      "itinerary": [
+        "Day 1: NJP pickup → Sittong Homestay via Kurseong Road → Dowhill → Hanuman Tok → Gidda Pahar → Maldhiram Tea Garden. Lunch, snacks & dinner at Sittong.",
+        "Day 2: Breakfast → Sittong local sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden. Lunch, snacks & dinner at Sittong.",
+        "Day 3: Breakfast → Checkout → Jogighat Bridge → Lepcha Monastery → Mongpo Rabindra Museum → NJP drop."
+      ],
+      "highlights": [
+        "Ahaldhara View Point",
+        "Namthing Pokhri",
+        "Orange Garden",
+        "Jogighat Bridge & Lepcha Monastery",
+        "Mongpo Rabindra Museum"
+      ],
+      "includes": [
+        "Homestay accommodation",
+        "Breakfast, Lunch, Evening Snacks & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure / activity charges",
+        "Ropeway & Toy Train ride"
+      ],
+      "childPolicy": [
+        "Below 5 years – No charge",
+        "5–8 years – Chargeable with special discount",
+        "Above 8 years – Fully chargeable"
+      ],
+      "minPersons": "Min. 6 Persons"
+    },
+    {
+      "id": "darjeeling-offbeat-3n4d",
+      "title": "Darjeeling & Offbeat 3N4D",
+      "region": "West Bengal",
+      "price": "7,200",
+      "duration": "4D/3N",
+      "image": "./images/locations/darjeeling/darjeeling.jpg",
+      "description": "The best of both worlds — start with the peaceful orange village of Sittong, then move to the iconic Queen of Hills, Darjeeling. Return via scenic Mirik with its lake, tea gardens and Nepal border views.",
+      "itinerary": [
+        "Day 1: NJP/Siliguri → Sittong via Lathpanchar Monastery, Ahaldhara View Point, Namthing Pokhri. Night stay at Sittong Homestay.",
+        "Day 2: Breakfast → Darjeeling via Jogighat Bridge, Mongpo, Lover's Meet View Point, Peshok Tea Garden, Lamahatta Eco Park. Night stay Darjeeling.",
+        "Day 3: Optional Tiger Hill Sunrise (extra cost) → Batasia Loop → Japanese Temple → Peace Pagoda → Darjeeling Mix Point Sightseeing (Zoo, Tenzing Rock, Ropeway, Tea Garden, Ghum Monastery). Night stay Darjeeling.",
+        "Day 4: Breakfast → Mirik Sightseeing (Mirik Lake, Lepchajagat, Simana View Point, Pashupati Market, Nepal Border, Gopaldhara Tea Garden) → NJP/Siliguri drop."
+      ],
+      "highlights": [
+        "Lathpanchar Monastery",
+        "Namthing Pokhri & Ahaldhara View Point",
+        "Peshok Tea Garden & Lamahatta Eco Park",
+        "Darjeeling Mix Point Sightseeing",
+        "Mirik Lake & Nepal Border",
+        "Rock Garden & Ganga Maiya Park not included"
+      ],
+      "includes": [
+        "Accommodation (Homestay + Hotel)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride",
+        "Tiger Hill (extra cost)"
+      ],
+      "childPolicy": [
+        "Below 5 years – No charge",
+        "5–8 years – Chargeable with special discount (except main city stays)",
+        "Above 8 years – Fully chargeable"
+      ],
+      "minPersons": "Min. 6 Persons"
+    },
+    {
+      "id": "darjeeling-offbeat-4n5d",
+      "title": "Darjeeling & Offbeat 4N5D",
+      "region": "West Bengal",
+      "price": "9,800",
+      "duration": "5D/4N",
+      "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
+      "description": "Four nights of Himalayan magic — from the peaceful Sittong orange village to Darjeeling's iconic viewpoints, then winding down through Lepchajagat's pine forests to the Mirik lake loop before heading home.",
+      "itinerary": [
+        "Day 1: NJP/Siliguri → Sittong via Ahaldhara View Point, Namthing Pokhri, Lathpanchar Monastery. Night stay Sittong.",
+        "Day 2: Breakfast → Darjeeling via Kurseong Road, Maldhiram Tea Garden, Hanuman Tok, Dowhill. Night stay Darjeeling.",
+        "Day 3: Optional Tiger Hill Sunrise (extra cost) → Batasia Loop → Ghum Monastery → Japanese Temple → Peace Pagoda → Zoo & HMI → Tenzing Rock → Ropeway → Tea Garden. Rock Garden & Ganga Maiya Park not included. Night stay Darjeeling.",
+        "Day 4: Breakfast → Lepchajagat via Lamahatta Eco Park, Gumbadara View Point, Peshok Tea Garden. Night stay Lepchajagat.",
+        "Day 5: Breakfast → Mirik Lake → Gopaldhara Tea Garden → Pashupati Market → Nepal Border → Simana View Point → NJP/Siliguri drop."
+      ],
+      "highlights": [
+        "Sittong: Ahaldhara, Namthing Pokhri, Lathpanchar Monastery",
+        "Darjeeling: Full Mix Point Sightseeing",
+        "Lepchajagat: Pine forests, Gumbadara, Peshok Tea Garden",
+        "Mirik: Mirik Lake, Nepal Border, Gopaldhara Tea Estate"
+      ],
+      "includes": [
+        "Accommodation (Homestay + Hotel)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Entry fees & parking charges",
+        "Ropeway, Toy Train & activities",
+        "Tiger Hill (extra cost)"
+      ],
+      "childPolicy": [
+        "Below 5 years – No charge",
+        "5–8 years – Chargeable with special discount",
+        "Above 8 years – Fully chargeable"
+      ],
+      "minPersons": "Min. 6 Persons"
+    },
+    {
+      "id": "darjeeling-offbeat-5n6d",
+      "title": "Darjeeling & Offbeat 5N6D",
+      "region": "West Bengal",
+      "price": "12,500",
+      "duration": "6D/5N",
+      "image": "./images/locations/darjeeling/darjeeling.jpg",
+      "description": "The ultimate offbeat Darjeeling circuit — covering Kalimpong, Sittong, Tinchuley and Darjeeling, ending with the Mirik loop. Perfect for travellers who want to experience the full range of West Bengal's mountain destinations.",
+      "itinerary": [
+        "Day 1: NJP/Siliguri → Ramdhura via Kalimpong local sightseeing (Hanuman Tok, Buddha Statue, Delo Park, Science City Museum). Lunch & dinner at homestay. Night stay Ramdhura.",
+        "Day 2: Breakfast → Sittong via local sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden. Night stay Sittong.",
+        "Day 3: Breakfast → Tinchuley via Jogighat Bridge, Mongpo Rabindra Bhawan, Lover's Meet View Point, Gumbadara View Point. Night stay Tinchuley.",
+        "Day 4: Breakfast → Darjeeling via Lamahatta Eco Park, Dali Monastery. Night stay Darjeeling.",
+        "Day 5: Optional Tiger Hill Sunrise (extra cost) → Batasia Loop → Japanese Temple → Peace Pagoda → Darjeeling Mix Point Sightseeing (Zoo, HMI, Tenzing Rock, Ropeway, Tea Garden, Ghum Monastery). Night stay Darjeeling.",
+        "Day 6: Breakfast → Mirik Sightseeing (Mirik Lake, Simana View Point, Gopaldhara Tea Garden) → NJP/Siliguri drop."
+      ],
+      "highlights": [
+        "Kalimpong: Hanuman Tok, Buddha Statue, Delo Park",
+        "Sittong: Ahaldhara View Point, Namthing Pokhri, Orange Garden",
+        "Tinchuley: Gumbadara View Point, Mongpo Rabindra Bhawan",
+        "Darjeeling: Mix Point Sightseeing",
+        "Mirik: Mirik Lake, Simana View Point, Gopaldhara Tea Estate"
+      ],
+      "includes": [
+        "Accommodation (Homestay + Hotel)",
+        "Breakfast, Lunch & Dinner",
+        "Personal Cab (NJP to NJP)",
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
+      ],
+      "excludes": [
+        "Outside food & Mineral water",
+        "Room heater & BBQ charges",
+        "Parking & Entry fees",
+        "Adventure activities",
+        "Ropeway & Toy Train ride",
+        "Tiger Hill (extra cost)"
+      ],
+      "childPolicy": [
+        "Below 5 years – No charge",
+        "5–8 years – Chargeable with special discount (except main city stays)",
+        "Above 8 years – Fully chargeable"
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "silk-route",
@@ -56,7 +272,8 @@
         "Homestay accommodation",
         "Lunch, Dinner, Snacks & Breakfast",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
@@ -64,7 +281,8 @@
         "Entry fees & Parking",
         "Cab Permit (~₹1000/cab)",
         "Nathula Pass Permit (optional)"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "west-sikkim",
@@ -78,7 +296,8 @@
         "Hotel accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
@@ -86,7 +305,8 @@
         "Entry & Parking fees",
         "Adventure activities",
         "Namchi sightseeing"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "north-sikkim",
@@ -100,7 +320,8 @@
         "Hotel & Homestay accommodation",
         "Breakfast, Lunch & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Extra food not in package",
@@ -108,7 +329,8 @@
         "Entry & Parking fees",
         "Kala Patthar visit",
         "Zero Point & Mt. Katao"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "kalimpong-offbeat",
@@ -122,7 +344,8 @@
         "Homestay accommodation",
         "Breakfast, Lunch, Snacks & Dinner",
         "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
@@ -130,7 +353,8 @@
         "Entry & Parking fees",
         "Adventure activities",
         "Ropeway & Toy Train ride"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "arunachal",
@@ -144,7 +368,8 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
@@ -152,7 +377,8 @@
         "Entry & Parking fees",
         "Snow activities",
         "Gongker La Lake (extra day)"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "himachal",
@@ -166,14 +392,16 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
         "Room heater, BBQ, Parking charges",
         "Rohtang Pass & snow activities",
         "Manikaran & Kullu activities"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "spiti",
@@ -187,14 +415,16 @@
         "Accommodation",
         "Breakfast & Dinner",
         "Transportation",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Lunch",
         "Room heater, BBQ, Parking charges",
         "Rohtang Pass charges",
         "Snow activities & Rafting"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "kashmir",
@@ -208,14 +438,16 @@
         "Accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
         "Room heater & BBQ charges",
         "Entry & Parking fees",
         "Adventure activities"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "andaman",
@@ -229,14 +461,16 @@
         "Accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
         "Room heater & BBQ charges",
         "Entry & Parking fees",
         "Adventure activities"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     },
     {
       "id": "dooars",
@@ -250,14 +484,16 @@
         "Accommodation",
         "Breakfast, Lunch & Dinner",
         "Personal Cab",
-        "All sightseeing as per itinerary"
+        "All sightseeing as per itinerary",
+        "Package rate based on minimum 6 persons"
       ],
       "excludes": [
         "Outside food & Mineral water",
         "Room heater & BBQ charges",
         "Entry & Parking fees",
         "Adventure activities"
-      ]
+      ],
+      "minPersons": "Min. 6 Persons"
     }
   ]
 }

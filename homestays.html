@@ -19,6 +19,48 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./pages.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+        /* Image Gallery */
+        .room-gallery { position: relative; height: 320px; overflow: hidden; }
+        .gallery-track { display: flex; height: 100%; transition: transform 0.4s ease; }
+        .gallery-slide { min-width: 100%; background-size: cover; background-position: center; }
+        .gallery-prev, .gallery-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.8); border: none; cursor: pointer;
+            width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center; z-index: 5;
+        }
+        .gallery-prev { left: 10px; }
+        .gallery-next { right: 10px; }
+
+        /* Room tabs */
+        .room-tabs {
+            position: absolute; top: 12px; left: 12px; z-index: 10;
+            display: flex; gap: 0.5rem;
+        }
+        .room-tab {
+            padding: 0.4rem 1rem; border: 2px solid white; border-radius: 100px;
+            font-size: 0.75rem; font-weight: 700; cursor: pointer;
+            background: rgba(0,0,0,0.4); color: white; text-transform: uppercase;
+            letter-spacing: 0.05em; transition: all 0.3s;
+        }
+        .room-tab.active { background: white; color: var(--clr-primary); }
+        .homestay-img-container { position: relative; }
+
+        /* Room pricing cards */
+        .room-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+        .room-type-card {
+            padding: 1.2rem; border: 1.5px solid #e2e8f0; border-radius: 12px;
+        }
+        .room-type-card.highlight { border-color: var(--clr-primary); background: rgba(15,76,117,0.03); }
+        .room-type-card h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
+        .room-price { font-size: 1.3rem; font-weight: 700; color: var(--clr-accent); margin-bottom: 0.8rem; }
+
+        /* Bathroom thumbnails */
+        .bathroom-thumbs { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .bathroom-thumb { width: 80px; height: 60px; border-radius: 8px; background-size: cover; background-position: center; }
+        .bathroom-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--clr-text-muted); margin-top: 0.8rem; margin-bottom: 0.4rem; }
+    </style>
 </head>
 
 <body>
@@ -88,9 +130,96 @@
 
                 <div class="homestays-page-grid">
 
+                    <!-- NEW: Darjeeling Homestay (added before Lepchajagat) -->
+                    <div class="homestay-detail-card" id="darjeeling-homestay">
+                        <div class="homestay-img-container">
+                            <!-- Tab buttons -->
+                            <div class="room-tabs">
+                                <button class="room-tab active" onclick="switchRoom(this, 'darjeeling', 'standard')">Standard</button>
+                                <button class="room-tab" onclick="switchRoom(this, 'darjeeling', 'deluxe')">Deluxe</button>
+                            </div>
+                            <!-- Standard room gallery (8 images) -->
+                            <div class="room-gallery" id="darjeeling-standard">
+                                <div class="gallery-track">
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-1.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-2.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-3.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-4.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-5.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-6.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-7.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/StandardRoom2000pernight/1-8.jpeg');"></div>
+                                </div>
+                                <button class="gallery-prev" onclick="slideGallery(this, -1)">&#8249;</button>
+                                <button class="gallery-next" onclick="slideGallery(this, 1)">&#8250;</button>
+                            </div>
+                            <!-- Deluxe room gallery (7 images) -->
+                            <div class="room-gallery" id="darjeeling-deluxe" style="display:none;">
+                                <div class="gallery-track">
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-1.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-2.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-3.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-4.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-5.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-6.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-7.jpeg');"></div>
+                                </div>
+                                <button class="gallery-prev" onclick="slideGallery(this, -1)">&#8249;</button>
+                                <button class="gallery-next" onclick="slideGallery(this, 1)">&#8250;</button>
+                            </div>
+                        </div>
+                        <div class="homestay-info">
+                            <span class="homestay-location">Darjeeling</span>
+                            <h2>Darjeeling Homestay</h2>
+                            <p>Cozy rooms in the heart of Darjeeling with mountain views, local meals, and warm hospitality. Choose from Standard or Deluxe room options.</p>
+
+                            <!-- Room type pricing cards -->
+                            <div class="room-pricing">
+                                <div class="room-type-card">
+                                    <h4>Standard Room</h4>
+                                    <p class="room-price">&#8377;2,000 / night</p>
+                                    <ul class="homestay-features">
+                                        <li>&#10003; Cozy comfortable rooms</li>
+                                        <li>&#10003; Mountain view</li>
+                                        <li>&#10003; Breakfast included</li>
+                                        <li>&#10003; Shared/attached bathroom</li>
+                                    </ul>
+                                </div>
+                                <div class="room-type-card highlight">
+                                    <h4>Deluxe Room</h4>
+                                    <p class="room-price">&#8377;2,600 / night</p>
+                                    <ul class="homestay-features">
+                                        <li>&#10003; Spacious deluxe rooms</li>
+                                        <li>&#10003; Panoramic views</li>
+                                        <li>&#10003; Breakfast included</li>
+                                        <li>&#10003; Private attached bathroom</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <a href="contact.html?package=darjeeling" class="btn btn-primary" style="margin-top:2rem;">Book a Stay</a>
+                        </div>
+                    </div>
+
+                    <!-- UPDATED: Lepchajagat card with gallery + bathroom thumbnails -->
                     <div class="homestay-detail-card" id="lepchajagat">
-                        <div class="homestay-img" data-folder="lepchajagat"
-                            style="height:320px;background-image:url('./images/homestays/lepchajagat/1.jpg');">
+                        <div class="homestay-img-container">
+                            <div class="room-gallery" id="lepchajagat-gallery">
+                                <div class="gallery-track">
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/1.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/2.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/3.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/4.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/5.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/6.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/7.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/8.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/9.jpg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/lepchajagat/10.jpg');"></div>
+                                </div>
+                                <button class="gallery-prev" onclick="slideGallery(this, -1)">&#8249;</button>
+                                <button class="gallery-next" onclick="slideGallery(this, 1)">&#8250;</button>
+                            </div>
                         </div>
                         <div class="homestay-info">
                             <span class="homestay-location">Darjeeling</span>
@@ -103,14 +232,34 @@
                                 <li>Includes: Lunch + Evening Snacks</li>
                                 <li>Includes: Dinner + Lodging</li>
                             </ul>
+                            <!-- Bathroom thumbnails -->
+                            <p class="bathroom-label">Bathroom / Toilet Facilities</p>
+                            <div class="bathroom-thumbs">
+                                <div class="bathroom-thumb" style="background-image: url('./images/homestays/lepchajagat/toilet1.jpg');"></div>
+                                <div class="bathroom-thumb" style="background-image: url('./images/homestays/lepchajagat/toilet2.jpg');"></div>
+                            </div>
                             <a href="contact.html?package=darjeeling-offbeat" class="btn btn-primary"
                                 style="margin-top:2rem;">Book a Stay</a>
                         </div>
                     </div>
 
+                    <!-- UPDATED: Sittong card with gallery -->
                     <div class="homestay-detail-card" id="sittong">
-                        <div class="homestay-img" data-folder="sittong"
-                            style="height:320px;background-image:url('./images/homestays/sittong/1.jpg');">
+                        <div class="homestay-img-container">
+                            <div class="room-gallery" id="sittong-gallery">
+                                <div class="gallery-track">
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/1.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/2.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/3.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/4.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/5.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/6.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/7.jpeg');"></div>
+                                    <div class="gallery-slide" style="background-image: url('./images/homestays/sittong/8.jpeg');"></div>
+                                </div>
+                                <button class="gallery-prev" onclick="slideGallery(this, -1)">&#8249;</button>
+                                <button class="gallery-next" onclick="slideGallery(this, 1)">&#8250;</button>
+                            </div>
                         </div>
                         <div class="homestay-info">
                             <span class="homestay-location">Darjeeling Offbeat</span>
@@ -297,6 +446,27 @@
         <i class="fa-solid fa-music"></i>
     </button>
     <script type="module" src="/main.js"></script>
+
+    <script>
+        function switchRoom(btn, homestayId, roomType) {
+            // Update tabs
+            btn.closest('.room-tabs').querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            // Show/hide galleries
+            document.getElementById(homestayId + '-standard').style.display = roomType === 'standard' ? 'block' : 'none';
+            document.getElementById(homestayId + '-deluxe').style.display = roomType === 'deluxe' ? 'block' : 'none';
+        }
+
+        function slideGallery(btn, direction) {
+            const gallery = btn.closest('.room-gallery');
+            const track = gallery.querySelector('.gallery-track');
+            const slides = track.querySelectorAll('.gallery-slide');
+            let current = parseInt(gallery.dataset.current || '0');
+            current = (current + direction + slides.length) % slides.length;
+            gallery.dataset.current = current;
+            track.style.transform = `translateX(-${current * 100}%)`;
+        }
+    </script>
 </body>
 
 </html>

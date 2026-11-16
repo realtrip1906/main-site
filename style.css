@@ -659,6 +659,18 @@ h4 {
   color: var(--clr-text-muted);
 }
 
+.pkg-min-pax {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  background: rgba(15, 76, 117, 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
 .package-includes {
   font-size: 0.78rem;
   color: var(--clr-text-muted);
