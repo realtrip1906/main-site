@@ -111,7 +111,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-bg">
-        <video id="heroVideo" class="media-bg" autoplay muted loop playsinline preload="auto">
+        <video id="heroVideo" class="media-bg" autoplay muted loop playsinline preload="metadata">
           <source src="/images/hero.mp4" type="video/mp4">
         </video>
       </div>
@@ -229,6 +229,67 @@
         </div>
         <div style="text-align:center; margin-top: 3rem;">
           <a href="packages.html" class="btn btn-primary">See All 17 Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Darjeeling Tour Packages (Editorial 2x2 Grid) -->
+    <section id="darjeeling-packages" class="section popular-packages-section">
+      <div class="container">
+        <div class="popular-pkgs-header">
+          <div class="popular-pkgs-title-wrap">
+            <span class="text-meta" style="color: #b87b28; letter-spacing: 0.15em;">DARJEELING TOUR PACKAGES</span>
+            <h2 class="popular-pkgs-title">Some of our most popular tour packages. <span class="title-dash">—</span></h2>
+          </div>
+          <button type="button" class="btn-custom-itinerary open-itinerary-modal">
+            Get Your Customized Itinerary <span>→</span>
+          </button>
+        </div>
+
+        <div class="popular-pkgs-grid">
+          <!-- Card 1: 2N3D -->
+          <a href="package-detail.html?id=darjeeling-2n3d" class="popular-pkg-card">
+            <div class="popular-pkg-thumb" style="background-image: url('./images/locations/darjeeling/darjeeling.jpg');"></div>
+            <div class="popular-pkg-body">
+              <span class="popular-pkg-tag">2 NIGHTS / 3 DAYS</span>
+              <h3>Darjeeling 2 Nights 3 Days</h3>
+              <p>Two nights in Darjeeling with local sightseeing, Mall Road evenings, and a Mirik drop.</p>
+              <span class="popular-pkg-link">View Details →</span>
+            </div>
+          </a>
+
+          <!-- Card 2: 3N4D Offbeat -->
+          <a href="package-detail.html?id=darjeeling-offbeat-3n4d" class="popular-pkg-card">
+            <div class="popular-pkg-thumb" style="background-image: url('./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg');"></div>
+            <div class="popular-pkg-body">
+              <span class="popular-pkg-tag">3 NIGHTS / 4 DAYS</span>
+              <h3>Darjeeling Offbeat 3 Nights 4 Days</h3>
+              <p>Sittong, then Darjeeling via offbeat sightseeing, with Mirik on the way out.</p>
+              <span class="popular-pkg-link">View Details →</span>
+            </div>
+          </a>
+
+          <!-- Card 3: 4N5D Offbeat -->
+          <a href="package-detail.html?id=darjeeling-offbeat-4n5d" class="popular-pkg-card">
+            <div class="popular-pkg-thumb" style="background-image: url('./images/homestays/lepchajagat/1.jpg');"></div>
+            <div class="popular-pkg-body">
+              <span class="popular-pkg-tag">4 NIGHTS / 5 DAYS</span>
+              <h3>Darjeeling Offbeat 4 Nights 5 Days</h3>
+              <p>Sittong, two nights in Darjeeling, then Lepchajagat, with Mirik on the way out.</p>
+              <span class="popular-pkg-link">View Details →</span>
+            </div>
+          </a>
+
+          <!-- Card 4: 5N6D Offbeat -->
+          <a href="package-detail.html?id=darjeeling-offbeat-5n6d" class="popular-pkg-card">
+            <div class="popular-pkg-thumb" style="background-image: url('./images/homestays/ramdhura/1.jpg');"></div>
+            <div class="popular-pkg-body">
+              <span class="popular-pkg-tag">5 NIGHTS / 6 DAYS</span>
+              <h3>Darjeeling Offbeat 5 Nights 6 Days</h3>
+              <p>Ramdhura, Sittong and Tinchuley, then two nights in Darjeeling, with Mirik on the way out.</p>
+              <span class="popular-pkg-link">View Details →</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -694,7 +755,7 @@
       <div class="container">
           <div class="wide-cta">
           <div class="cta-img-bg">
-            <video id="ctaVideo" class="media-bg" autoplay muted loop playsinline preload="auto">
+            <video id="ctaVideo" class="media-bg" muted loop playsinline preload="none">
               <source src="/images/not-hero.mp4" type="video/mp4">
             </video>
           </div>
@@ -777,8 +838,8 @@
     </section>
   </main>
 
-  <!-- Background Music (only on homepage) -->
-  <audio id="bg-audio" src="/song.mp3" loop preload="auto" autoplay playsinline></audio>
+  <!-- Background Music (global: persists across pages) -->
+  <audio id="bg-audio" src="/song.mp3" loop preload="none" playsinline></audio>
   <button id="musicToggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
     <i class="fa-solid fa-music"></i>
   </button>

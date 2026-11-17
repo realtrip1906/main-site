@@ -635,13 +635,36 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("mouseleave", pause);
   });
 
-  // --- Homestay Image Slideshow on Hover (dynamic numbered images) ---
+  // --- Homestay Image Slideshow on Hover (exact known image sets, no 404 spam) ---
+  const HOMESTAY_IMAGES = {
+    aritar: [1, 2, 3, 4, 5].map((i) => `./images/homestays/aritar/${i}.jpg`),
+    darjeeling: [1, 2, 3, 4, 5, 6, 7].map(
+      (i) =>
+        `./images/homestays/darjeeling/DarjeelingDeluxeRoomStarting 2600pernight/1-${i}.jpeg`,
+    ),
+    lava: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+      (i) => `./images/homestays/lava/${i}.jpg`,
+    ),
+    lepchajagat: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+      (i) => `./images/homestays/lepchajagat/${i}.jpg`,
+    ),
+    phadamchen: [1, 2].map((i) => `./images/homestays/phadamchen/${i}.jpg`),
+    ramdhura: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(
+      (i) => `./images/homestays/ramdhura/${i}.jpg`,
+    ),
+    sillerygaon: [1, 2, 3, 4, 5].map(
+      (i) => `./images/homestays/sillerygaon/${i}.jpg`,
+    ),
+    sittong: [1, 2, 3, 4, 5, 6, 7, 8].map(
+      (i) => `./images/homestays/sittong/${i}.jpeg`,
+    ),
+  };
+
   const homestayCards = document.querySelectorAll(".homestay-detail-card");
   homestayCards.forEach((card) => {
     const imgContainer = card.querySelector(".homestay-img");
     if (!imgContainer) return;
 
-    // folder can be provided via data-folder; fall back to parsing background-image
     let folder = imgContainer.dataset.folder;
     if (!folder) {
       const bg = imgContainer.style.backgroundImage || "";
@@ -650,16 +673,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (!folder) return;
 
+    const list = HOMESTAY_IMAGES[folder] || [];
+    if (list.length === 0) return;
+
     // clear any existing static slideshow nodes
     const existing = imgContainer.querySelectorAll(".homestay-img-slideshow");
     existing.forEach((n) => n.remove());
 
     const slides = [];
-    const MAX_TRIES = 30;
     const ROTATE_INTERVAL = 1500;
 
-    for (let i = 1; i <= MAX_TRIES; i++) {
-      const url = `./images/homestays/${folder}/${i}.jpg`;
+    list.forEach((url) => {
       const img = new Image();
       img.onload = () => {
         const div = document.createElement("div");
@@ -668,17 +692,14 @@ document.addEventListener("DOMContentLoaded", () => {
         imgContainer.appendChild(div);
         slides.push(div);
       };
-      img.onerror = () => {
-        // ignore, image may not exist
-      };
       img.src = url;
-    }
+    });
 
     let currentIndex = 0;
     let interval = null;
 
     const play = () => {
-      if (interval) return; // already playing
+      if (interval) return;
       if (slides.length === 0) {
         setTimeout(play, 300);
         return;
@@ -700,10 +721,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    // autoplay immediately (will retry until images load);
-    // pause when hovering, resume on leave
     play();
-
     card.addEventListener("mouseenter", pause);
     card.addEventListener("mouseleave", play);
   });
@@ -861,12 +879,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const wasPlaying = localStorage.getItem(LS_PLAYING) === "true";
 
-    // Once enough data is available, set time and attempt resume
-    bgAudio.addEventListener(
-      "canplay",
-      () => {
-        restoreTime();
-        if (wasPlaying) {
+    if (wasPlaying) {
+      bgAudio.preload = "auto";
+      // Once enough data is available, set time and attempt resume
+      bgAudio.addEventListener(
+        "canplay",
+        () => {
+          restoreTime();
           bgAudio
             .play()
             .then(() => {
@@ -877,16 +896,24 @@ document.addEventListener("DOMContentLoaded", () => {
               isPlaying = false;
               setIcon();
             });
-        } else {
-          setIcon();
-        }
-      },
-      { once: true },
-    );
+        },
+        { once: true },
+      );
 
-    // If canplay already fired (cached), restore immediately
-    if (bgAudio.readyState >= 3) {
-      restoreTime();
+      // If canplay already fired (cached), restore immediately
+      if (bgAudio.readyState >= 3) {
+        restoreTime();
+        bgAudio
+          .play()
+          .then(() => {
+            isPlaying = true;
+            setIcon();
+          })
+          .catch(() => {});
+      }
+    } else {
+      bgAudio.preload = "none";
+      setIcon();
     }
 
     // Save time to localStorage every second (throttled)
@@ -917,6 +944,11 @@ document.addEventListener("DOMContentLoaded", () => {
         bgAudio.pause();
         isPlaying = false;
       } else {
+        if (bgAudio.preload === "none") {
+          bgAudio.preload = "auto";
+          bgAudio.load();
+        }
+        restoreTime();
         bgAudio.play().catch(() => {});
         isPlaying = true;
       }
@@ -924,6 +956,267 @@ document.addEventListener("DOMContentLoaded", () => {
       saveNow();
     });
   }
+
+  // --- Lazy play CTA Video ---
+  const ctaVideo = document.getElementById("ctaVideo");
+  if (ctaVideo && "IntersectionObserver" in window) {
+    const ctaObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (ctaVideo.paused) {
+              ctaVideo.play().catch(() => {});
+            }
+          } else {
+            if (!ctaVideo.paused) {
+              ctaVideo.pause();
+            }
+          }
+        });
+      },
+      { rootMargin: "250px" },
+    );
+    ctaObserver.observe(ctaVideo);
+  }
+
+  // --- Fast Intra-Navigation Link Prefetcher ---
+  (function () {
+    const prefetched = new Set();
+    const prefetchLink = (url) => {
+      if (!url || prefetched.has(url)) return;
+      try {
+        const u = new URL(url, window.location.href);
+        if (u.origin !== window.location.origin) return;
+        if (
+          u.pathname === window.location.pathname &&
+          u.search === window.location.search
+        )
+          return;
+        prefetched.add(url);
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.href = u.href;
+        document.head.appendChild(link);
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    document.addEventListener(
+      "mouseover",
+      (e) => {
+        const a = e.target.closest("a");
+        if (a && a.href) prefetchLink(a.href);
+      },
+      { passive: true },
+    );
+
+    document.addEventListener(
+      "touchstart",
+      (e) => {
+        const a = e.target.closest("a");
+        if (a && a.href) prefetchLink(a.href);
+      },
+      { passive: true },
+    );
+  })();
+
+  // --- Customized Itinerary Modal & 12-Second Floating Prompt ---
+  (function () {
+    const WHATSAPP_PHONE = "918972516305";
+
+    // 1. Inject Modal HTML into body if not already present
+    if (!document.getElementById("custom-itinerary-modal")) {
+      const modalEl = document.createElement("div");
+      modalEl.id = "custom-itinerary-modal";
+      modalEl.className = "itinerary-modal-backdrop";
+      modalEl.innerHTML = `
+        <div class="itinerary-modal-card" role="dialog" aria-modal="true" aria-labelledby="itinerary-modal-title">
+          <div class="itinerary-modal-header">
+            <span class="popular-pkg-tag">TAILORED JOURNEYS</span>
+            <h3 id="itinerary-modal-title">Get Your Customized Itinerary</h3>
+            <p>Tell us your dream route and preferences. Our Himalayan travel experts will curate a personalized plan and send it directly on WhatsApp.</p>
+            <button type="button" class="itinerary-modal-close" aria-label="Close modal">&times;</button>
+          </div>
+          <form class="itinerary-modal-form" id="custom-itinerary-form">
+            <div class="itinerary-form-group">
+              <label for="itin-destination">Destination / Tour Interest</label>
+              <select id="itin-destination" required>
+                <option value="Darjeeling & Offbeat Tour">Darjeeling & Offbeat (Sittong, Lepchajagat, Tinchuley)</option>
+                <option value="Darjeeling 2 Nights 3 Days">Darjeeling 2 Nights 3 Days</option>
+                <option value="Darjeeling Offbeat 3 Nights 4 Days">Darjeeling Offbeat 3 Nights 4 Days</option>
+                <option value="Darjeeling Offbeat 4 Nights 5 Days">Darjeeling Offbeat 4 Nights 5 Days</option>
+                <option value="Darjeeling Offbeat 5 Nights 6 Days">Darjeeling Offbeat 5 Nights 6 Days</option>
+                <option value="Sikkim & North Sikkim">Sikkim & North Sikkim (Gangtok, Lachung, Yumthang)</option>
+                <option value="Silk Route Old Route">Silk Route (Aritar, Zuluk, Nathang)</option>
+                <option value="Kalimpong & Lava">Kalimpong & Lava Offbeat</option>
+                <option value="Kashmir Valley">Kashmir Paradise Tour</option>
+                <option value="Meghalaya & Northeast">Meghalaya Cloud Trails</option>
+                <option value="Andaman Islands">Andaman Deep Blue</option>
+                <option value="Custom Multi-Destination">Other / Custom Multi-Destination</option>
+              </select>
+            </div>
+
+            <div class="itinerary-form-row">
+              <div class="itinerary-form-group">
+                <label for="itin-name">Your Full Name</label>
+                <input type="text" id="itin-name" placeholder="e.g. Rahul Sharma" required />
+              </div>
+              <div class="itinerary-form-group">
+                <label for="itin-phone">WhatsApp Number</label>
+                <input type="tel" id="itin-phone" placeholder="e.g. +91 98765 43210" required />
+              </div>
+            </div>
+
+            <div class="itinerary-form-row">
+              <div class="itinerary-form-group">
+                <label for="itin-dates">Planned Travel Dates / Month</label>
+                <input type="text" id="itin-dates" placeholder="e.g. Next month / 15-20 Oct" required />
+              </div>
+              <div class="itinerary-form-group">
+                <label for="itin-pax">Total Travellers</label>
+                <select id="itin-pax" required>
+                  <option value="2 Adults (Couple)">2 Adults (Couple)</option>
+                  <option value="3-4 Persons (Family/Friends)">3–4 Persons (Family/Friends)</option>
+                  <option value="5-6 Persons (Min. 6 Persons group)" selected>5–6 Persons (Standard Group)</option>
+                  <option value="7-10 Persons (Large Group)">7–10 Persons (Large Group)</option>
+                  <option value="10+ Persons (Corporate/Tour)">10+ Persons (Corporate / Large Tour)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="itinerary-form-group">
+              <label for="itin-notes">Special Requirements / Notes (Optional)</label>
+              <textarea id="itin-notes" placeholder="e.g. Mountain-facing homestay, sunrise at Tiger Hill, vehicle preference..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-whatsapp-redirect">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> Send to WhatsApp Expert
+            </button>
+            <div class="itinerary-direct-chat">
+              Prefer quick chat? <a href="https://wa.me/918972516305?text=Hi%20Real%20Trip%2C%20I%20would%20like%20to%20get%20a%20customized%20tour%20itinerary!" target="_blank" rel="noopener">Chat directly on WhatsApp</a>
+            </div>
+          </form>
+        </div>
+      `;
+      document.body.appendChild(modalEl);
+    }
+
+    // 2. Inject 12-Second Floating Prompt Toast if not already present
+    if (!document.getElementById("itinerary-floating-prompt")) {
+      const toastEl = document.createElement("div");
+      toastEl.id = "itinerary-floating-prompt";
+      toastEl.className = "itinerary-floating-prompt";
+      toastEl.setAttribute("role", "status");
+      toastEl.innerHTML = `
+        <button type="button" class="floating-prompt-close" aria-label="Close inquiry prompt">&times;</button>
+        <span class="floating-prompt-tag">
+          <i class="fa-solid fa-compass"></i> PLANNING A HIMALAYAN TRIP?
+        </span>
+        <h4 class="floating-prompt-title">Get a Customized Itinerary</h4>
+        <p class="floating-prompt-desc">Tell us your dates & travel style. We craft personalized itineraries with verified homestays & private cabs.</p>
+        <div class="floating-prompt-actions">
+          <a href="https://wa.me/918972516305?text=Hi%20Real%20Trip%2C%20I%20would%20like%20to%20get%20a%20customized%20tour%20itinerary!" target="_blank" rel="noopener" class="floating-prompt-btn-wa">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <button type="button" class="floating-prompt-btn-form open-itinerary-modal">
+            Plan Itinerary →
+          </button>
+        </div>
+      `;
+      document.body.appendChild(toastEl);
+    }
+
+    const modal = document.getElementById("custom-itinerary-modal");
+    const toast = document.getElementById("itinerary-floating-prompt");
+    const closeBtn = modal?.querySelector(".itinerary-modal-close");
+    const form = document.getElementById("custom-itinerary-form");
+    const toastCloseBtn = toast?.querySelector(".floating-prompt-close");
+
+    const openModal = (defaultDest) => {
+      if (!modal) return;
+      if (defaultDest) {
+        const destSelect = modal.querySelector("#itin-destination");
+        if (destSelect) {
+          const match = Array.from(destSelect.options).find((opt) =>
+            opt.value.toLowerCase().includes(defaultDest.toLowerCase()),
+          );
+          if (match) destSelect.value = match.value;
+        }
+      }
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeModal = () => {
+      if (!modal) return;
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    };
+
+    // Open triggers
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest(".open-itinerary-modal");
+      if (trigger) {
+        e.preventDefault();
+        const dest = trigger.dataset.destination || "";
+        openModal(dest);
+      }
+    });
+
+    closeBtn?.addEventListener("click", closeModal);
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal?.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // Form submit -> WhatsApp redirect
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const dest = document.getElementById("itin-destination")?.value || "";
+      const name = document.getElementById("itin-name")?.value || "";
+      const phone = document.getElementById("itin-phone")?.value || "";
+      const dates = document.getElementById("itin-dates")?.value || "";
+      const pax = document.getElementById("itin-pax")?.value || "";
+      const notes = document.getElementById("itin-notes")?.value || "None";
+
+      const message =
+        `Hello Real Trip Team! 🏔️\n` +
+        `I would like to request a *Customized Tour Itinerary*:\n\n` +
+        `📍 *Destination:* ${dest}\n` +
+        `👤 *Name:* ${name}\n` +
+        `📞 *Contact:* ${phone}\n` +
+        `📅 *Travel Dates:* ${dates}\n` +
+        `👥 *Travellers:* ${pax}\n` +
+        `📝 *Special Notes:* ${notes}\n\n` +
+        `Looking forward to your customized proposal!`;
+
+      const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+      closeModal();
+      form.reset();
+    });
+
+    // 12-Second Prompt logic
+    const PROMPT_SESSION_KEY = "rt_itinerary_prompt_dismissed";
+    if (toast && sessionStorage.getItem(PROMPT_SESSION_KEY) !== "true") {
+      setTimeout(() => {
+        if (sessionStorage.getItem(PROMPT_SESSION_KEY) !== "true") {
+          toast.classList.add("show");
+        }
+      }, 12000); // 12 seconds
+    }
+
+    toastCloseBtn?.addEventListener("click", () => {
+      if (toast) toast.classList.remove("show");
+      sessionStorage.setItem(PROMPT_SESSION_KEY, "true");
+    });
+  })();
 
   // --- 10. Prevent image download and dragging (practical deterrent) ---
   (function () {

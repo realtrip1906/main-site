@@ -1595,3 +1595,473 @@ h4 {
     font-size: 0.95rem;
   }
 }
+
+/* ========================================================
+   Popular Darjeeling Packages Section (Editorial 2x2 Grid)
+   ======================================================== */
+.popular-packages-section {
+  padding: 5rem 0;
+  background: #fbfbfd;
+}
+
+.popular-pkgs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.75rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.popular-pkgs-title-wrap {
+  max-width: 650px;
+}
+
+.popular-pkgs-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.25;
+  margin-top: 0.5rem;
+}
+
+.popular-pkgs-title .title-dash {
+  color: #b87b28;
+  font-weight: 300;
+}
+
+.btn-custom-itinerary {
+  background: #b87b28;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(184, 123, 40, 0.25);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-custom-itinerary:hover {
+  background: #9c651e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 123, 40, 0.35);
+}
+
+.popular-pkgs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.popular-pkg-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.popular-pkg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: rgba(184, 123, 40, 0.3);
+}
+
+.popular-pkg-thumb {
+  flex: 0 0 38%;
+  min-height: 190px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  margin: 0.6rem;
+  transition: transform 0.5s ease;
+}
+
+.popular-pkg-card:hover .popular-pkg-thumb {
+  transform: scale(1.03);
+}
+
+.popular-pkg-body {
+  flex: 1;
+  padding: 1.4rem 1.6rem 1.4rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popular-pkg-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #b87b28;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.popular-pkg-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.45rem;
+  line-height: 1.35;
+}
+
+.popular-pkg-body p {
+  font-size: 0.86rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 0.95rem;
+}
+
+.popular-pkg-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b87b28;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.popular-pkg-card:hover .popular-pkg-link {
+  gap: 9px;
+  color: #9c651e;
+}
+
+@media (max-width: 900px) {
+  .popular-pkgs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .popular-pkg-card {
+    flex-direction: column;
+  }
+  .popular-pkg-thumb {
+    flex: none;
+    height: 180px;
+    margin: 0.6rem 0.6rem 0;
+  }
+  .popular-pkg-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+  .popular-pkgs-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-custom-itinerary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========================================================
+   Customized Itinerary Modal & 12-Second Floating Prompt
+   ======================================================== */
+.itinerary-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.itinerary-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.itinerary-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.itinerary-modal-backdrop.active .itinerary-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.itinerary-modal-header {
+  padding: 2rem 2rem 1rem;
+  position: relative;
+}
+
+.itinerary-modal-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: #0f4c75;
+  margin: 0.4rem 0 0.5rem;
+}
+
+.itinerary-modal-header p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.itinerary-modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.itinerary-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.itinerary-modal-form {
+  padding: 0.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.itinerary-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.itinerary-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.itinerary-form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #475569;
+}
+
+.itinerary-form-group input,
+.itinerary-form-group select,
+.itinerary-form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  background: #ffffff;
+}
+
+.itinerary-form-group input:focus,
+.itinerary-form-group select:focus,
+.itinerary-form-group textarea:focus {
+  border-color: #0f4c75;
+  box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.12);
+}
+
+.itinerary-form-group textarea {
+  min-height: 75px;
+  resize: vertical;
+}
+
+.btn-whatsapp-redirect {
+  background: #25D366;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 12px;
+  padding: 0.95rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-whatsapp-redirect:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+
+.itinerary-direct-chat {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: -0.25rem;
+}
+
+.itinerary-direct-chat a {
+  color: #0f4c75;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* 12-Second Floating Prompt Toast */
+.itinerary-floating-prompt {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 9999;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid rgba(184, 123, 40, 0.25);
+  max-width: 360px;
+  width: calc(100vw - 48px);
+  transform: translateY(120%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.itinerary-floating-prompt.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-prompt-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+}
+
+.floating-prompt-close:hover {
+  color: #334155;
+  background: #f1f5f9;
+}
+
+.floating-prompt-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #b87b28;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.floating-prompt-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.floating-prompt-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0 0 0.85rem;
+}
+
+.floating-prompt-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.floating-prompt-btn-wa {
+  flex: 1;
+  background: #25D366;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.floating-prompt-btn-wa:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+}
+
+.floating-prompt-btn-form {
+  background: #f8fafc;
+  color: #0f4c75 !important;
+  border: 1px solid #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.floating-prompt-btn-form:hover {
+  background: #0f4c75;
+  color: #ffffff !important;
+  border-color: #0f4c75;
+}
