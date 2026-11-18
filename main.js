@@ -660,7 +660,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ),
   };
 
-  const homestayCards = document.querySelectorAll(".homestay-detail-card");
+  const homestayCards = document.querySelectorAll(
+    ".homestay-detail-card, .homestay-card",
+  );
   homestayCards.forEach((card) => {
     const imgContainer = card.querySelector(".homestay-img");
     if (!imgContainer) return;
