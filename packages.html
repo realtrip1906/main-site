@@ -105,7 +105,7 @@
                         <div class="popular-pkg-body">
                             <span class="popular-pkg-tag">2 NIGHTS / 3 DAYS</span>
                             <h3>Darjeeling 2 Nights 3 Days</h3>
-                            <p>Two nights in Darjeeling with local sightseeing, Mall Road evenings, and a Mirik drop.</p>
+                            <p>Darjeeling local sightseeing (Batasia Loop, Ghoom, Zoo), Mall Road evenings, and Mirik drop.</p>
                             <span class="popular-pkg-link">View Details →</span>
                         </div>
                     </a>
@@ -115,8 +115,8 @@
                         <div class="popular-pkg-thumb" style="background-image: url('./images/packages/tour-darjeeling-3n4d.jpg');"></div>
                         <div class="popular-pkg-body">
                             <span class="popular-pkg-tag">3 NIGHTS / 4 DAYS</span>
-                            <h3>Darjeeling Offbeat 3 Nights 4 Days</h3>
-                            <p>Sittong, then Darjeeling via offbeat sightseeing, with Mirik on the way out.</p>
+                            <h3>Darjeeling and Darjeeling Offbeat 3 Nights 4 Days</h3>
+                            <p>Sittong homestay &amp; Ahaldara, Lamahatta &amp; Peshok, Darjeeling sightseeing, and Mirik drop.</p>
                             <span class="popular-pkg-link">View Details →</span>
                         </div>
                     </a>
@@ -126,8 +126,8 @@
                         <div class="popular-pkg-thumb" style="background-image: url('./images/packages/tour-darjeeling-4n5d.jpg');"></div>
                         <div class="popular-pkg-body">
                             <span class="popular-pkg-tag">4 NIGHTS / 5 DAYS</span>
-                            <h3>Darjeeling Offbeat 4 Nights 5 Days</h3>
-                            <p>Sittong, two nights in Darjeeling, then Lepchajagat, with Mirik on the way out.</p>
+                            <h3>Darjeeling &amp; Darjeeling Offbeat 4 Nights 5 Days</h3>
+                            <p>Sittong, scenic Kurseong road, full Darjeeling sightseeing, Lepchajagat pine stay, and Mirik drop.</p>
                             <span class="popular-pkg-link">View Details →</span>
                         </div>
                     </a>
@@ -138,7 +138,7 @@
                         <div class="popular-pkg-body">
                             <span class="popular-pkg-tag">5 NIGHTS / 6 DAYS</span>
                             <h3>Darjeeling Offbeat 5 Nights 6 Days</h3>
-                            <p>Ramdhura, Sittong and Tinchuley, then two nights in Darjeeling, with Mirik on the way out.</p>
+                            <p>Ramdhura, Sittong, Tinchuley, Lamahatta, full Darjeeling sightseeing, and Mirik drop.</p>
                             <span class="popular-pkg-link">View Details →</span>
                         </div>
                     </a>
@@ -244,9 +244,11 @@
                     
                     card.innerHTML = `
                         <div style="background-image: url('${pkg.image}'); background-size: cover; background-position: center; height: 200px; position: relative;">
+                            ${pkg.minPersons ? `
                             <span style="position: absolute; top: 12px; left: 12px; background: rgba(10,25,47,0.78); backdrop-filter: blur(4px); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.65rem; border-radius: 6px; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 5px;">
-                                <i class="fa-solid fa-users" style="color: var(--clr-accent);"></i>Min. 6 Persons
+                                <i class="fa-solid fa-users" style="color: var(--clr-accent);"></i>${pkg.minPersons}
                             </span>
+                            ` : ''}
                         </div>
                         <div style="padding: 1.5rem;">
                             <span style="font-size: 0.8rem; color: var(--clr-accent); font-weight: 600; text-transform: uppercase;">${pkg.region}</span>
@@ -258,7 +260,7 @@
                                     <p style="margin: 0; font-weight: 600; color: var(--clr-text);">${pkg.duration}</p>
                                 </div>
                                 <div style="text-align: right;">
-                                    <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">/person <span style="font-size: 0.72rem; color: var(--clr-primary); font-weight: 600;">(Min. 6)</span></p>
+                                    <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">/person${pkg.minPersons ? ' <span style="font-size: 0.72rem; color: var(--clr-primary); font-weight: 600;">(Min. 6)</span>' : ''}</p>
                                     <p style="margin: 0; font-size: 0.8rem; opacity: 0.5; text-decoration: line-through;">₹${formatPrice(originalPrice)}</p>
                                     <p style="margin: 0; font-weight: 700; font-size: 1.3rem; color: var(--clr-accent);">₹${formatPrice(discountedPrice)}</p>
                                     <p style="margin: 0.2rem 0 0; font-size: 0.75rem; color: #1f7a1f; font-weight: 600;">${discountPercent}% OFF</p>

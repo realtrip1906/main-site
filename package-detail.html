@@ -107,7 +107,7 @@
                                     <span style="font-size: 0.9rem; opacity: 0.8;">
                                         <strong id="pkg-duration">3D/2N</strong>
                                     </span>
-                                    <span style="font-size: 0.75rem; background: rgba(15,76,117,0.1); color: var(--clr-primary); font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px; display: inline-flex; align-items: center; gap: 5px;">
+                                    <span id="pkg-min-pax" style="display: none; font-size: 0.75rem; background: rgba(15,76,117,0.1); color: var(--clr-primary); font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px; align-items: center; gap: 5px;">
                                         <i class="fa-solid fa-users"></i> Min. 6 Persons
                                     </span>
                                 </div>
@@ -116,6 +116,12 @@
 
                         <div class="package-overview">
                             <p id="pkg-description">Loading package description...</p>
+                        </div>
+
+                        <!-- Day-by-Day Detailed Itinerary -->
+                        <div id="pkg-itinerary-section" style="display: none; margin: 2rem 0;">
+                            <h3 style="margin-bottom: 1.25rem; font-family: var(--font-heading); color: #0f4c75; font-size: 1.3rem;">Day-by-Day Tour Itinerary</h3>
+                            <div id="pkg-itinerary-list" style="display: flex; flex-direction: column; gap: 1.25rem;"></div>
                         </div>
 
                         <!-- Expanded Package Snapshot -->
@@ -135,6 +141,14 @@
                                 <h4>❌ Excludes</h4>
                                 <ul id="pkg-excludes"></ul>
                             </div>
+                        </div>
+
+                        <!-- Child Policy -->
+                        <div id="pkg-child-policy-section" style="display: none; margin: 2rem 0; padding: 1.25rem 1.5rem; background: #fff8ee; border-left: 4px solid #b87b28; border-radius: 8px;">
+                            <h4 style="margin: 0 0 0.5rem; color: #b87b28; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-child"></i> Policy for Children
+                            </h4>
+                            <ul id="pkg-child-policy" style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.6; color: #475569;"></ul>
                         </div>
 
                         <!-- CTA Buttons -->
@@ -255,10 +269,53 @@
                 document.getElementById('pkg-duration').textContent = pkg.duration;
                 document.getElementById('pkg-description').textContent = pkg.description;
 
+                // Update Min Pax badge if applicable
+                const minPaxEl = document.getElementById('pkg-min-pax');
+                if (pkg.minPersons) {
+                    minPaxEl.style.display = 'inline-flex';
+                    minPaxEl.innerHTML = `<i class="fa-solid fa-users"></i> ${pkg.minPersons}`;
+                } else {
+                    minPaxEl.style.display = 'none';
+                }
+
+                // Populate day-by-day itinerary
+                const itinSection = document.getElementById('pkg-itinerary-section');
+                const itinList = document.getElementById('pkg-itinerary-list');
+                if (pkg.itineraryDetails && pkg.itineraryDetails.length > 0) {
+                    itinSection.style.display = 'block';
+                    itinList.innerHTML = pkg.itineraryDetails.map((item) => `
+                        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.4rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 0.6rem;">
+                                <span style="font-weight: 700; color: #b87b28; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">${item.day}</span>
+                                ${item.nightStay ? `<span style="font-size: 0.75rem; background: #f1f5f9; color: #334155; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 6px;"><i class="fa-solid fa-hotel" style="margin-right: 4px;"></i> Night Stay: ${item.nightStay}</span>` : ''}
+                            </div>
+                            <h4 style="margin: 0 0 0.6rem; font-size: 1.1rem; color: #0f4c75;">${item.title}</h4>
+                            <p style="font-size: 0.92rem; color: #475569; line-height: 1.65; margin: 0 0 0.8rem;">${item.desc}</p>
+                            ${item.sightseeing && item.sightseeing.length > 0 ? `
+                                <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed #e2e8f0;">
+                                    <span style="font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.4rem;">Sightseeing Covered:</span>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                                        ${item.sightseeing.map(s => `<span style="font-size: 0.78rem; background: rgba(184, 123, 40, 0.08); color: #9c651e; font-weight: 600; padding: 0.25rem 0.55rem; border-radius: 5px;">• ${s}</span>`).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `).join('');
+                } else if (pkg.itinerary && pkg.itinerary.length > 0) {
+                    itinSection.style.display = 'block';
+                    itinList.innerHTML = pkg.itinerary.map(text => `
+                        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.2rem; font-size: 0.92rem; color: #475569; line-height: 1.6;">
+                            ${text}
+                        </div>
+                    `).join('');
+                } else {
+                    itinSection.style.display = 'none';
+                }
+
                 // Populate full snapshot (expanded, not truncated)
                 const highlightsList = document.getElementById('pkg-highlights');
                 highlightsList.innerHTML = '';
-                pkg.includes.forEach(item => {
+                (pkg.highlights || pkg.includes).forEach(item => {
                     const li = document.createElement('li');
                     li.innerHTML = `<span style="margin-right: 0.5rem; color: var(--clr-accent);">✓</span>${item}`;
                     li.style.background = 'rgba(255,255,255,0.75)';
@@ -270,6 +327,16 @@
                 // Populate includes/excludes
                 document.getElementById('pkg-includes').innerHTML = pkg.includes.map(item => `<li>• ${item}</li>`).join('');
                 document.getElementById('pkg-excludes').innerHTML = pkg.excludes.map(item => `<li>• ${item}</li>`).join('');
+
+                // Populate child policy
+                const childSection = document.getElementById('pkg-child-policy-section');
+                const childList = document.getElementById('pkg-child-policy');
+                if (pkg.childPolicy && pkg.childPolicy.length > 0) {
+                    childSection.style.display = 'block';
+                    childList.innerHTML = pkg.childPolicy.map(item => `<li>• ${item}</li>`).join('');
+                } else {
+                    childSection.style.display = 'none';
+                }
 
                 // Update book button
                 document.getElementById('book-btn').href = `contact.html?package=${packageId}`;
@@ -290,7 +357,7 @@
                             <h4 style="margin: 0.5rem 0; font-size: 1rem;">${relPkg.title}</h4>
                             <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0;">${relPkg.region} · ${relPkg.duration}</p>
                             <p style="font-size: 0.78rem; opacity: 0.5; text-decoration: line-through; margin: 0.1rem 0;">₹${formatPrice(relatedOriginalPrice)}</p>
-                            <p style="font-weight: 600; color: var(--clr-accent); margin: 0.2rem 0;">₹${formatPrice(relatedDiscountedPrice)}/person <span style="font-size: 0.72rem; color: var(--clr-primary); font-weight: 600;">(Min. 6)</span></p>
+                            <p style="font-weight: 600; color: var(--clr-accent); margin: 0.2rem 0;">₹${formatPrice(relatedDiscountedPrice)}/person${relPkg.minPersons ? ' <span style="font-size: 0.72rem; color: var(--clr-primary); font-weight: 600;">(Min. 6)</span>' : ''}</p>
                             <p style="font-size: 0.75rem; color: #1f7a1f; font-weight: 600; margin: 0.1rem 0 0.4rem;">${relatedDiscountPercent}% OFF</p>
                             <a href="package-detail.html?id=${relPkg.id}" style="display: inline-block; margin-top: 0.5rem; color: var(--clr-primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">View Details →</a>
                         </div>

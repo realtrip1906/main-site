@@ -57,11 +57,27 @@
         /* Room pricing cards */
         .room-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
         .room-type-card {
-            padding: 1.2rem; border: 1.5px solid #e2e8f0; border-radius: 12px;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            background: #ffffff;
+            user-select: none;
         }
-        .room-type-card.highlight { border-color: var(--clr-primary); background: rgba(15,76,117,0.03); }
-        .room-type-card h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
-        .room-price { font-size: 1.3rem; font-weight: 700; color: var(--clr-accent); margin-bottom: 0.8rem; }
+        .room-type-card:hover {
+            border-color: var(--clr-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+        .room-type-card.active, .room-type-card.highlight {
+            border-color: var(--clr-primary);
+            background: rgba(15,76,117,0.04);
+            box-shadow: 0 0 0 2px var(--clr-primary), 0 8px 24px rgba(15,76,117,0.1);
+        }
+        .room-type-card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; font-weight: 700; }
+        .room-price { font-size: 1.35rem; font-weight: 800; color: var(--clr-accent); margin-bottom: 0.8rem; }
 
         /* Bathroom thumbnails */
         .bathroom-thumbs { display: flex; gap: 0.5rem; margin-top: 1rem; }
@@ -137,13 +153,13 @@
 
                 <div class="homestays-page-grid">
 
-                    <!-- NEW: Darjeeling Homestay (added before Lepchajagat) -->
+                    <!-- NEW: Darjeeling Hotel (added before Lepchajagat) -->
                     <div class="homestay-detail-card" id="darjeeling-homestay">
                         <div class="homestay-img-container">
                             <!-- Tab buttons -->
                             <div class="room-tabs">
-                                <button class="room-tab active" onclick="switchRoom(this, 'darjeeling', 'standard')">Standard</button>
-                                <button class="room-tab" onclick="switchRoom(this, 'darjeeling', 'deluxe')">Deluxe</button>
+                                <button class="room-tab active" data-room="standard" onclick="switchRoom(this, 'darjeeling', 'standard')">Standard</button>
+                                <button class="room-tab" data-room="deluxe" onclick="switchRoom(this, 'darjeeling', 'deluxe')">Deluxe</button>
                             </div>
                             <!-- Standard room gallery (8 images) -->
                             <div class="room-gallery" id="darjeeling-standard">
@@ -177,29 +193,35 @@
                         </div>
                         <div class="homestay-info">
                             <span class="homestay-location">Darjeeling</span>
-                            <h2>Darjeeling Homestay</h2>
-                            <p>Cozy rooms in the heart of Darjeeling with mountain views, local meals, and warm hospitality. Choose from Standard or Deluxe room options.</p>
+                            <h2>Darjeeling Hotel</h2>
+                            <p>Comfortable stays in the heart of Darjeeling with mountain views and hospitality. Click below to select between Standard and Deluxe room options to view their corresponding photo galleries.</p>
 
-                            <!-- Room type pricing cards -->
+                            <!-- Room type pricing cards (Interactive) -->
                             <div class="room-pricing">
-                                <div class="room-type-card">
-                                    <h4>Standard Room</h4>
-                                    <p class="room-price">&#8377;2,000 / night</p>
+                                <div class="room-type-card active" data-room="standard" onclick="switchRoom(this, 'darjeeling', 'standard')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                                        <h4>Standard Room</h4>
+                                        <span class="room-select-badge" style="font-size: 0.7rem; font-weight: 700; color: var(--clr-primary); text-transform: uppercase;">Selected</span>
+                                    </div>
+                                    <p class="room-price">&#8377;2,500 / night</p>
                                     <ul class="homestay-features">
                                         <li>&#10003; Cozy comfortable rooms</li>
                                         <li>&#10003; Mountain view</li>
-                                        <li>&#10003; Breakfast included</li>
-                                        <li>&#10003; Shared/attached bathroom</li>
+                                        <li>&#10003; Private attached bathroom</li>
+                                        <li style="color: #94a3b8;">&#10005; Breakfast excluded</li>
                                     </ul>
                                 </div>
-                                <div class="room-type-card highlight">
-                                    <h4>Deluxe Room</h4>
-                                    <p class="room-price">&#8377;2,600 / night</p>
+                                <div class="room-type-card" data-room="deluxe" onclick="switchRoom(this, 'darjeeling', 'deluxe')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                                        <h4>Deluxe Room</h4>
+                                        <span class="room-select-badge" style="font-size: 0.7rem; font-weight: 700; color: var(--clr-primary); text-transform: uppercase; display: none;">Selected</span>
+                                    </div>
+                                    <p class="room-price">&#8377;3,000 / night</p>
                                     <ul class="homestay-features">
                                         <li>&#10003; Spacious deluxe rooms</li>
                                         <li>&#10003; Panoramic views</li>
-                                        <li>&#10003; Breakfast included</li>
                                         <li>&#10003; Private attached bathroom</li>
+                                        <li style="color: #94a3b8;">&#10005; Breakfast excluded</li>
                                     </ul>
                                 </div>
                             </div>
@@ -455,13 +477,30 @@
     <script type="module" src="/main.js"></script>
 
     <script>
-        function switchRoom(btn, homestayId, roomType) {
-            // Update tabs
-            btn.closest('.room-tabs').querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-            // Show/hide galleries
-            document.getElementById(homestayId + '-standard').style.display = roomType === 'standard' ? 'block' : 'none';
-            document.getElementById(homestayId + '-deluxe').style.display = roomType === 'deluxe' ? 'block' : 'none';
+        function switchRoom(elem, homestayId, roomType) {
+            const card = (elem && elem.closest && elem.closest('.homestay-detail-card')) || document.getElementById(homestayId + '-homestay');
+            if (!card) return;
+
+            // 1. Update top tabs
+            card.querySelectorAll('.room-tab').forEach(t => {
+                const isMatch = t.dataset.room === roomType;
+                t.classList.toggle('active', isMatch);
+            });
+
+            // 2. Update lower room cards
+            card.querySelectorAll('.room-type-card').forEach(c => {
+                const isMatch = c.dataset.room === roomType;
+                c.classList.toggle('active', isMatch);
+                c.classList.toggle('highlight', isMatch);
+                const badge = c.querySelector('.room-select-badge');
+                if (badge) badge.style.display = isMatch ? 'inline' : 'none';
+            });
+
+            // 3. Show/hide corresponding room gallery
+            const stdGal = document.getElementById(homestayId + '-standard');
+            const dlxGal = document.getElementById(homestayId + '-deluxe');
+            if (stdGal) stdGal.style.display = roomType === 'standard' ? 'block' : 'none';
+            if (dlxGal) dlxGal.style.display = roomType === 'deluxe' ? 'block' : 'none';
         }
 
         function slideGallery(btn, direction) {
