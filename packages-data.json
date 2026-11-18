@@ -1,713 +1,836 @@
 {
-  "packages": [
-    {
-      "id": "darjeeling",
-      "title": "Darjeeling",
-      "region": "West Bengal",
-      "price": "5,500",
-      "duration": "3D/2N",
-      "image": "./images/locations/darjeeling/darjeeling.jpg",
-      "description": "Nestled in the foothills of the Eastern Himalayas, Darjeeling is one of India's most loved hill stations. Known as the Queen of Hills, it offers breathtaking views of Mt. Kanchenjunga, rolling tea gardens, colonial charm, and the spectacular sunrise from Tiger Hill. Perfect for family vacations, honeymoon trips, and relaxing hill getaways.",
-      "includes": [
-        "Accommodation (Standard/Deluxe)",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Parking & Entry fees",
-        "Adventure activities",
-        "Ropeway & Toy Train ride"
-      ]
-    },
-    {
-      "id": "darjeeling-offbeat",
-      "title": "Darjeeling Offbeat",
-      "region": "West Bengal",
-      "price": "4,500",
-      "duration": "3D/2N",
-      "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
-      "description": "Darjeeling Offbeat destinations like Sittong and Lepchajagat offer a peaceful escape away from crowded tourist spots. Surrounded by pine forests, orange orchards, tea gardens, and panoramic Himalayan views, these hidden gems are perfect for travelers seeking silence, nature, and authentic village experiences.",
-      "includes": [
-        "Homestay accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Parking & Entry fees",
-        "Adventure activities",
-        "Ropeway & Toy Train ride"
-      ]
-    },
-    {
-      "id": "darjeeling-2n3d",
-      "title": "Darjeeling 2 Nights 3 Days",
-      "region": "West Bengal",
-      "price": "5,500",
-      "duration": "2 Nights / 3 Days",
-      "image": "./images/packages/tour-darjeeling-2n3d.jpg",
-      "description": "Day 1 pickup from NJP/Siliguri/Bagdogra and hotel check-in at Darjeeling. Day 2 full-day Darjeeling local sightseeing. Day 3 departure to NJP/Siliguri/Bagdogra via Mirik sightseeing.",
-      "itinerary": [
-        "Day 1 | NJP / Siliguri / Bagdogra to Darjeeling: Pick up from NJP, Siliguri or Bagdogra and drop to Darjeeling. On reaching, check in to the hotel and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 2 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel for lunch and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 3 | Darjeeling to NJP / Siliguri / Bagdogra via Mirik: After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits."
-      ],
-      "highlights": [
-        "Darjeeling sightseeing: Batasia Loop, Ghoom Monastery, Japanese Temple, Peace Pagoda, Zoo, HMI, Ropeway, Tenzing Rock, Lebong Tea Garden",
-        "Mirik sightseeing: Nepal Border, Pashupati Market, Mirik Lake, Mirik Tea Garden, Gopal Dhara Tea Estate",
-        "Mall Road & evening markets in Darjeeling",
-        "Private cab for all transfers & sightseeing"
-      ],
-      "includes": [
-        "Food (breakfast, lunch and dinner)",
-        "Accommodation",
-        "Private cab for sightseeing and transfer"
-      ],
-      "excludes": [
-        "Extra food",
-        "Room heater",
-        "Parking charges, entry fees, riding, activity charges and cab waiting charges"
-      ],
-      "childPolicy": [
-        "Below 5 years: no charges",
-        "Above 5 years: chargeable, with some discount applicable",
-        "Above 8 years: fully chargeable"
-      ],
-      "minPersons": "Min. 6 Persons",
-      "itineraryDetails": [
+    "packages": [
         {
-          "day": "Day 1",
-          "title": "NJP / Siliguri / Bagdogra to Darjeeling",
-          "desc": "Pick up from NJP, Siliguri or Bagdogra and drop to Darjeeling. On reaching, check in to the hotel and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Lunch and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Darjeeling Mall",
-            "Local Markets"
-          ]
+            "id": "darjeeling-2n3d",
+            "title": "Darjeeling 2 Nights 3 Days",
+            "region": "West Bengal",
+            "price": "5,500",
+            "duration": "2 Nights / 3 Days",
+            "image": "./images/packages/tour-darjeeling-2n3d.jpg",
+            "description": "Day 1 pickup from NJP/Siliguri/Bagdogra and hotel check-in at Darjeeling. Day 2 full-day Darjeeling local sightseeing. Day 3 departure to NJP/Siliguri/Bagdogra via Mirik sightseeing.",
+            "itinerary": [
+                "Day 1 | NJP / Siliguri / Bagdogra to Darjeeling: Pick up from NJP, Siliguri or Bagdogra and drop to Darjeeling. On reaching, check in to the hotel and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 2 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel for lunch and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 3 | Darjeeling to NJP / Siliguri / Bagdogra via Mirik: After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits."
+            ],
+            "highlights": [
+                "Darjeeling sightseeing: Batasia Loop, Ghoom Monastery, Japanese Temple, Peace Pagoda, Zoo, HMI, Ropeway, Tenzing Rock, Lebong Tea Garden",
+                "Mirik sightseeing: Nepal Border, Pashupati Market, Mirik Lake, Mirik Tea Garden, Gopal Dhara Tea Estate",
+                "Mall Road & evening markets in Darjeeling",
+                "Private cab for all transfers & sightseeing"
+            ],
+            "includes": [
+                "Food (breakfast, lunch and dinner)",
+                "Accommodation",
+                "Private cab for sightseeing and transfer"
+            ],
+            "excludes": [
+                "Extra food",
+                "Room heater",
+                "Parking charges, entry fees, riding, activity charges and cab waiting charges"
+            ],
+            "childPolicy": [
+                "Below 5 years: no charges",
+                "Above 5 years: chargeable, with some discount applicable",
+                "Above 8 years: fully chargeable"
+            ],
+            "minPersons": "Min. 6 Persons",
+            "itineraryDetails": [
+                {
+                    "day": "Day 1",
+                    "title": "NJP / Siliguri / Bagdogra to Darjeeling",
+                    "desc": "Pick up from NJP, Siliguri or Bagdogra and drop to Darjeeling. On reaching, check in to the hotel and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Lunch and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Darjeeling Mall",
+                        "Local Markets"
+                    ]
+                },
+                {
+                    "day": "Day 2",
+                    "title": "Darjeeling Local Sightseeing",
+                    "desc": "After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel for lunch and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Batasia Loop",
+                        "Ghoom Monastery",
+                        "Japanese Temple",
+                        "Peace Pagoda",
+                        "Zoo",
+                        "HMI",
+                        "Ropeway",
+                        "Tenzing Rock",
+                        "Lebong Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 3",
+                    "title": "Darjeeling to NJP / Siliguri / Bagdogra via Mirik",
+                    "desc": "After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits.",
+                    "nightStay": "Departure",
+                    "sightseeing": [
+                        "Nepal Border",
+                        "Pashupati Market",
+                        "Mirik Lake",
+                        "Mirik Tea Garden",
+                        "Gopal Dhara Tea Estate"
+                    ]
+                }
+            ]
         },
         {
-          "day": "Day 2",
-          "title": "Darjeeling Local Sightseeing",
-          "desc": "After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel for lunch and rest for the day. Enjoy the evening exploring Darjeeling Mall and the local markets. Dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Batasia Loop",
-            "Ghoom Monastery",
-            "Japanese Temple",
-            "Peace Pagoda",
-            "Zoo",
-            "HMI",
-            "Ropeway",
-            "Tenzing Rock",
-            "Lebong Tea Garden"
-          ]
+            "id": "darjeeling-offbeat-3n4d",
+            "title": "Darjeeling and Darjeeling Offbeat 3 Nights 4 Days",
+            "region": "West Bengal",
+            "price": "7,200",
+            "duration": "3 Nights / 4 Days",
+            "image": "./images/packages/tour-darjeeling-3n4d.jpg",
+            "description": "Day 1 pickup from NJP/Siliguri/Bagdogra to Sittong homestay with sightseeing. Day 2 Sittong to Darjeeling via offbeat sightseeing. Day 3 Darjeeling local sightseeing. Day 4 Darjeeling to NJP/Siliguri/Bagdogra via Mirik.",
+            "itinerary": [
+                "Day 1 | NJP / Siliguri / Bagdogra to Sittong: Pick up from NJP, Siliguri or Bagdogra and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay. Night stay at Sittong.",
+                "Day 2 | Sittong to Darjeeling via Offbeat Sightseeing: After breakfast, check out from Sittong and proceed for Darjeeling offbeat sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 3 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 4 | Darjeeling to NJP / Siliguri / Bagdogra via Mirik: After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits."
+            ],
+            "highlights": [
+                "Sittong sightseeing: Ahaldara View Point, Jogighat Bridge, Sittong Monastery, Orange Orchard, Latpanchar",
+                "Offbeat sightseeing: Lamahatta Park, Gumbadara View Point, Lover's Meet Point, Peshok Tea Garden",
+                "Darjeeling local sightseeing: Batasia Loop, Ghoom Monastery, Japanese Temple, Peace Pagoda, Zoo, HMI, Ropeway, Tenzing Rock, Lebong Tea Garden",
+                "Mirik sightseeing: Nepal Border, Pashupati Market, Mirik Lake, Mirik Tea Garden, Gopal Dhara Tea Estate"
+            ],
+            "includes": [
+                "Food (breakfast, lunch and dinner)",
+                "Accommodation",
+                "Private cab for sightseeing and transfer"
+            ],
+            "excludes": [
+                "Extra food",
+                "Room heater",
+                "Parking charges, entry fees, riding, activity charges and cab waiting charges",
+                "Tiger Hill sightseeing"
+            ],
+            "childPolicy": [
+                "Below 5 years: no charges",
+                "Above 5 years: chargeable, with some discount applicable",
+                "Above 8 years: fully chargeable"
+            ],
+            "minPersons": "Min. 6 Persons",
+            "itineraryDetails": [
+                {
+                    "day": "Day 1",
+                    "title": "NJP / Siliguri / Bagdogra to Sittong",
+                    "desc": "Pick up from NJP, Siliguri or Bagdogra and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay.",
+                    "nightStay": "Sittong",
+                    "sightseeing": [
+                        "Ahaldara View Point",
+                        "Jogighat Bridge",
+                        "Sittong Monastery",
+                        "Sittong Orange Orchard",
+                        "Latpanchar"
+                    ]
+                },
+                {
+                    "day": "Day 2",
+                    "title": "Sittong to Darjeeling via Offbeat Sightseeing",
+                    "desc": "After breakfast, check out from Sittong and proceed for Darjeeling offbeat sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Lamahatta Park",
+                        "Gumbadara View Point",
+                        "Lover's Meet Point",
+                        "Peshok Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 3",
+                    "title": "Darjeeling Local Sightseeing",
+                    "desc": "After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Batasia Loop",
+                        "Ghoom Monastery",
+                        "Japanese Temple",
+                        "Peace Pagoda",
+                        "Zoo",
+                        "HMI",
+                        "Ropeway",
+                        "Tenzing Rock",
+                        "Lebong Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 4",
+                    "title": "Darjeeling to NJP / Siliguri / Bagdogra via Mirik",
+                    "desc": "After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits.",
+                    "nightStay": "Departure",
+                    "sightseeing": [
+                        "Nepal Border",
+                        "Pashupati Market",
+                        "Mirik Lake",
+                        "Mirik Tea Garden",
+                        "Gopal Dhara Tea Estate"
+                    ]
+                }
+            ]
         },
         {
-          "day": "Day 3",
-          "title": "Darjeeling to NJP / Siliguri / Bagdogra via Mirik",
-          "desc": "After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits.",
-          "nightStay": "Departure",
-          "sightseeing": [
-            "Nepal Border",
-            "Pashupati Market",
-            "Mirik Lake",
-            "Mirik Tea Garden",
-            "Gopal Dhara Tea Estate"
-          ]
+            "id": "darjeeling-offbeat-4n5d",
+            "title": "Darjeeling & Darjeeling Offbeat 4 Nights 5 Days",
+            "region": "West Bengal",
+            "price": "9,800",
+            "duration": "4 Nights / 5 Days",
+            "image": "./images/packages/tour-darjeeling-4n5d.jpg",
+            "description": "Day 1 NJP/Siliguri to Sittong. Day 2 Sittong to Darjeeling via Kurseong. Day 3 Darjeeling local sightseeing. Day 4 Darjeeling to Lepchajagat via offbeat sightseeing. Day 5 Lepchajagat to NJP/Siliguri via Mirik.",
+            "itinerary": [
+                "Day 1 | NJP / Siliguri → Sittong: Pick up from NJP or Siliguri and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay. Night stay at Sittong.",
+                "Day 2 | Sittong → Darjeeling: After breakfast, check out from Sittong and proceed for Kurseong sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 3 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 4 | Darjeeling → Lepchajagat: After breakfast, check out from the Darjeeling hotel and proceed for Darjeeling offbeat sightseeing. Reach Lepchajagat by noon and check in to the Lepchajagat hotel. Lunch and dinner at the Lepchajagat hotel. Night stay at Lepchajagat.",
+                "Day 5 | Lepchajagat → NJP / Siliguri: After breakfast, check out from Lepchajagat and drop to NJP or Siliguri via Mirik sightseeing."
+            ],
+            "highlights": [
+                "Sittong sightseeing: Ahaldhara View Point, Namthing Pokhri, Lathpanchar Monastery",
+                "Kurseong sightseeing: Kurseong Road, Maldhiram Tea Garden, Hanuman Tok, Dowhill",
+                "Darjeeling local sightseeing: Batasia Loop, Ghum Monastery, Japanese Temple, Peace Pagoda, Zoo & HMI, Tenzing Rock, Ropeway, Tea Garden",
+                "Offbeat & Lepchajagat: Lamahatta Eco Park, Gumbadara View Point, Peshok Tea Garden",
+                "Mirik sightseeing: Mirik Lake, Gopaldhara Tea Garden, Pashupati Market, Nepal Border, Simana View Point"
+            ],
+            "includes": [
+                "Food (breakfast, lunch and dinner)",
+                "Accommodation",
+                "Private cab for sightseeing and transfer"
+            ],
+            "excludes": [
+                "Extra food",
+                "Room heater",
+                "Parking charges, entry fees, riding, activity charges and cab waiting charges",
+                "Rock Garden & Ganga Maiya Park",
+                "Tiger Hill sightseeing"
+            ],
+            "childPolicy": [
+                "Below 5 years: no charges",
+                "Above 5 years: chargeable, with some discount applicable",
+                "Above 8 years: fully chargeable"
+            ],
+            "minPersons": "Min. 6 Persons",
+            "itineraryDetails": [
+                {
+                    "day": "Day 1",
+                    "title": "NJP / Siliguri → Sittong",
+                    "desc": "Pick up from NJP or Siliguri and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay.",
+                    "nightStay": "Sittong",
+                    "sightseeing": [
+                        "Ahaldhara View Point",
+                        "Namthing Pokhri",
+                        "Lathpanchar Monastery"
+                    ]
+                },
+                {
+                    "day": "Day 2",
+                    "title": "Sittong → Darjeeling",
+                    "desc": "After breakfast, check out from Sittong and proceed for Kurseong sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Kurseong Road",
+                        "Maldhiram Tea Garden",
+                        "Hanuman Tok",
+                        "Dowhill Sightseeing"
+                    ]
+                },
+                {
+                    "day": "Day 3",
+                    "title": "Darjeeling Local Sightseeing",
+                    "desc": "After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Batasia Loop",
+                        "Ghum Monastery",
+                        "Japanese Temple",
+                        "Peace Pagoda",
+                        "Zoo & HMI",
+                        "Tenzing Rock",
+                        "Ropeway (optional)",
+                        "Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 4",
+                    "title": "Darjeeling → Lepchajagat",
+                    "desc": "After breakfast, check out from the Darjeeling hotel and proceed for Darjeeling offbeat sightseeing. Reach Lepchajagat by noon and check in to the Lepchajagat hotel. Lunch and dinner at the Lepchajagat hotel.",
+                    "nightStay": "Lepchajagat",
+                    "sightseeing": [
+                        "Lamahatta Eco Park",
+                        "Gumbadara View Point",
+                        "Peshok Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 5",
+                    "title": "Lepchajagat → NJP / Siliguri",
+                    "desc": "After breakfast, check out from Lepchajagat and drop to NJP or Siliguri via Mirik sightseeing.",
+                    "nightStay": "Departure",
+                    "sightseeing": [
+                        "Mirik Lake",
+                        "Gopaldhara Tea Garden",
+                        "Pashupati Market",
+                        "Nepal Border",
+                        "Simana View Point"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "darjeeling-offbeat-5n6d",
+            "title": "Darjeeling Offbeat 5 Nights 6 Days",
+            "region": "West Bengal",
+            "price": "12,500",
+            "duration": "5 Nights / 6 Days",
+            "image": "./images/packages/tour-darjeeling-5n6d.jpg",
+            "description": "Day 1 NJP/Siliguri to Ramdhura via Kalimpong. Day 2 Ramdhura to Sittong. Day 3 Sittong to Tinchuley. Day 4 Tinchuley to Darjeeling. Day 5 Darjeeling local sightseeing. Day 6 Darjeeling to NJP/Siliguri via Mirik.",
+            "itinerary": [
+                "Day 1 | NJP / Siliguri → Ramdhura: Pick up from NJP or Siliguri and proceed to Ramdhura via Kalimpong local sightseeing. On reaching, check in to the Ramdhura hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Ramdhura homestay. Night stay at Ramdhura.",
+                "Day 2 | Ramdhura → Sittong: After breakfast, check out from Ramdhura and proceed for Sittong sightseeing. Reach Sittong by noon and check in to the homestay. Lunch, evening snacks and dinner at the Sittong hotel. Night stay at Sittong.",
+                "Day 3 | Sittong → Tinchuley: After breakfast, check out from Sittong and proceed to Tinchuley via sightseeing. Reach Tinchuley by noon and check in to the homestay. Lunch and dinner at the Tinchuley homestay. Night stay at Tinchuley.",
+                "Day 4 | Tinchuley → Darjeeling: After breakfast, check out from Tinchuley and proceed to Darjeeling via sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 5 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel by noon. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
+                "Day 6 | Darjeeling → NJP / Siliguri: After breakfast, check out from Darjeeling and drop to NJP or Siliguri via Mirik sightseeing."
+            ],
+            "highlights": [
+                "Ramdhura sightseeing: Hanuman Tok, Buddha Statue, Delo Park, Science City Museum",
+                "Sittong sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden",
+                "Tinchuley sightseeing: Jogighat Bridge, Mongpo Rabindra Bhawan, Lover's Meet View Point, Gumbadara View Point",
+                "Enroute Darjeeling: Lamahatta Eco Park, Dali Monastery",
+                "Darjeeling local sightseeing: Batasia Loop, Ghum Monastery, Peace Pagoda, Japanese Temple, Zoo, HMI, Tenzing Rock, Ropeway, Tea Garden",
+                "Mirik sightseeing: Mirik Lake, Gopaldhara Tea Garden, Pashupati Market, Nepal Border, Simana View Point"
+            ],
+            "includes": [
+                "Food (breakfast, lunch and dinner)",
+                "Accommodation",
+                "Private cab for sightseeing and transfer"
+            ],
+            "excludes": [
+                "Extra food",
+                "Room heater",
+                "Parking charges, entry fees, riding, activity charges and cab waiting charges",
+                "Tiger Hill sightseeing"
+            ],
+            "childPolicy": [
+                "Below 5 years: no charges",
+                "Above 5 years: chargeable, with some discount applicable",
+                "Above 8 years: fully chargeable"
+            ],
+            "minPersons": "Min. 6 Persons",
+            "itineraryDetails": [
+                {
+                    "day": "Day 1",
+                    "title": "NJP / Siliguri → Ramdhura",
+                    "desc": "Pick up from NJP or Siliguri and proceed to Ramdhura via Kalimpong local sightseeing. On reaching, check in to the Ramdhura hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Ramdhura homestay.",
+                    "nightStay": "Ramdhura",
+                    "sightseeing": [
+                        "Hanuman Tok",
+                        "Buddha Statue",
+                        "Delo Park",
+                        "Science City Museum"
+                    ]
+                },
+                {
+                    "day": "Day 2",
+                    "title": "Ramdhura → Sittong",
+                    "desc": "After breakfast, check out from Ramdhura and proceed for Sittong sightseeing. Reach Sittong by noon and check in to the homestay. Lunch, evening snacks and dinner at the Sittong hotel.",
+                    "nightStay": "Sittong",
+                    "sightseeing": [
+                        "Ahaldhara View Point",
+                        "Namthing Pokhri",
+                        "Orange Garden"
+                    ]
+                },
+                {
+                    "day": "Day 3",
+                    "title": "Sittong → Tinchuley",
+                    "desc": "After breakfast, check out from Sittong and proceed to Tinchuley via sightseeing. Reach Tinchuley by noon and check in to the homestay. Lunch and dinner at the Tinchuley homestay.",
+                    "nightStay": "Tinchuley",
+                    "sightseeing": [
+                        "Jogighat Bridge",
+                        "Mongpo Rabindra Bhawan",
+                        "Lover's Meet View Point",
+                        "Gumbadara View Point"
+                    ]
+                },
+                {
+                    "day": "Day 4",
+                    "title": "Tinchuley → Darjeeling",
+                    "desc": "After breakfast, check out from Tinchuley and proceed to Darjeeling via sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Lamahatta Eco Park",
+                        "Dali Monastery"
+                    ]
+                },
+                {
+                    "day": "Day 5",
+                    "title": "Darjeeling Local Sightseeing",
+                    "desc": "After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel by noon. Lunch and dinner at the Darjeeling hotel.",
+                    "nightStay": "Darjeeling",
+                    "sightseeing": [
+                        "Batasia Loop",
+                        "Ghum Monastery",
+                        "Peace Pagoda",
+                        "Japanese Temple",
+                        "Zoo",
+                        "HMI",
+                        "Tenzing Rock",
+                        "Ropeway",
+                        "Tea Garden"
+                    ]
+                },
+                {
+                    "day": "Day 6",
+                    "title": "Darjeeling → NJP / Siliguri",
+                    "desc": "After breakfast, check out from Darjeeling and drop to NJP or Siliguri via Mirik sightseeing.",
+                    "nightStay": "Departure",
+                    "sightseeing": [
+                        "Mirik Lake",
+                        "Gopaldhara Tea Garden",
+                        "Pashupati Market",
+                        "Nepal Border",
+                        "Simana View Point"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "meghalaya",
+            "title": "Meghalaya – Abode of Clouds",
+            "region": "Meghalaya",
+            "duration": "5D/4N",
+            "price": "13,000",
+            "description": "Meghalaya, meaning “Abode of Clouds,” is a beautiful state in Northeast India known for its lush green hills, waterfalls, caves, and unique living root bridges. From the scenic beauty of Shillong and Sohra to the crystal-clear waters of Dawki and Asia’s cleanest village Mawlynong, Meghalaya offers an unforgettable journey.",
+            "image": "./images/locations/meghalaya/meghalaya.jpg",
+            "images": [
+                "./images/locations/meghalaya/meghalaya.jpg"
+            ],
+            "minPersons": "Min. 6 Persons",
+            "highlights": [
+                "Scenic drive from Guwahati to Shillong & Police Bazar",
+                "Seven Sisters, Nohkalikai & Wei Sawdong Waterfalls",
+                "Mawsmai Cave, Arwah Cave & Mawsawa Falls in Cherrapunji",
+                "Crystal-clear Umngot River Boating in Dawki",
+                "India–Bangladesh Border at Tamabil",
+                "Asia’s Cleanest Village Mawlynong & Living Root Bridge",
+                "Ward’s Lake, Elephant Falls & Shillong Peak",
+                "Majestic Umiam Lake (Barapani) en route"
+            ],
+            "itinerary": [
+                "Day 1: Guwahati to Shillong – Check-in & Police Bazar",
+                "Day 2: Shillong to Cherrapunji – Waterfalls & Caves Exploration",
+                "Day 3: Cherrapunji to Dawki & Mawlynong – Umngot River Boating",
+                "Day 4: Mawlynong to Shillong – Living Root Bridge & City Sightseeing",
+                "Day 5: Shillong to Guwahati via Umiam Lake – Departure"
+            ],
+            "itineraryDetails": [
+                {
+                    "day": "Day 1",
+                    "title": "Guwahati to Shillong (98 km / Approx. 4 hrs)",
+                    "desc": "Pick up from Guwahati and transfer to Shillong. Shillong is a beautiful hill station and the capital of Meghalaya, known for its scenic beauty, waterfalls, and colonial charm. On reaching, check in to the hotel and rest. In the evening, explore the vibrant Police Bazar. Dinner will be served at the Shillong hotel.",
+                    "nightStay": "Shillong Hotel",
+                    "sightseeing": [
+                        "Scenic Mountain Drive",
+                        "Police Bazar",
+                        "Local Shillong Markets"
+                    ]
+                },
+                {
+                    "day": "Day 2",
+                    "title": "Shillong to Cherrapunji (54 km / Approx. 2.5 hrs)",
+                    "desc": "After breakfast check out from Shillong hotel and proceed to Cherrapunji, one of the wettest places on earth, famous for waterfalls, caves, and natural beauty. Visit iconic falls and mystical limestone caves. Dinner will be served at the Cherrapunji hotel.",
+                    "nightStay": "Cherrapunji Hotel",
+                    "sightseeing": [
+                        "Seven Sisters Waterfalls",
+                        "Mawsmai Cave",
+                        "Arwah Cave",
+                        "Nohkalikai Waterfalls",
+                        "Wei Sawdong Waterfalls",
+                        "Mawsawa Waterfalls",
+                        "Ramakrishna Mission"
+                    ]
+                },
+                {
+                    "day": "Day 3",
+                    "title": "Cherrapunji to Dawki & Mawlynong (73 km / Approx. 4.5 hrs)",
+                    "desc": "After breakfast check out from Cherrapunji hotel and proceed towards Dawki and Mawlynong. Experience the crystal-clear waters of Umngot River and visit the India–Bangladesh border at Tamabil. Later proceed to Mawlynong – Asia’s cleanest village. Dinner will be served at the Mawlynong homestay.",
+                    "nightStay": "Mawlynong Homestay",
+                    "sightseeing": [
+                        "Umngot River (Dawki River Boating)",
+                        "Dawki Tamabil (India–Bangladesh Border)",
+                        "Dawki Suspension Bridge",
+                        "Mawlynong Village"
+                    ]
+                },
+                {
+                    "day": "Day 4",
+                    "title": "Mawlynong to Shillong (67 km / Approx. 5 hrs)",
+                    "desc": "Early morning explore Mawlynong village on foot, surrounded by lush greenery and Khasi culture, and walk across the single Decker Living Root Bridge. After breakfast check out and proceed to Shillong for full city sightseeing. Dinner will be served at the Shillong hotel.",
+                    "nightStay": "Shillong Hotel",
+                    "sightseeing": [
+                        "Mawlynong Village Walk",
+                        "Living Root Bridge",
+                        "Ward’s Lake and Garden",
+                        "Lady Hydari Park",
+                        "Elephant Falls",
+                        "Shillong Peak View Point",
+                        "Shillong Golf Course",
+                        "Cherry Blossom (seasonal)"
+                    ]
+                },
+                {
+                    "day": "Day 5",
+                    "title": "Shillong to Guwahati (98 km / Approx. 4 hrs)",
+                    "desc": "After breakfast check out from Shillong hotel and proceed to Guwahati. Enroute visit the picturesque Umiam Lake (Barapani). Drop at Guwahati Airport or Kamakhya Railway Station with everlasting memories of the Abode of Clouds.",
+                    "nightStay": "Departure",
+                    "sightseeing": [
+                        "Umiam Lake (Barapani View Point)",
+                        "Guwahati Airport / Kamakhya Station Drop"
+                    ]
+                }
+            ],
+            "includes": [
+                "Accommodation (Standard to Deluxe stays)",
+                "Meals (Breakfast & Dinner)",
+                "Private cab for entire trip (Guwahati to Guwahati)",
+                "All sightseeing as per itinerary",
+                "Driver allowance",
+                "Fuel cost",
+                "Toll tax",
+                "Parking charges"
+            ],
+            "excludes": [
+                "Any personal expenses / medical expenses",
+                "Camera charges",
+                "Room heater",
+                "BBQ",
+                "Packaged drinking water",
+                "Any meal not mentioned in itinerary",
+                "Train / Flight tickets",
+                "Entry fees & boating charges",
+                "Any activity / ride charges",
+                "Any permit charges"
+            ],
+            "childPolicy": [
+                "Below 5 years: no charges.",
+                "Above 5 years: chargeable, with discount applicable.",
+                "Above 8 years: fully chargeable."
+            ]
+        },
+        {
+            "id": "darjeeling",
+            "title": "Darjeeling",
+            "region": "West Bengal",
+            "price": "5,500",
+            "duration": "3D/2N",
+            "image": "./images/locations/darjeeling/darjeeling.jpg",
+            "description": "Nestled in the foothills of the Eastern Himalayas, Darjeeling is one of India's most loved hill stations. Known as the Queen of Hills, it offers breathtaking views of Mt. Kanchenjunga, rolling tea gardens, colonial charm, and the spectacular sunrise from Tiger Hill. Perfect for family vacations, honeymoon trips, and relaxing hill getaways.",
+            "includes": [
+                "Accommodation (Standard/Deluxe)",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Parking & Entry fees",
+                "Adventure activities",
+                "Ropeway & Toy Train ride"
+            ]
+        },
+        {
+            "id": "darjeeling-offbeat",
+            "title": "Darjeeling Offbeat",
+            "region": "West Bengal",
+            "price": "4,500",
+            "duration": "3D/2N",
+            "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
+            "description": "Darjeeling Offbeat destinations like Sittong and Lepchajagat offer a peaceful escape away from crowded tourist spots. Surrounded by pine forests, orange orchards, tea gardens, and panoramic Himalayan views, these hidden gems are perfect for travelers seeking silence, nature, and authentic village experiences.",
+            "includes": [
+                "Homestay accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Parking & Entry fees",
+                "Adventure activities",
+                "Ropeway & Toy Train ride"
+            ]
+        },
+        {
+            "id": "darjeeling-offbeat-sittong",
+            "title": "Offbeat Darjeeling – Sittong",
+            "region": "West Bengal",
+            "price": "4,500",
+            "duration": "3D/2N",
+            "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
+            "description": "Escape to Sittong, the famous Orange Village — a peaceful offbeat destination near Darjeeling. Surrounded by orange orchards, tea gardens, and wide Himalayan views. Perfect for those seeking silence, nature, and authentic village experiences.",
+            "itinerary": [
+                "Day 1: NJP pickup → Sittong Homestay via Kurseong Road → Dowhill → Hanuman Tok → Gidda Pahar → Maldhiram Tea Garden. Lunch, snacks & dinner at Sittong.",
+                "Day 2: Breakfast → Sittong local sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden. Lunch, snacks & dinner at Sittong.",
+                "Day 3: Breakfast → Checkout → Jogighat Bridge → Lepcha Monastery → Mongpo Rabindra Museum → NJP drop."
+            ],
+            "highlights": [
+                "Ahaldhara View Point",
+                "Namthing Pokhri",
+                "Orange Garden",
+                "Jogighat Bridge & Lepcha Monastery",
+                "Mongpo Rabindra Museum"
+            ],
+            "includes": [
+                "Homestay accommodation",
+                "Breakfast, Lunch, Evening Snacks & Dinner",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Parking & Entry fees",
+                "Adventure / activity charges",
+                "Ropeway & Toy Train ride"
+            ],
+            "childPolicy": [
+                "Below 5 years – No charge",
+                "5–8 years – Chargeable with special discount",
+                "Above 8 years – Fully chargeable"
+            ]
+        },
+        {
+            "id": "silk-route",
+            "title": "Silk Route",
+            "region": "Sikkim",
+            "price": "5,200",
+            "duration": "4D/3N",
+            "image": "./images/locations/silkroute/silkroute.jpg",
+            "description": "Experience the legendary Silk Route through Sikkim's high-altitude passes, picturesque villages, and ancient monasteries. A true adventure for trekkers and culture enthusiasts.",
+            "includes": [
+                "Homestay accommodation",
+                "Lunch, Dinner, Snacks & Breakfast",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry fees & Parking",
+                "Cab Permit (~₹1000/cab)",
+                "Nathula Pass Permit (optional)"
+            ]
+        },
+        {
+            "id": "west-sikkim",
+            "title": "West Sikkim",
+            "region": "Sikkim",
+            "price": "7,400",
+            "duration": "4D/3N",
+            "image": "./images/locations/westsikkim/westsikkim.jpg",
+            "description": "Explore the stunning western regions of Sikkim with emerald lakes, sacred monasteries, and panoramic mountain vistas.",
+            "includes": [
+                "Hotel accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Adventure activities",
+                "Namchi sightseeing"
+            ]
+        },
+        {
+            "id": "north-sikkim",
+            "title": "North Sikkim",
+            "region": "Sikkim",
+            "price": "9,400",
+            "duration": "5D/4N",
+            "image": "./images/locations/northsikkim/northsikkim.jpg",
+            "description": "Journey to the roof of North Sikkim, visiting sacred lakes like Gurudongmar and Yumthang Valley surrounded by pristine alpine meadows.",
+            "includes": [
+                "Hotel & Homestay accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Transportation",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Extra food not in package",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Kala Patthar visit",
+                "Zero Point & Mt. Katao"
+            ]
+        },
+        {
+            "id": "kalimpong-offbeat",
+            "title": "Kalimpong Offbeat",
+            "region": "West Bengal",
+            "price": "4,200",
+            "duration": "3D/2N",
+            "image": "./images/locations/kalimpong/kalimpong.jpg",
+            "description": "Discover the lesser-known villages of Kalimpong region with tea gardens, pine forests, and breathtaking mountain views.",
+            "includes": [
+                "Homestay accommodation",
+                "Breakfast, Lunch, Snacks & Dinner",
+                "Personal Cab (NJP to NJP)",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Adventure activities",
+                "Ropeway & Toy Train ride"
+            ]
+        },
+        {
+            "id": "arunachal",
+            "title": "Arunachal Pradesh – Tawang",
+            "region": "Arunachal Pradesh",
+            "price": "15,300",
+            "duration": "6D/5N",
+            "image": "./images/locations/arunachal/arunachal.jpg",
+            "description": "Trek to the mystical Tawang monastery and experience the last frontier's untouched beauty, pristine lakes, and warm hospitality.",
+            "includes": [
+                "Accommodation",
+                "Breakfast & Dinner",
+                "Transportation",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Lunch",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Snow activities",
+                "Gongker La Lake (extra day)"
+            ]
+        },
+        {
+            "id": "himachal",
+            "title": "Himachal Pradesh – Shimla Manali",
+            "region": "Himachal Pradesh",
+            "price": "11,000",
+            "duration": "5D/4N",
+            "image": "./images/locations/himachal/himachal.jpg",
+            "description": "Experience the colonial charm of Shimla and the adventure capital of Manali with scenic mountain passes and alpine beauty.",
+            "includes": [
+                "Accommodation",
+                "Breakfast & Dinner",
+                "Transportation",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Lunch",
+                "Room heater, BBQ, Parking charges",
+                "Rohtang Pass & snow activities",
+                "Manikaran & Kullu activities"
+            ]
+        },
+        {
+            "id": "spiti",
+            "title": "Spiti Valley",
+            "region": "Himachal Pradesh",
+            "price": "19,500",
+            "duration": "9D/8N",
+            "image": "./images/locations/spitivalley/spitivalley.jpg",
+            "description": "Explore the world's highest desert with ancient monasteries, pristine lakes, and villages untouched by time in the magical Spiti Valley.",
+            "includes": [
+                "Accommodation",
+                "Breakfast & Dinner",
+                "Transportation",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Lunch",
+                "Room heater, BBQ, Parking charges",
+                "Rohtang Pass charges",
+                "Snow activities & Rafting"
+            ]
+        },
+        {
+            "id": "kashmir",
+            "title": "Kashmir",
+            "region": "Jammu & Kashmir",
+            "price": "13,000",
+            "duration": "6D/5N",
+            "image": "./images/locations/kashmir/kashmir.jpg",
+            "description": "Discover the valley of paradise with stunning lakes, snow-capped peaks, and the legendary Himalayan hospitality of Kashmir.",
+            "includes": [
+                "Accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Adventure activities"
+            ]
+        },
+        {
+            "id": "andaman",
+            "title": "Andaman & Nicobar",
+            "region": "Andaman & Nicobar",
+            "price": "17,300",
+            "duration": "6D/5N",
+            "image": "./images/locations/andaman/andaman.jpg",
+            "description": "Experience tropical paradise with pristine beaches, crystal-clear waters, and water sports in the enchanting Andaman Islands.",
+            "includes": [
+                "Accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Adventure activities"
+            ]
+        },
+        {
+            "id": "dooars",
+            "title": "Dooars",
+            "region": "West Bengal",
+            "price": "4,600",
+            "duration": "3D/2N",
+            "image": "./images/locations/dooars/dooars.jpg",
+            "description": "Explore the wilderness of Dooars with lush forests, tea gardens, and unique wildlife in this offbeat destination.",
+            "includes": [
+                "Accommodation",
+                "Breakfast, Lunch & Dinner",
+                "Personal Cab",
+                "All sightseeing as per itinerary",
+                "Package rate based on minimum 6 persons"
+            ],
+            "excludes": [
+                "Outside food & Mineral water",
+                "Room heater & BBQ charges",
+                "Entry & Parking fees",
+                "Adventure activities"
+            ]
         }
-      ]
-    },
-    {
-      "id": "darjeeling-offbeat-sittong",
-      "title": "Offbeat Darjeeling – Sittong",
-      "region": "West Bengal",
-      "price": "4,500",
-      "duration": "3D/2N",
-      "image": "./images/locations/darjeelingoffbeat/darjeelingoffbeat.jpg",
-      "description": "Escape to Sittong, the famous Orange Village — a peaceful offbeat destination near Darjeeling. Surrounded by orange orchards, tea gardens, and wide Himalayan views. Perfect for those seeking silence, nature, and authentic village experiences.",
-      "itinerary": [
-        "Day 1: NJP pickup → Sittong Homestay via Kurseong Road → Dowhill → Hanuman Tok → Gidda Pahar → Maldhiram Tea Garden. Lunch, snacks & dinner at Sittong.",
-        "Day 2: Breakfast → Sittong local sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden. Lunch, snacks & dinner at Sittong.",
-        "Day 3: Breakfast → Checkout → Jogighat Bridge → Lepcha Monastery → Mongpo Rabindra Museum → NJP drop."
-      ],
-      "highlights": [
-        "Ahaldhara View Point",
-        "Namthing Pokhri",
-        "Orange Garden",
-        "Jogighat Bridge & Lepcha Monastery",
-        "Mongpo Rabindra Museum"
-      ],
-      "includes": [
-        "Homestay accommodation",
-        "Breakfast, Lunch, Evening Snacks & Dinner",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Parking & Entry fees",
-        "Adventure / activity charges",
-        "Ropeway & Toy Train ride"
-      ],
-      "childPolicy": [
-        "Below 5 years – No charge",
-        "5–8 years – Chargeable with special discount",
-        "Above 8 years – Fully chargeable"
-      ]
-    },
-    {
-      "id": "darjeeling-offbeat-3n4d",
-      "title": "Darjeeling and Darjeeling Offbeat 3 Nights 4 Days",
-      "region": "West Bengal",
-      "price": "7,200",
-      "duration": "3 Nights / 4 Days",
-      "image": "./images/packages/tour-darjeeling-3n4d.jpg",
-      "description": "Day 1 pickup from NJP/Siliguri/Bagdogra to Sittong homestay with sightseeing. Day 2 Sittong to Darjeeling via offbeat sightseeing. Day 3 Darjeeling local sightseeing. Day 4 Darjeeling to NJP/Siliguri/Bagdogra via Mirik.",
-      "itinerary": [
-        "Day 1 | NJP / Siliguri / Bagdogra to Sittong: Pick up from NJP, Siliguri or Bagdogra and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay. Night stay at Sittong.",
-        "Day 2 | Sittong to Darjeeling via Offbeat Sightseeing: After breakfast, check out from Sittong and proceed for Darjeeling offbeat sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 3 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 4 | Darjeeling to NJP / Siliguri / Bagdogra via Mirik: After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits."
-      ],
-      "highlights": [
-        "Sittong sightseeing: Ahaldara View Point, Jogighat Bridge, Sittong Monastery, Orange Orchard, Latpanchar",
-        "Offbeat sightseeing: Lamahatta Park, Gumbadara View Point, Lover's Meet Point, Peshok Tea Garden",
-        "Darjeeling local sightseeing: Batasia Loop, Ghoom Monastery, Japanese Temple, Peace Pagoda, Zoo, HMI, Ropeway, Tenzing Rock, Lebong Tea Garden",
-        "Mirik sightseeing: Nepal Border, Pashupati Market, Mirik Lake, Mirik Tea Garden, Gopal Dhara Tea Estate"
-      ],
-      "includes": [
-        "Food (breakfast, lunch and dinner)",
-        "Accommodation",
-        "Private cab for sightseeing and transfer"
-      ],
-      "excludes": [
-        "Extra food",
-        "Room heater",
-        "Parking charges, entry fees, riding, activity charges and cab waiting charges",
-        "Tiger Hill sightseeing"
-      ],
-      "childPolicy": [
-        "Below 5 years: no charges",
-        "Above 5 years: chargeable, with some discount applicable",
-        "Above 8 years: fully chargeable"
-      ],
-      "minPersons": "Min. 6 Persons",
-      "itineraryDetails": [
-        {
-          "day": "Day 1",
-          "title": "NJP / Siliguri / Bagdogra to Sittong",
-          "desc": "Pick up from NJP, Siliguri or Bagdogra and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay.",
-          "nightStay": "Sittong",
-          "sightseeing": [
-            "Ahaldara View Point",
-            "Jogighat Bridge",
-            "Sittong Monastery",
-            "Sittong Orange Orchard",
-            "Latpanchar"
-          ]
-        },
-        {
-          "day": "Day 2",
-          "title": "Sittong to Darjeeling via Offbeat Sightseeing",
-          "desc": "After breakfast, check out from Sittong and proceed for Darjeeling offbeat sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Lamahatta Park",
-            "Gumbadara View Point",
-            "Lover's Meet Point",
-            "Peshok Tea Garden"
-          ]
-        },
-        {
-          "day": "Day 3",
-          "title": "Darjeeling Local Sightseeing",
-          "desc": "After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Batasia Loop",
-            "Ghoom Monastery",
-            "Japanese Temple",
-            "Peace Pagoda",
-            "Zoo",
-            "HMI",
-            "Ropeway",
-            "Tenzing Rock",
-            "Lebong Tea Garden"
-          ]
-        },
-        {
-          "day": "Day 4",
-          "title": "Darjeeling to NJP / Siliguri / Bagdogra via Mirik",
-          "desc": "After breakfast, check out from Darjeeling and drop to NJP, Siliguri or Bagdogra via Mirik sightseeing, if time permits.",
-          "nightStay": "Departure",
-          "sightseeing": [
-            "Nepal Border",
-            "Pashupati Market",
-            "Mirik Lake",
-            "Mirik Tea Garden",
-            "Gopal Dhara Tea Estate"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "darjeeling-offbeat-4n5d",
-      "title": "Darjeeling & Darjeeling Offbeat 4 Nights 5 Days",
-      "region": "West Bengal",
-      "price": "9,800",
-      "duration": "4 Nights / 5 Days",
-      "image": "./images/packages/tour-darjeeling-4n5d.jpg",
-      "description": "Day 1 NJP/Siliguri to Sittong. Day 2 Sittong to Darjeeling via Kurseong. Day 3 Darjeeling local sightseeing. Day 4 Darjeeling to Lepchajagat via offbeat sightseeing. Day 5 Lepchajagat to NJP/Siliguri via Mirik.",
-      "itinerary": [
-        "Day 1 | NJP / Siliguri → Sittong: Pick up from NJP or Siliguri and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay. Night stay at Sittong.",
-        "Day 2 | Sittong → Darjeeling: After breakfast, check out from Sittong and proceed for Kurseong sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 3 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 4 | Darjeeling → Lepchajagat: After breakfast, check out from the Darjeeling hotel and proceed for Darjeeling offbeat sightseeing. Reach Lepchajagat by noon and check in to the Lepchajagat hotel. Lunch and dinner at the Lepchajagat hotel. Night stay at Lepchajagat.",
-        "Day 5 | Lepchajagat → NJP / Siliguri: After breakfast, check out from Lepchajagat and drop to NJP or Siliguri via Mirik sightseeing."
-      ],
-      "highlights": [
-        "Sittong sightseeing: Ahaldhara View Point, Namthing Pokhri, Lathpanchar Monastery",
-        "Kurseong sightseeing: Kurseong Road, Maldhiram Tea Garden, Hanuman Tok, Dowhill",
-        "Darjeeling local sightseeing: Batasia Loop, Ghum Monastery, Japanese Temple, Peace Pagoda, Zoo & HMI, Tenzing Rock, Ropeway, Tea Garden",
-        "Offbeat & Lepchajagat: Lamahatta Eco Park, Gumbadara View Point, Peshok Tea Garden",
-        "Mirik sightseeing: Mirik Lake, Gopaldhara Tea Garden, Pashupati Market, Nepal Border, Simana View Point"
-      ],
-      "includes": [
-        "Food (breakfast, lunch and dinner)",
-        "Accommodation",
-        "Private cab for sightseeing and transfer"
-      ],
-      "excludes": [
-        "Extra food",
-        "Room heater",
-        "Parking charges, entry fees, riding, activity charges and cab waiting charges",
-        "Rock Garden & Ganga Maiya Park",
-        "Tiger Hill sightseeing"
-      ],
-      "childPolicy": [
-        "Below 5 years: no charges",
-        "Above 5 years: chargeable, with some discount applicable",
-        "Above 8 years: fully chargeable"
-      ],
-      "minPersons": "Min. 6 Persons",
-      "itineraryDetails": [
-        {
-          "day": "Day 1",
-          "title": "NJP / Siliguri → Sittong",
-          "desc": "Pick up from NJP or Siliguri and drop to Sittong. Visit Sittong sightseeing on the way. On reaching, check in to the Sittong hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Sittong homestay.",
-          "nightStay": "Sittong",
-          "sightseeing": [
-            "Ahaldhara View Point",
-            "Namthing Pokhri",
-            "Lathpanchar Monastery"
-          ]
-        },
-        {
-          "day": "Day 2",
-          "title": "Sittong → Darjeeling",
-          "desc": "After breakfast, check out from Sittong and proceed for Kurseong sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch, evening snacks and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Kurseong Road",
-            "Maldhiram Tea Garden",
-            "Hanuman Tok",
-            "Dowhill Sightseeing"
-          ]
-        },
-        {
-          "day": "Day 3",
-          "title": "Darjeeling Local Sightseeing",
-          "desc": "After breakfast, proceed for Darjeeling local sightseeing. Lunch and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Batasia Loop",
-            "Ghum Monastery",
-            "Japanese Temple",
-            "Peace Pagoda",
-            "Zoo & HMI",
-            "Tenzing Rock",
-            "Ropeway (optional)",
-            "Tea Garden"
-          ]
-        },
-        {
-          "day": "Day 4",
-          "title": "Darjeeling → Lepchajagat",
-          "desc": "After breakfast, check out from the Darjeeling hotel and proceed for Darjeeling offbeat sightseeing. Reach Lepchajagat by noon and check in to the Lepchajagat hotel. Lunch and dinner at the Lepchajagat hotel.",
-          "nightStay": "Lepchajagat",
-          "sightseeing": [
-            "Lamahatta Eco Park",
-            "Gumbadara View Point",
-            "Peshok Tea Garden"
-          ]
-        },
-        {
-          "day": "Day 5",
-          "title": "Lepchajagat → NJP / Siliguri",
-          "desc": "After breakfast, check out from Lepchajagat and drop to NJP or Siliguri via Mirik sightseeing.",
-          "nightStay": "Departure",
-          "sightseeing": [
-            "Mirik Lake",
-            "Gopaldhara Tea Garden",
-            "Pashupati Market",
-            "Nepal Border",
-            "Simana View Point"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "darjeeling-offbeat-5n6d",
-      "title": "Darjeeling Offbeat 5 Nights 6 Days",
-      "region": "West Bengal",
-      "price": "12,500",
-      "duration": "5 Nights / 6 Days",
-      "image": "./images/packages/tour-darjeeling-5n6d.jpg",
-      "description": "Day 1 NJP/Siliguri to Ramdhura via Kalimpong. Day 2 Ramdhura to Sittong. Day 3 Sittong to Tinchuley. Day 4 Tinchuley to Darjeeling. Day 5 Darjeeling local sightseeing. Day 6 Darjeeling to NJP/Siliguri via Mirik.",
-      "itinerary": [
-        "Day 1 | NJP / Siliguri → Ramdhura: Pick up from NJP or Siliguri and proceed to Ramdhura via Kalimpong local sightseeing. On reaching, check in to the Ramdhura hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Ramdhura homestay. Night stay at Ramdhura.",
-        "Day 2 | Ramdhura → Sittong: After breakfast, check out from Ramdhura and proceed for Sittong sightseeing. Reach Sittong by noon and check in to the homestay. Lunch, evening snacks and dinner at the Sittong hotel. Night stay at Sittong.",
-        "Day 3 | Sittong → Tinchuley: After breakfast, check out from Sittong and proceed to Tinchuley via sightseeing. Reach Tinchuley by noon and check in to the homestay. Lunch and dinner at the Tinchuley homestay. Night stay at Tinchuley.",
-        "Day 4 | Tinchuley → Darjeeling: After breakfast, check out from Tinchuley and proceed to Darjeeling via sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 5 | Darjeeling Local Sightseeing: After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel by noon. Lunch and dinner at the Darjeeling hotel. Night stay at Darjeeling.",
-        "Day 6 | Darjeeling → NJP / Siliguri: After breakfast, check out from Darjeeling and drop to NJP or Siliguri via Mirik sightseeing."
-      ],
-      "highlights": [
-        "Ramdhura sightseeing: Hanuman Tok, Buddha Statue, Delo Park, Science City Museum",
-        "Sittong sightseeing: Ahaldhara View Point, Namthing Pokhri, Orange Garden",
-        "Tinchuley sightseeing: Jogighat Bridge, Mongpo Rabindra Bhawan, Lover's Meet View Point, Gumbadara View Point",
-        "Enroute Darjeeling: Lamahatta Eco Park, Dali Monastery",
-        "Darjeeling local sightseeing: Batasia Loop, Ghum Monastery, Peace Pagoda, Japanese Temple, Zoo, HMI, Tenzing Rock, Ropeway, Tea Garden",
-        "Mirik sightseeing: Mirik Lake, Gopaldhara Tea Garden, Pashupati Market, Nepal Border, Simana View Point"
-      ],
-      "includes": [
-        "Food (breakfast, lunch and dinner)",
-        "Accommodation",
-        "Private cab for sightseeing and transfer"
-      ],
-      "excludes": [
-        "Extra food",
-        "Room heater",
-        "Parking charges, entry fees, riding, activity charges and cab waiting charges",
-        "Tiger Hill sightseeing"
-      ],
-      "childPolicy": [
-        "Below 5 years: no charges",
-        "Above 5 years: chargeable, with some discount applicable",
-        "Above 8 years: fully chargeable"
-      ],
-      "minPersons": "Min. 6 Persons",
-      "itineraryDetails": [
-        {
-          "day": "Day 1",
-          "title": "NJP / Siliguri → Ramdhura",
-          "desc": "Pick up from NJP or Siliguri and proceed to Ramdhura via Kalimpong local sightseeing. On reaching, check in to the Ramdhura hotel or homestay and rest for the day. Lunch, evening snacks and dinner at the Ramdhura homestay.",
-          "nightStay": "Ramdhura",
-          "sightseeing": [
-            "Hanuman Tok",
-            "Buddha Statue",
-            "Delo Park",
-            "Science City Museum"
-          ]
-        },
-        {
-          "day": "Day 2",
-          "title": "Ramdhura → Sittong",
-          "desc": "After breakfast, check out from Ramdhura and proceed for Sittong sightseeing. Reach Sittong by noon and check in to the homestay. Lunch, evening snacks and dinner at the Sittong hotel.",
-          "nightStay": "Sittong",
-          "sightseeing": [
-            "Ahaldhara View Point",
-            "Namthing Pokhri",
-            "Orange Garden"
-          ]
-        },
-        {
-          "day": "Day 3",
-          "title": "Sittong → Tinchuley",
-          "desc": "After breakfast, check out from Sittong and proceed to Tinchuley via sightseeing. Reach Tinchuley by noon and check in to the homestay. Lunch and dinner at the Tinchuley homestay.",
-          "nightStay": "Tinchuley",
-          "sightseeing": [
-            "Jogighat Bridge",
-            "Mongpo Rabindra Bhawan",
-            "Lover's Meet View Point",
-            "Gumbadara View Point"
-          ]
-        },
-        {
-          "day": "Day 4",
-          "title": "Tinchuley → Darjeeling",
-          "desc": "After breakfast, check out from Tinchuley and proceed to Darjeeling via sightseeing. Reach Darjeeling by noon and check in to the hotel. Lunch and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Lamahatta Eco Park",
-            "Dali Monastery"
-          ]
-        },
-        {
-          "day": "Day 5",
-          "title": "Darjeeling Local Sightseeing",
-          "desc": "After breakfast, proceed for Darjeeling local sightseeing. Return to the hotel by noon. Lunch and dinner at the Darjeeling hotel.",
-          "nightStay": "Darjeeling",
-          "sightseeing": [
-            "Batasia Loop",
-            "Ghum Monastery",
-            "Peace Pagoda",
-            "Japanese Temple",
-            "Zoo",
-            "HMI",
-            "Tenzing Rock",
-            "Ropeway",
-            "Tea Garden"
-          ]
-        },
-        {
-          "day": "Day 6",
-          "title": "Darjeeling → NJP / Siliguri",
-          "desc": "After breakfast, check out from Darjeeling and drop to NJP or Siliguri via Mirik sightseeing.",
-          "nightStay": "Departure",
-          "sightseeing": [
-            "Mirik Lake",
-            "Gopaldhara Tea Garden",
-            "Pashupati Market",
-            "Nepal Border",
-            "Simana View Point"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "silk-route",
-      "title": "Silk Route",
-      "region": "Sikkim",
-      "price": "5,200",
-      "duration": "4D/3N",
-      "image": "./images/locations/silkroute/silkroute.jpg",
-      "description": "Experience the legendary Silk Route through Sikkim's high-altitude passes, picturesque villages, and ancient monasteries. A true adventure for trekkers and culture enthusiasts.",
-      "includes": [
-        "Homestay accommodation",
-        "Lunch, Dinner, Snacks & Breakfast",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry fees & Parking",
-        "Cab Permit (~₹1000/cab)",
-        "Nathula Pass Permit (optional)"
-      ]
-    },
-    {
-      "id": "west-sikkim",
-      "title": "West Sikkim",
-      "region": "Sikkim",
-      "price": "7,400",
-      "duration": "4D/3N",
-      "image": "./images/locations/westsikkim/westsikkim.jpg",
-      "description": "Explore the stunning western regions of Sikkim with emerald lakes, sacred monasteries, and panoramic mountain vistas.",
-      "includes": [
-        "Hotel accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Adventure activities",
-        "Namchi sightseeing"
-      ]
-    },
-    {
-      "id": "north-sikkim",
-      "title": "North Sikkim",
-      "region": "Sikkim",
-      "price": "9,400",
-      "duration": "5D/4N",
-      "image": "./images/locations/northsikkim/northsikkim.jpg",
-      "description": "Journey to the roof of North Sikkim, visiting sacred lakes like Gurudongmar and Yumthang Valley surrounded by pristine alpine meadows.",
-      "includes": [
-        "Hotel & Homestay accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Transportation",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Extra food not in package",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Kala Patthar visit",
-        "Zero Point & Mt. Katao"
-      ]
-    },
-    {
-      "id": "kalimpong-offbeat",
-      "title": "Kalimpong Offbeat",
-      "region": "West Bengal",
-      "price": "4,200",
-      "duration": "3D/2N",
-      "image": "./images/locations/kalimpong/kalimpong.jpg",
-      "description": "Discover the lesser-known villages of Kalimpong region with tea gardens, pine forests, and breathtaking mountain views.",
-      "includes": [
-        "Homestay accommodation",
-        "Breakfast, Lunch, Snacks & Dinner",
-        "Personal Cab (NJP to NJP)",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Adventure activities",
-        "Ropeway & Toy Train ride"
-      ]
-    },
-    {
-      "id": "arunachal",
-      "title": "Arunachal Pradesh – Tawang",
-      "region": "Arunachal Pradesh",
-      "price": "15,300",
-      "duration": "6D/5N",
-      "image": "./images/locations/arunachal/arunachal.jpg",
-      "description": "Trek to the mystical Tawang monastery and experience the last frontier's untouched beauty, pristine lakes, and warm hospitality.",
-      "includes": [
-        "Accommodation",
-        "Breakfast & Dinner",
-        "Transportation",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Lunch",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Snow activities",
-        "Gongker La Lake (extra day)"
-      ]
-    },
-    {
-      "id": "himachal",
-      "title": "Himachal Pradesh – Shimla Manali",
-      "region": "Himachal Pradesh",
-      "price": "11,000",
-      "duration": "5D/4N",
-      "image": "./images/locations/himachal/himachal.jpg",
-      "description": "Experience the colonial charm of Shimla and the adventure capital of Manali with scenic mountain passes and alpine beauty.",
-      "includes": [
-        "Accommodation",
-        "Breakfast & Dinner",
-        "Transportation",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Lunch",
-        "Room heater, BBQ, Parking charges",
-        "Rohtang Pass & snow activities",
-        "Manikaran & Kullu activities"
-      ]
-    },
-    {
-      "id": "spiti",
-      "title": "Spiti Valley",
-      "region": "Himachal Pradesh",
-      "price": "19,500",
-      "duration": "9D/8N",
-      "image": "./images/locations/spitivalley/spitivalley.jpg",
-      "description": "Explore the world's highest desert with ancient monasteries, pristine lakes, and villages untouched by time in the magical Spiti Valley.",
-      "includes": [
-        "Accommodation",
-        "Breakfast & Dinner",
-        "Transportation",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Lunch",
-        "Room heater, BBQ, Parking charges",
-        "Rohtang Pass charges",
-        "Snow activities & Rafting"
-      ]
-    },
-    {
-      "id": "kashmir",
-      "title": "Kashmir",
-      "region": "Jammu & Kashmir",
-      "price": "13,000",
-      "duration": "6D/5N",
-      "image": "./images/locations/kashmir/kashmir.jpg",
-      "description": "Discover the valley of paradise with stunning lakes, snow-capped peaks, and the legendary Himalayan hospitality of Kashmir.",
-      "includes": [
-        "Accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Adventure activities"
-      ]
-    },
-    {
-      "id": "andaman",
-      "title": "Andaman & Nicobar",
-      "region": "Andaman & Nicobar",
-      "price": "17,300",
-      "duration": "6D/5N",
-      "image": "./images/locations/andaman/andaman.jpg",
-      "description": "Experience tropical paradise with pristine beaches, crystal-clear waters, and water sports in the enchanting Andaman Islands.",
-      "includes": [
-        "Accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Adventure activities"
-      ]
-    },
-    {
-      "id": "dooars",
-      "title": "Dooars",
-      "region": "West Bengal",
-      "price": "4,600",
-      "duration": "3D/2N",
-      "image": "./images/locations/dooars/dooars.jpg",
-      "description": "Explore the wilderness of Dooars with lush forests, tea gardens, and unique wildlife in this offbeat destination.",
-      "includes": [
-        "Accommodation",
-        "Breakfast, Lunch & Dinner",
-        "Personal Cab",
-        "All sightseeing as per itinerary",
-        "Package rate based on minimum 6 persons"
-      ],
-      "excludes": [
-        "Outside food & Mineral water",
-        "Room heater & BBQ charges",
-        "Entry & Parking fees",
-        "Adventure activities"
-      ]
-    }
-  ]
+    ]
 }
